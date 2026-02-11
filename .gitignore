@@ -1,0 +1,17 @@
+node_modules/
+.pnp
+.pnp.js
+dist/
+build/
+.next/
+out/
+.turbo
+coverage/
+.nyc_output/
+*.tsbuildinfo
+.vitest/
+*.log
+npm-debug.log*
+.DS_Store
+*.pem
+.vercel

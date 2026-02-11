@@ -1,0 +1,76 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "recommended": true
+      },
+      "complexity": {
+        "recommended": true,
+        "useArrowFunction": "warn",
+        "useOptionalChain": "warn",
+        "useSimplifiedLogicExpression": "warn"
+      },
+      "correctness": {
+        "noUnusedVariables": "error",
+        "useExhaustiveDependencies": "warn"
+      },
+      "performance": {
+        "recommended": true
+      },
+      "security": {
+        "recommended": true,
+        "noGlobalEval": "error",
+        "noDangerouslySetInnerHtml": "error"
+      },
+      "style": {
+        "noNonNullAssertion": "warn",
+        "noEnum": "error",
+        "noRestrictedGlobals": "error",
+        "useBlockStatements": "warn",
+        "useCollapsedElseIf": "warn",
+        "useConsistentArrayType": "warn",
+        "useConst": "error",
+        "useDefaultParameterLast": "error",
+        "useDefaultSwitchClause": "warn",
+        "useExplicitLengthCheck": "warn",
+        "useExportType": "warn",
+        "useFilenamingConvention": "warn",
+        "useForOf": "warn",
+        "useFragmentSyntax": "warn",
+        "useImportType": "error",
+        "useNamingConvention": "warn",
+        "useSelfClosingElements": "warn",
+        "useTemplate": "warn"
+      },
+      "suspicious": {
+        "noConsole": "warn",
+        "noExplicitAny": "error",
+        "noExtraNonNullAssertion": "warn",
+        "noMisleadingCharacterClass": "error",
+        "noShadowRestrictedNames": "error",
+        "useAwait": "warn",
+        "useErrorMessage": "warn"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "lineWidth": 100,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "javascript": {
+    "linter": {
+      "enabled": true
+    },
+    "formatter": {
+      "quoteStyle": "single",
+      "trailingCommas": "es5",
+      "semicolons": "always"
+    }
+  }
+}
