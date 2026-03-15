@@ -18,7 +18,7 @@ jobs:
           node-version-file: 'package.json'
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm biome check --apply=false .
+      - run: pnpm biome check .
       - run: pnpm lint
 
   typecheck:
