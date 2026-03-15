@@ -9,7 +9,6 @@ import {
 
 import { AnchoredElement } from '@jarl/anchored-element';
 import { Button } from '@jarl/button';
-import { Portal } from '@jarl/portal';
 
 import styles from './index.module.scss';
 
@@ -23,7 +22,6 @@ interface LiveCodeProps {
 const scope = {
   AnchoredElement,
   Button,
-  Portal,
 };
 
 export const LiveEditor = ({ children, ...props }: LiveCodeProps) => {

@@ -31,6 +31,7 @@ export const anchoredElement = defineSlotRecipe({
       backgroundColor: '#fff',
       border: '1px solid #ccc',
       borderRadius: '4px',
+      color: '#111',
       padding: '8px',
       position: 'relative',
       opacity: '0',

@@ -21,7 +21,7 @@ export const Default: Story = {
   render: () => {
     return (
       <AnchoredElement content={'Anchored content'}>
-        <Button>Marta</Button>
+        <Button>Click</Button>
       </AnchoredElement>
     );
   },
