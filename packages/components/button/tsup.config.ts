@@ -1,11 +1,6 @@
-import { defineConfig } from 'tsup';
+import { createTsupConfig } from '../../../tsup.base.config';
 
-export default defineConfig({
+export default createTsupConfig({
   entry: ['src/index.ts'],
-  format: ['esm', 'cjs'],
-  dts: true,
-  clean: true,
   external: ['react', '@jarl/styled-system'],
-  minify: true,
-  sourcemap: true,
 });

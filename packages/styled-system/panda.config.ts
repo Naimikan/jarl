@@ -1,5 +1,6 @@
-import { recipes } from '@jarl/presets';
 import { defineConfig } from '@pandacss/dev';
+
+import { keyframes, recipes } from '@jarl/presets';
 
 export default defineConfig({
   include: [
@@ -22,13 +23,14 @@ export default defineConfig({
   theme: {
     extend: {
       recipes,
+      keyframes,
     },
   },
 
   staticCss: {
     recipes: Object.keys(recipes).reduce(
       (acc, recipeName) => Object.assign(acc, { [recipeName]: ['*'] }),
-      {}
+      {},
     ) as { [key: string]: ['*'] },
   },
 

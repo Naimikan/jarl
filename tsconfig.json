@@ -5,6 +5,6 @@
     "rootDir": ".",
     "noEmit": true
   },
-  "include": ["packages/**/*", "apps/**/*"],
+  "include": ["packages/**/*", "website", "playground"],
   "exclude": ["node_modules", "dist", ".turbo", "**/dist/**", "**/node_modules/**"]
 }

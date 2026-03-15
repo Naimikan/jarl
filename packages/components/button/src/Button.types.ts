@@ -1,11 +1,10 @@
-import type { ComponentPropsWithRef, ElementType, ReactNode } from 'react';
+import type { ComponentPropsWithRef, ElementType, PropsWithChildren } from 'react';
 
 interface ButtonBaseProps {
-  children: ReactNode;
   focusable?: boolean;
 }
 
-export type ButtonProps<T extends ElementType = 'button'> = ButtonBaseProps &
+export type ButtonProps<T extends ElementType = 'button'> = PropsWithChildren<ButtonBaseProps> &
   Omit<ComponentPropsWithRef<T>, keyof ButtonBaseProps | 'as'> & {
     as?: T;
   };

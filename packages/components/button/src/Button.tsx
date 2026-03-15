@@ -1,10 +1,9 @@
-'use client';
-
 import { useFocusable } from '@jarl/react-utils';
 import { cx } from '@jarl/styled-system/css';
 import { button } from '@jarl/styled-system/recipes';
 
 import type { ElementType } from 'react';
+
 import type { ButtonProps } from './Button.types';
 
 const DEFAULT_TAG = 'button';
@@ -26,7 +25,7 @@ export const Button = <T extends ElementType = typeof DEFAULT_TAG>({
   });
 
   return (
-    <ComponentTag ref={ref} className={cx(button(), className)} {...focusableProps} {...props}>
+    <ComponentTag className={cx(button(), className)} ref={ref} {...focusableProps} {...props}>
       {children}
     </ComponentTag>
   );
