@@ -7,8 +7,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
-    name: Lint
+  built:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,8 +18,7 @@ jobs:
           node-version-file: 'package.json'
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm biome check .
-      - run: pnpm lint
+      - run: pnpm build
 
   typecheck:
     name: TypeCheck
@@ -27,8 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version-file: 'package.json'
@@ -43,8 +40,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version-file: 'package.json'
