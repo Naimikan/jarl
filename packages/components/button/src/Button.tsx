@@ -31,4 +31,4 @@ export const Button = <T extends ElementType = typeof DEFAULT_TAG>({
   );
 };
 
-Button.displayName = 'Button';
+Button.displayName = 'Jarl.Button';

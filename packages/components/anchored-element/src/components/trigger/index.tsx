@@ -37,4 +37,4 @@ export const AnchorTrigger = ({ children }: AnchorTriggerProps) => {
   } as CloneAnchorTrigger);
 };
 
-AnchorTrigger.displayName = 'AnchorTrigger';
+AnchorTrigger.displayName = 'Jarl.AnchoredElement.AnchorTrigger';

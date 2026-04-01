@@ -7,3 +7,5 @@ export interface PortalProps extends PropsWithChildren<ComponentPropsWithRef<'di
   [key: `data-${string}`]: string | undefined;
   [key: `aria-${string}`]: string | number | boolean | undefined;
 }
+
+export type NoReservedPortalProps = Omit<PortalProps, 'appendTo' | 'ref' | 'children' | 'key'>;

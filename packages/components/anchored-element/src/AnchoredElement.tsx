@@ -301,7 +301,7 @@ export const AnchoredElement = ({
   );
 };
 
-AnchoredElement.displayName = 'AnchoredElement';
+AnchoredElement.displayName = 'Jarl.AnchoredElement';
 
 AnchoredElement.POSITIONS = POSITIONS;
 AnchoredElement.TRIGGER_EVENTS = TRIGGER_EVENTS;

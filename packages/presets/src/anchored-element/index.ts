@@ -35,17 +35,20 @@ export const anchoredElement = defineSlotRecipe({
       padding: '8px',
       position: 'relative',
       opacity: '0',
-      willChange: 'transform, visibility',
+      willChange: 'transform, visibility, opacity',
 
       '&[data-state="closed"]': {
         opacity: '0',
       },
+
       '&[data-state="opened"]': {
         opacity: '1',
       },
+
       '&[data-state="opening"]': {
         animation: '300ms fadeInAnimation',
       },
+
       '&[data-state="closing"]': {
         animation: '300ms fadeOutAnimation',
       },

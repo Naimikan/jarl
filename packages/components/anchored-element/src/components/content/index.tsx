@@ -126,4 +126,4 @@ export const AnchorContent = ({ children }: AnchorContentProps) => {
   );
 };
 
-AnchorContent.displayName = 'AnchorContent';
+AnchorContent.displayName = 'Jarl.AnchoredElement.AnchorContent';

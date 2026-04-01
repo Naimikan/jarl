@@ -1,6 +1,6 @@
 export interface GetOffsetFromParent {
-  parentElement: HTMLElement;
   element: HTMLElement;
+  parentElement: HTMLElement;
 }
 
 export const getOffsetFromParent = ({ parentElement, element }: GetOffsetFromParent) => {

@@ -1,11 +1,9 @@
 import { getEventName } from './getEventName';
 import { isEventHandler } from './isEventHandler';
 
-import type { PortalProps } from '../Portal.types';
+import type { NoReservedPortalProps } from '../Portal.types';
 
-export const createElementWithProps = (
-  props: Omit<PortalProps, 'appendTo' | 'ref' | 'children' | 'key'>,
-): HTMLElement => {
+export const createElementWithProps = (props: NoReservedPortalProps): HTMLElement => {
   const element = document.createElement('div');
 
   Object.entries(props).forEach(([propName, value]) => {
