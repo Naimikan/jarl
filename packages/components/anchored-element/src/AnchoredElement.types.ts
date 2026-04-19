@@ -90,6 +90,10 @@ export type AnchoredElementContextType = AnchoredElementPropsToContext & {
   set arrowElement(newValue: HTMLDivElement | null);
   get position(): Position;
   set position(value: Position);
+  get isHiddingAnimation(): boolean;
+  set isHiddingAnimation(newValue: boolean);
+  get isShowingAnimation(): boolean;
+  set isShowingAnimation(newValue: boolean);
   delay: { start: number; end: number };
   triggerEvents: TriggerEvent[];
   animationState: AnimationState;

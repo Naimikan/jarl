@@ -64,6 +64,9 @@ export const AnchoredElement = ({
   const showDelayTimeoutIdRef = useRef<ReturnType<typeof setTimeout>>(null);
   const hideDelayTimeoutIdRef = useRef<ReturnType<typeof setTimeout>>(null);
 
+  const isShowingAnimationRef = useRef(false);
+  const isHiddingAnimationRef = useRef(false);
+
   const onOpenedRef = useLatest(onOpened);
   const onClosedRef = useLatest(onClosed);
   const onPositionChangedRef = useLatest(onPositionChanged);
@@ -89,10 +92,14 @@ export const AnchoredElement = ({
 
     // If DOM element exists, it's opened
     if (anchoredElementContentRef.current) {
+      isShowingAnimationRef.current = false;
+
       setAnimationState(ANIMATION_STATES.OPENED);
       onOpenedRef.current?.();
     } else {
       showDelayTimeoutIdRef.current = setTimeout(() => {
+        isShowingAnimationRef.current = true;
+
         setAnimationState(ANIMATION_STATES.OPENING);
       }, delayRef.current.start);
     }
@@ -106,11 +113,17 @@ export const AnchoredElement = ({
 
     // If DOM element does not exist, it's closed
     if (!anchoredElementContentRef.current) {
+      isShowingAnimationRef.current = false;
+      isHiddingAnimationRef.current = false;
+
       setAnimationState(ANIMATION_STATES.CLOSED);
 
       onClosedRef.current?.();
     } else {
       hideDelayTimeoutIdRef.current = setTimeout(() => {
+        isShowingAnimationRef.current = false;
+        isHiddingAnimationRef.current = true;
+
         setAnimationState(ANIMATION_STATES.CLOSING);
 
         anchoredElementContentRef.current = null;
@@ -251,6 +264,18 @@ export const AnchoredElement = ({
       },
       set position(newValue: Position) {
         positionRef.current = newValue;
+      },
+      get isHiddingAnimation() {
+        return isHiddingAnimationRef.current;
+      },
+      set isHiddingAnimation(newValue: boolean) {
+        isHiddingAnimationRef.current = newValue;
+      },
+      get isShowingAnimation() {
+        return isShowingAnimationRef.current;
+      },
+      set isShowingAnimation(newValue: boolean) {
+        isShowingAnimationRef.current = newValue;
       },
       triggerEvents: triggerEventsRef.current,
       delay: delayRef.current,

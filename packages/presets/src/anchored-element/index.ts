@@ -34,7 +34,6 @@ export const anchoredElement = defineSlotRecipe({
       color: '#111',
       padding: '8px',
       position: 'relative',
-      opacity: '0',
       willChange: 'transform, visibility, opacity',
 
       '&[data-state="closed"]': {
@@ -46,11 +45,11 @@ export const anchoredElement = defineSlotRecipe({
       },
 
       '&[data-state="opening"]': {
-        animation: '300ms fadeInAnimation',
+        animation: '300ms fadeInAnimation backwards',
       },
 
       '&[data-state="closing"]': {
-        animation: '300ms fadeOutAnimation',
+        animation: '300ms fadeOutAnimation forwards',
       },
     },
     arrow: {

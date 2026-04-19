@@ -20,8 +20,18 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => {
     return (
-      <AnchoredElement content={'Anchored content'}>
-        <Button>Click</Button>
+      <AnchoredElement content="Anchored content">
+        <Button>Hover</Button>
+      </AnchoredElement>
+    );
+  },
+};
+
+export const Interactive: Story = {
+  render: () => {
+    return (
+      <AnchoredElement content="Anchored content" interactive>
+        <Button>Hover</Button>
       </AnchoredElement>
     );
   },
@@ -30,8 +40,8 @@ export const Default: Story = {
 export const WithArrow: Story = {
   render: () => {
     return (
-      <AnchoredElement content={'Anchored content'} interactive withArrow>
-        <Button>Click</Button>
+      <AnchoredElement content="Anchored content" withArrow>
+        <Button>Hover</Button>
       </AnchoredElement>
     );
   },
@@ -40,7 +50,7 @@ export const WithArrow: Story = {
 export const Trigger: Story = {
   render: () => {
     return (
-      <AnchoredElement content={'Anchored content'} triggerEvents="click">
+      <AnchoredElement content="Anchored content" triggerEvents="click">
         <Button>Click</Button>
       </AnchoredElement>
     );
@@ -56,8 +66,8 @@ export const Positions: Story = {
   },
   render: (args) => {
     return (
-      <AnchoredElement content={'Anchored content'} position={args.position} withArrow>
-        <Button>Click</Button>
+      <AnchoredElement content="Anchored content" position={args.position} withArrow>
+        <Button>Hover</Button>
       </AnchoredElement>
     );
   },
@@ -66,8 +76,8 @@ export const Positions: Story = {
 export const Delay: Story = {
   render: () => {
     return (
-      <AnchoredElement content={'Anchored content'} delay={200} position="top_left">
-        <Button>Click</Button>
+      <AnchoredElement content="Anchored content" delay={200} position="top_left">
+        <Button>Hover</Button>
       </AnchoredElement>
     );
   },
@@ -76,8 +86,8 @@ export const Delay: Story = {
 export const DelayWithArray: Story = {
   render: () => {
     return (
-      <AnchoredElement content={'Anchored content'} delay={[750, 500]} position="top_left">
-        <Button>Click</Button>
+      <AnchoredElement content="Anchored content" delay={[750, 500]} position="top_left">
+        <Button>Hover</Button>
       </AnchoredElement>
     );
   },
@@ -103,7 +113,7 @@ export const Contained: Story = {
         <AnchoredElement
           avoidCloseOnClickOutside
           boundary={htmlElement}
-          content={'Anchored content'}
+          content="Anchored content"
           onClosed={() => setOpened(false)}
           onPositionChanged={console.log}
           opened={opened}

@@ -74,6 +74,8 @@ export const useContentListeners = () => {
           // If the anchoredElement is opened or opening, we can start the closing animation
           hide();
         } else {
+          context.isHiddingAnimation = false;
+
           // If not, we force the closed state
           setAnimationState(ANIMATION_STATES.CLOSED);
         }
@@ -116,7 +118,8 @@ export const useContentListeners = () => {
           context.anchoredElement.style.width = `${width}px`;
         }
 
-        if (closeStates.includes(currentAnimationState)) {
+        if (closeStates.includes(currentAnimationState) && !context.isHiddingAnimation) {
+          context.isShowingAnimation = true;
           context.anchoredElementContent.setAttribute('data-state', ANIMATION_STATES.OPENING);
           setAnimationState(ANIMATION_STATES.OPENING);
         }

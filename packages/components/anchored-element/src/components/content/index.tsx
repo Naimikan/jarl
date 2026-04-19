@@ -53,39 +53,18 @@ export const AnchorContent = ({ children }: AnchorContentProps) => {
 
   const onAnimationEnd = useCallback(() => {
     if (context.triggerElement && context.anchoredElementContent) {
-      const isHovered = context.triggerElement.hasAttribute('data-hovered');
-      const isFocused = context.triggerElement.hasAttribute('data-focused');
+      if (context.isHiddingAnimation) {
+        context.isHiddingAnimation = false;
 
-      let isClosingFromMouseLeave = !isHovered && triggerEvents.includes(TRIGGER_EVENTS.HOVER);
-      let isClosingFromBlur = !isFocused && triggerEvents.includes(TRIGGER_EVENTS.FOCUS);
-
-      const isOpeningFromHover = isHovered && triggerEvents.includes(TRIGGER_EVENTS.HOVER);
-      const isOpeningFromFocus = isFocused && triggerEvents.includes(TRIGGER_EVENTS.FOCUS);
-
-      if (triggerEvents.includes(TRIGGER_EVENTS.FOCUS)) {
-        isClosingFromMouseLeave = isClosingFromMouseLeave && !isFocused;
-      }
-
-      if (triggerEvents.includes(TRIGGER_EVENTS.HOVER)) {
-        isClosingFromBlur = isClosingFromBlur && !isHovered;
-      }
-
-      if (
-        animationState === ANIMATION_STATES.CLOSING ||
-        isClosingFromMouseLeave ||
-        isClosingFromBlur
-      ) {
         setAnimationState(ANIMATION_STATES.CLOSED);
 
         context.anchoredElementContent = null;
         context.anchoredElement?.removeAttribute('style');
 
         onClosed?.();
-      } else if (
-        animationState === ANIMATION_STATES.OPENING ||
-        isOpeningFromHover ||
-        isOpeningFromFocus
-      ) {
+      } else if (context.isShowingAnimation) {
+        context.isShowingAnimation = false;
+
         context.anchoredElementContent.setAttribute('data-state', ANIMATION_STATES.OPENED);
         setAnimationState(ANIMATION_STATES.OPENED);
         onOpened?.();

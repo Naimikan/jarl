@@ -98,14 +98,14 @@ export const useTriggerListeners = () => {
 
   const onFocusHandler = useCallback(() => {
     if (context.triggerElement) {
-      context.triggerElement.toggleAttribute('data-focused');
+      context.triggerElement.setAttribute('data-focused', 'true');
       show();
     }
   }, [show]);
 
   const onBlurHandler = useCallback(() => {
     if (context.triggerElement) {
-      context.triggerElement.toggleAttribute('data-focused');
+      context.triggerElement.setAttribute('data-focused', 'false');
       hide();
     }
   }, [hide]);
@@ -134,7 +134,7 @@ export const useTriggerListeners = () => {
 
   const onMouseEnterHandler = useCallback(() => {
     if (context.triggerElement) {
-      context.triggerElement.toggleAttribute('data-hovered');
+      context.triggerElement.setAttribute('data-hovered', 'true');
       show();
     }
   }, [show]);
@@ -146,7 +146,7 @@ export const useTriggerListeners = () => {
         const isCursorOverTriggerElement = context.triggerElement.contains(eventTarget);
 
         if (!isCursorOverTriggerElement && isCursorOutsideInteractiveArea(event)) {
-          context.triggerElement.toggleAttribute('data-hovered');
+          context.triggerElement.setAttribute('data-hovered', 'false');
           document.removeEventListener('mousemove', onMouseMoveHandler);
           hide();
         }
@@ -163,11 +163,11 @@ export const useTriggerListeners = () => {
             document.addEventListener('mousemove', onMouseMoveHandler);
             onMouseMoveHandler(event);
           } else {
-            context.triggerElement.toggleAttribute('data-hovered');
+            context.triggerElement.setAttribute('data-hovered', 'false');
             hide();
           }
         } else {
-          context.triggerElement.toggleAttribute('data-hovered');
+          context.triggerElement.setAttribute('data-hovered', 'false');
           hide();
         }
       }
