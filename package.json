@@ -1,0 +1,52 @@
+{
+  "name": "jarl",
+  "version": "1.0.0",
+  "description": "Just Another React Library - Modern, accessible React component library",
+  "private": true,
+  "scripts": {
+    "styles:generate": "pnpm --filter @jarl/styled-system codegen",
+    "devbuild": "turbo build --filter=!@jarl/website",
+    "build": "turbo run build",
+    "dev": "pnpm styles:generate && turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean && rm -rf node_modules .turbo cache",
+    "storybook": "pnpm --filter @jarl/playground storybook",
+    "docs:dev": "pnpm --filter @jarl/website dev",
+    "docs:build": "pnpm --filter @jarl/website build",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "publish": "changeset publish",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "library",
+    "a11y",
+    "accessible"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.28.2",
+  "devDependencies": {
+    "@biomejs/biome": "2.4.6",
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.29.8",
+    "@changesets/types": "^6.1.0",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
+    "husky": "^9.1.7",
+    "react": "^19.2.4",
+    "tsup": "^8.5.1",
+    "turbo": "^2.8.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

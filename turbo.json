@@ -1,0 +1,32 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "stream",
+  "tasks": {
+    "@jarl/styled-system#build": {
+      "cache": true,
+      "inputs": [
+        "panda.config.ts",
+        "../../apps/*/src/**/*.{ts,tsx,js,jsx,mdx}",
+        "../../packages/components/*/src/**/*.{ts,tsx,js,jsx}",
+        "../../packages/presets/src/**/*.{ts,tsx,js,jsx}"
+      ],
+      "outputs": ["dist/**"]
+    },
+    "build": {
+      "dependsOn": ["^build", "@jarl/styled-system#build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {},
+    "test": {
+      "dependsOn": ["@jarl/styled-system#build"]
+    },
+    "typecheck": {
+      "dependsOn": ["@jarl/styled-system#build"]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@jarl/website",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "postbuild": "pagefind --site .next/server/app --output-path out/_pagefind",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@jarl/anchored-element": "workspace:*",
+    "@jarl/button": "workspace:*",
+    "@jarl/portal": "workspace:*",
+    "@jarl/styled-system": "workspace:*",
+    "next": "^16.1.6",
+    "nextra": "^4.6.1",
+    "nextra-theme-docs": "^4.6.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.0",
+    "react-live": "^4.1.8",
+    "rehype-mdx-code-props": "^3.0.1",
+    "sass": "^1.97.3"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "pagefind": "^1.4.0",
+    "unist-util-visit": "^5.1.0"
+  }
+}

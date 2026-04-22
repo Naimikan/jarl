@@ -1,0 +1,42 @@
+{
+  "name": "@jarl/portal",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./recipe": {
+      "types": "./dist/recipe.d.ts",
+      "import": "./dist/recipe.js",
+      "require": "./dist/recipe.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "biome format --write ./src",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@jarl/react-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "@jarl/styled-system": "workspace:*",
+    "@pandacss/dev": "latest"
+  },
+  "peerDependencies": {
+    "@jarl/styled-system": "workspace:*",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}
