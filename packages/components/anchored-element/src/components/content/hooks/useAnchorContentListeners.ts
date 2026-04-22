@@ -159,7 +159,7 @@ export const useContentListeners = () => {
       if (context.anchoredElementContent) {
         const isClosing = context.anchoredElementContent.dataset.state === ANIMATION_STATES.CLOSING;
 
-        // In case that the element is resizing and the linked floating element is closing, we should avoid a reposition
+        // In case that the element is resizing and the anchored element is closing, we should avoid a reposition
         if (isClosing) {
           shouldReposition = false;
         }
