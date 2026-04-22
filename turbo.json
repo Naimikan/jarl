@@ -23,7 +23,6 @@
     },
     "lint": {},
     "test": {
-      "outputs": ["coverage/**"],
       "dependsOn": ["@jarl/styled-system#build"]
     },
     "typecheck": {
