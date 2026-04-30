@@ -1,6 +1,7 @@
 import { cloneElement } from 'react';
 
 import { ANIMATION_STATES } from '../../constants/animationStates';
+import { TRIGGER_EVENTS } from '../../constants/triggerEvents';
 import { useAnchoredContext } from '../../hooks/useAnchoredContext';
 import { useTriggerListeners } from './hooks/useAnchorTriggerListeners';
 import { Wrapper } from './wrapper';
@@ -10,7 +11,7 @@ import type { AnchorTriggerProps, CloneAnchorTrigger } from './index.types';
 
 export const AnchorTrigger = ({ children }: AnchorTriggerProps) => {
   const context = useAnchoredContext();
-  const { id, contentId, triggerId, wrapTrigger, animationState } = context;
+  const { id, contentId, triggerId, wrapTrigger, animationState, triggerEvents } = context;
 
   useTriggerListeners();
 
@@ -32,6 +33,9 @@ export const AnchorTrigger = ({ children }: AnchorTriggerProps) => {
       }
     },
     id: triggerId,
+    tabIndex: triggerEvents.some((eachTrigger) => eachTrigger === TRIGGER_EVENTS.FOCUS)
+      ? 0
+      : undefined,
     'data-anchored-element': id,
     ...(animationState === ANIMATION_STATES.OPENED ? { 'aria-describedby': contentId } : {}),
   } as CloneAnchorTrigger);

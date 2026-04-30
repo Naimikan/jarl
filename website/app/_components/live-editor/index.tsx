@@ -24,16 +24,11 @@ const scope = {
   Button,
 };
 
-export const LiveEditor = ({ children, ...props }: LiveCodeProps) => {
-  console.log({ props, children });
-
-  return (
-    <RlLiveProvider code={children} scope={scope}>
-      <div className={styles['live-editor']}>
-        <div />
-        <RlLiveEditor className="font-mono" />
-        <RlLivePreview />
-      </div>
-    </RlLiveProvider>
-  );
-};
+export const LiveEditor = ({ children, ...props }: LiveCodeProps) => (
+  <RlLiveProvider code={children} scope={scope}>
+    <div className={styles['live-editor-wrapper']}>
+      <RlLivePreview className={styles['live-preview']} />
+      <RlLiveEditor className={styles['live-editor']} disabled />
+    </div>
+  </RlLiveProvider>
+);

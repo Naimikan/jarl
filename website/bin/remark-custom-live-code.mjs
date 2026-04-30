@@ -42,8 +42,6 @@ const remarkCustomLiveCode = () => (tree) => {
   visit(tree, 'code', (node, index, parent) => {
     const parsedMeta = parseMetaString(node.meta || '');
 
-    console.log({ parsedMeta });
-
     if (parsedMeta.live) {
       const attributes = [{ type: 'mdxJsxAttribute', name: 'language', value: node.lang }];
 
