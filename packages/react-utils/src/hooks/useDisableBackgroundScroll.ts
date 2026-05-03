@@ -14,6 +14,10 @@ export const useDisableBackgroundScroll = ({
   recursive = false,
 }: UseDisableBackgroundScrollParams) => {
   useLayoutEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     const finalRootElement =
       rootElement && typeof rootElement === 'string'
         ? document.getElementById(rootElement)
@@ -81,6 +85,8 @@ export const useDisableBackgroundScroll = ({
             if (eachContainer.hasAttribute('data-initial-overflow')) {
               eachContainer.style.overflow = eachContainer.dataset.initialOverflow as string;
               delete eachContainer.dataset.initialOverflow;
+            } else {
+              eachContainer.style.overflow = '';
             }
 
             if (eachContainer.hasAttribute('data-initial-overflow-horizontal')) {

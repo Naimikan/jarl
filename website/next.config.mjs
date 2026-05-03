@@ -20,7 +20,15 @@ export default withNextra({
   basePath: isProduction ? '/jarl' : '',
   assetPrefix: isProduction ? '/jarl' : '',
   trailingSlash: true,
-  transpilePackages: ['@jarl/button', '@jarl/styled-system'],
+  transpilePackages: [
+    '@jarl/anchored-element',
+    '@jarl/button',
+    '@jarl/modal',
+    '@jarl/react-utils',
+    '@jarl/utils',
+    '@jarl/portal',
+    '@jarl/styled-system',
+  ],
   images: {
     unoptimized: true,
   },

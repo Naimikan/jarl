@@ -42,30 +42,28 @@ const remarkCustomLiveCode = () => (tree) => {
   visit(tree, 'code', (node, index, parent) => {
     const parsedMeta = parseMetaString(node.meta || '');
 
-    console.log({ parsedMeta });
+    const attributes = [{ type: 'mdxJsxAttribute', name: 'language', value: node.lang }];
 
-    if (parsedMeta.live) {
-      const attributes = [{ type: 'mdxJsxAttribute', name: 'language', value: node.lang }];
-
-      if (parsedMeta.filename) {
-        attributes.push({ type: 'mdxJsxAttribute', name: 'filename', value: parsedMeta.filename });
-      }
-
-      if (parsedMeta.copyButton) {
-        attributes.push(booleanAttribute('copyButton', parsedMeta.copyButton));
-      }
-
-      if (parsedMeta.inline) {
-        attributes.push(booleanAttribute('inline', parsedMeta.inline));
-      }
-
-      parent.children.splice(index, 1, {
-        type: 'mdxJsxFlowElement',
-        name: 'customLiveCode',
-        attributes,
-        children: [{ type: 'mdxJsxAttribute', name: 'children', value: node.value }],
-      });
+    if (parsedMeta.filename) {
+      attributes.push({ type: 'mdxJsxAttribute', name: 'filename', value: parsedMeta.filename });
     }
+
+    if (parsedMeta.copyButton) {
+      attributes.push(booleanAttribute('copyButton', parsedMeta.copyButton));
+    }
+
+    if (parsedMeta.inline) {
+      attributes.push(booleanAttribute('inline', parsedMeta.inline));
+    }
+
+    attributes.push(booleanAttribute('editable', !!parsedMeta.live));
+
+    parent.children.splice(index, 1, {
+      type: 'mdxJsxFlowElement',
+      name: 'customLiveCode',
+      attributes,
+      children: [{ type: 'mdxJsxAttribute', name: 'children', value: node.value }],
+    });
   });
 };
 

@@ -15,6 +15,7 @@ import styles from './index.module.scss';
 interface LiveCodeProps {
   children: string;
   copyButton?: boolean;
+  editable: boolean;
   filename?: string;
   language: string;
 }
@@ -24,16 +25,11 @@ const scope = {
   Button,
 };
 
-export const LiveEditor = ({ children, ...props }: LiveCodeProps) => {
-  console.log({ props, children });
-
-  return (
-    <RlLiveProvider code={children} scope={scope}>
-      <div className={styles['live-editor']}>
-        <div />
-        <RlLiveEditor className="font-mono" />
-        <RlLivePreview />
-      </div>
-    </RlLiveProvider>
-  );
-};
+export const LiveEditor = ({ children, editable, ...props }: LiveCodeProps) => (
+  <RlLiveProvider code={children} scope={scope}>
+    <div className={styles['live-editor-wrapper']}>
+      <RlLivePreview className={styles['live-preview']} />
+      <RlLiveEditor className={styles['live-editor']} disabled={!editable} />
+    </div>
+  </RlLiveProvider>
+);

@@ -1,0 +1,17 @@
+.live-editor-wrapper {
+  .live-editor {
+    pre {
+      border: 1px solid #cdcdcd;
+      border-radius: 8px;
+      background-color: black !important;
+    }
+  }
+
+  .live-preview {
+    border: 1px solid #1aa3ff;
+    border-radius: 6px;
+    padding: 16px;
+    background-color: black;
+    margin: 16px 0;
+  }
+}
