@@ -1,18 +1,10 @@
 import { AnchoredElement } from '@jarl/anchored-element';
 
-import { PreviewBox } from '../../../_components/preview-box';
-
 import '@jarl/styled-system/styles.css';
 
 # AnchoredElement
 
 ## Basic usage
-
-<PreviewBox>
-  <AnchoredElement content="Anchored content">
-    <span>Hover me</span>
-  </AnchoredElement>
-</PreviewBox>
 
 ```tsx
 <AnchoredElement content="Anchored content">
@@ -22,12 +14,6 @@ import '@jarl/styled-system/styles.css';
 
 ## With arrow
 
-<PreviewBox>
-  <AnchoredElement withArrow content="Anchored content">
-    <span>Hover me</span>
-  </AnchoredElement>
-</PreviewBox>
-
 ```tsx
 <AnchoredElement withArrow content="Anchored content">
   <span>Hover me</span>
@@ -35,12 +21,6 @@ import '@jarl/styled-system/styles.css';
 ```
 
 ## Disable background scroll
-
-<PreviewBox>
-  <AnchoredElement content="Anchored content" disableBackgroundScroll>
-    <span>Hover me</span>
-  </AnchoredElement>
-</PreviewBox>
 
 ```tsx
 <AnchoredElement content="Anchored content" disableBackgroundScroll>
@@ -50,12 +30,6 @@ import '@jarl/styled-system/styles.css';
 
 ## Delay
 
-<PreviewBox>
-  <AnchoredElement content="Anchored content" delay={1000}>
-    <span>Hover me</span>
-  </AnchoredElement>
-</PreviewBox>
-
 ```tsx
 <AnchoredElement content="Anchored content" delay={1000}>
   <span>Hover me</span>
@@ -63,12 +37,6 @@ import '@jarl/styled-system/styles.css';
 ```
 
 ## Show/hide delays
-
-<PreviewBox>
-  <AnchoredElement content="Anchored content" delay={[750, 200]}>
-    <span>Hover me</span>
-  </AnchoredElement>
-</PreviewBox>
 
 ```tsx
 <AnchoredElement content="Anchored content" delay={[750, 200]}>

@@ -14,6 +14,10 @@ export const useDisableBackgroundScroll = ({
   recursive = false,
 }: UseDisableBackgroundScrollParams) => {
   useLayoutEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     const finalRootElement =
       rootElement && typeof rootElement === 'string'
         ? document.getElementById(rootElement)
