@@ -4,6 +4,11 @@
       border: 1px solid #cdcdcd;
       border-radius: 8px;
       background-color: black !important;
+      font-family: var(--x-default-mono-font-family) !important;
+      font-feature-settings: var(--x-default-mono-font-feature-settings, normal);
+      font-variation-settings: var(--x-default-mono-font-variation-settings, normal);
+      font-size: 1em;
+      white-space: pre-wrap;
     }
   }
 
