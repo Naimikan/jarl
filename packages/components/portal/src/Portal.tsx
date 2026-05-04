@@ -10,11 +10,19 @@ import type { PortalProps } from './Portal.types';
 
 export const Portal = ({ appendTo, children, ref, ...props }: PortalProps) => {
   const parentElementInContext = useParentElement(appendTo);
-  const portalElementRef = useRef<HTMLElement>(createElementWithProps(props));
+  const portalElementRef = useRef<HTMLElement | null>(null);
+
+  if (typeof document !== 'undefined' && !portalElementRef.current) {
+    portalElementRef.current = createElementWithProps(props);
+  }
 
   useSyncElementProps({ element: portalElementRef.current, props });
 
   useEffect(() => {
+    if (!portalElementRef.current) {
+      return;
+    }
+
     const portalElement = portalElementRef.current;
 
     if (parentElementInContext) {
@@ -32,10 +40,14 @@ export const Portal = ({ appendTo, children, ref, ...props }: PortalProps) => {
 
   useImperativeHandle(ref, () => portalElementRef.current as HTMLDivElement);
 
-  return createPortal(
-    <PortalContext.Provider value={portalElementRef.current}>{children}</PortalContext.Provider>,
-    portalElementRef.current,
-  );
+  return portalElementRef.current
+    ? createPortal(
+        <PortalContext.Provider value={portalElementRef.current}>
+          {children}
+        </PortalContext.Provider>,
+        portalElementRef.current,
+      )
+    : null;
 };
 
 Portal.displayName = 'Jarl.Portal';

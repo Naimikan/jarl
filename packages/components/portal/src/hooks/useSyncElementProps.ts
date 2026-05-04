@@ -6,7 +6,7 @@ import { isEventHandler } from '../helpers/isEventHandler';
 import type { NoReservedPortalProps } from '../Portal.types';
 
 export interface UseSyncElementPropsParams {
-  element: HTMLElement;
+  element: HTMLElement | null;
   props: NoReservedPortalProps;
 }
 
@@ -14,6 +14,10 @@ export const useSyncElementProps = ({ element, props }: UseSyncElementPropsParam
   const listenersRef = useRef<Record<string, EventListener>>({});
 
   useEffect(() => {
+    if (!element) {
+      return;
+    }
+
     const currentListeners = listenersRef.current;
 
     Object.entries(props).forEach(([propName, value]) => {
@@ -63,6 +67,10 @@ export const useSyncElementProps = ({ element, props }: UseSyncElementPropsParam
   });
 
   useEffect(() => () => {
+    if (!element) {
+      return;
+    }
+
     Object.entries(listenersRef.current).forEach(([eventName, listener]) => {
       element.removeEventListener(eventName, listener);
     });

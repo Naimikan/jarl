@@ -1,7 +1,7 @@
 const IndexPage = () => (
   <div
     style={{
-      height: 'calc(100dvh - 64px - 115px - 44px)',
+      height: 'calc(100dvh - 64px - 43px - 44px)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
