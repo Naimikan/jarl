@@ -3,6 +3,7 @@ const IndexPage = () => (
     style={{
       height: 'calc(100dvh - 64px - 43px - 44px)',
       display: 'flex',
+      padding: '48px',
       alignItems: 'center',
       justifyContent: 'center',
     }}
