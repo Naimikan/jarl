@@ -147,7 +147,7 @@ export const useTriggerListeners = () => {
 
         if (!isCursorOverTriggerElement && isCursorOutsideInteractiveArea(event)) {
           context.triggerElement.setAttribute('data-hovered', 'false');
-          //document.removeEventListener('mousemove', onMouseMoveHandler);
+          document.removeEventListener('mousemove', onMouseMoveHandler);
           hide();
         }
       }
@@ -160,7 +160,7 @@ export const useTriggerListeners = () => {
       if (context.triggerElement) {
         if (triggerEvents.includes(TRIGGER_EVENTS.HOVER)) {
           if (interactive) {
-            //document.addEventListener('mousemove', onMouseMoveHandler);
+            document.addEventListener('mousemove', onMouseMoveHandler);
             onMouseMoveHandler(event);
           } else {
             context.triggerElement.setAttribute('data-hovered', 'false');

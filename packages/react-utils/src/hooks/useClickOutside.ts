@@ -12,7 +12,7 @@ export const useClickOutside = ({ callback, disabled, rootElement }: UseClickOut
   const onClickOutsideRef = useLatest(callback);
 
   useEffect(() => {
-    if (disabled || typeof document === 'undefined') {
+    if (disabled) {
       return;
     }
 

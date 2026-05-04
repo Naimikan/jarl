@@ -23,7 +23,7 @@ export const useFocusTrap = ({
   const initialFocusedElementRef = useLatest(initialFocusedElement);
 
   useEffect(() => {
-    if (disabled || typeof document === 'undefined') {
+    if (disabled) {
       return;
     }
 
