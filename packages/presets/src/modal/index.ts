@@ -2,7 +2,7 @@ import { defineKeyframes, defineSlotRecipe } from '@pandacss/dev';
 
 export const modal = defineSlotRecipe({
   className: 'jarl-modal',
-  slots: ['root', 'content', 'backdrop'],
+  slots: ['root', 'content', 'backdrop', 'header', 'body', 'footer', 'title', 'closeButton'],
   base: {
     root: {
       display: 'flex',
@@ -61,6 +61,7 @@ export const modal = defineSlotRecipe({
       height: '100dvh',
       left: 0,
       top: 0,
+      zIndex: 100,
 
       '&[data-state="closed"]': {
         opacity: 0,
@@ -82,9 +83,33 @@ export const modal = defineSlotRecipe({
       backgroundColor: '#fff',
       border: '1px solid #ccc',
       borderRadius: '8px',
+      display: 'flex',
+      flexDirection: 'column',
+      color: '#000',
       margin: '24px',
-      padding: '12px',
       position: 'relative',
+    },
+    header: {
+      display: 'flex',
+      flex: '0 1 0%',
+      padding: '16px 16px 8px',
+    },
+    body: {
+      display: 'flex',
+      flex: '1 1 0%',
+      padding: '8px 16px 16px',
+    },
+    footer: {
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      gap: '8px',
+      padding: '4px 16px 8px',
+    },
+    title: {
+      margin: '0',
+      padding: '0',
+      overflowWrap: 'break-word',
     },
   },
 });

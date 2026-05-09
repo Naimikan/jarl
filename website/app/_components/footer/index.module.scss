@@ -1,24 +1,18 @@
 .footer {
-  align-items: center;
-  display: flex;
-  justify-content: flex-start;
-  text-align: center;
-  padding: 12px;
-  width: 100%;
+  padding: calc(var(--x-spacing) * 3);
 
   .footer-paragraph {
-    font-size: 12px;
-    margin: 0;
+    font-size: calc(var(--x-spacing) * 3);
 
     .footer-text {
       align-items: center;
       display: inline-flex;
-      gap: 0.15rem;
+      gap: var(--x-spacing);
 
       .heart-icon {
-        fill: #F64437;
-        height: 12px;
-        width: 12px;
+        fill: var(--x-color-red-500);
+        height: calc(var(--x-spacing) * 4);
+        width: calc(var(--x-spacing) * 4);
       }
     }
   }

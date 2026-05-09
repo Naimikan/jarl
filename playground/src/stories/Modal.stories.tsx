@@ -25,15 +25,18 @@ export const Default: Story = {
       <>
         <Button onClick={() => setIsOpened(true)}>Open modal</Button>
 
-        <Modal
-          onClosed={() => console.log('Closed')}
-          onCloseRequested={() => setIsOpened(false)}
-          onOpened={() => console.log('Opened')}
-          opened={isOpened}
-        >
+        <Modal onCloseRequested={() => setIsOpened(false)} opened={isOpened}>
           <Modal.Backdrop />
           <Modal.Content>
-            <p>Modal content</p>
+            <Modal.Header>
+              <Modal.Title>Modal Title</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Modal content</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={() => setIsOpened(false)}>Close</Button>
+            </Modal.Footer>
           </Modal.Content>
         </Modal>
       </>
@@ -53,67 +56,94 @@ export const Nested: Story = {
       <>
         <Button onClick={() => setIsOpenedModal1(true)}>Open modal</Button>
 
-        <Modal
-          onClosed={() => console.log('Closed')}
-          onCloseRequested={() => setIsOpenedModal1(false)}
-          onOpened={() => console.log('Opened')}
-          opened={isOpenedModal1}
-        >
+        <Modal onCloseRequested={() => setIsOpenedModal1(false)} opened={isOpenedModal1}>
           <Modal.Backdrop />
           <Modal.Content>
-            <p>Modal content</p>
-            <Button onClick={() => setIsOpenedModal2(true)}>Open nested modal</Button>
+            <Modal.Header>
+              <Modal.Title>Modal 1</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Modal 1 content</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={() => setIsOpenedModal1(false)}>Close</Button>
+              <Button onClick={() => setIsOpenedModal2(true)}>Open nested modal</Button>
+            </Modal.Footer>
 
             <Modal
               align="start"
               justify="end"
-              onClosed={() => console.log('Closed')}
               onCloseRequested={() => setIsOpenedModal2(false)}
-              onOpened={() => console.log('Opened')}
               opened={isOpenedModal2}
             >
               <Modal.Backdrop />
               <Modal.Content>
-                <p>Modal nested content</p>
-                <Button onClick={() => setIsOpenedModal3(true)}>Open nested modal</Button>
+                <Modal.Header>
+                  <Modal.Title>Modal 2</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <p>Modal 2 content</p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button onClick={() => setIsOpenedModal2(false)}>Close</Button>
+                  <Button onClick={() => setIsOpenedModal3(true)}>Open nested modal</Button>
+                </Modal.Footer>
 
                 <Modal
                   align="start"
                   justify="start"
-                  onClosed={() => console.log('Closed')}
                   onCloseRequested={() => setIsOpenedModal3(false)}
-                  onOpened={() => console.log('Opened')}
                   opened={isOpenedModal3}
                 >
                   <Modal.Backdrop />
                   <Modal.Content>
-                    <p>Modal nested content</p>
-                    <Button onClick={() => setIsOpenedModal4(true)}>Open nested modal</Button>
+                    <Modal.Header>
+                      <Modal.Title>Modal 3</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <p>Modal 3 content</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button onClick={() => setIsOpenedModal3(false)}>Close</Button>
+                      <Button onClick={() => setIsOpenedModal4(true)}>Open nested modal</Button>
+                    </Modal.Footer>
 
                     <Modal
                       align="end"
                       justify="end"
-                      onClosed={() => console.log('Closed')}
                       onCloseRequested={() => setIsOpenedModal4(false)}
-                      onOpened={() => console.log('Opened')}
                       opened={isOpenedModal4}
                     >
                       <Modal.Backdrop />
                       <Modal.Content>
-                        <p>Modal nested content</p>
-                        <Button onClick={() => setIsOpenedModal5(true)}>Open nested modal</Button>
+                        <Modal.Header>
+                          <Modal.Title>Modal 4</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          <p>Modal 4 content</p>
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button onClick={() => setIsOpenedModal4(false)}>Close</Button>
+                          <Button onClick={() => setIsOpenedModal5(true)}>Open nested modal</Button>
+                        </Modal.Footer>
 
                         <Modal
                           align="end"
                           justify="start"
-                          onClosed={() => console.log('Closed')}
                           onCloseRequested={() => setIsOpenedModal5(false)}
-                          onOpened={() => console.log('Opened')}
                           opened={isOpenedModal5}
                         >
                           <Modal.Backdrop />
                           <Modal.Content>
-                            <p>Modal nested content</p>
+                            <Modal.Header>
+                              <Modal.Title>Modal 5</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                              <p>Modal 5 content</p>
+                            </Modal.Body>
+                            <Modal.Footer>
+                              <Button onClick={() => setIsOpenedModal5(false)}>Close</Button>
+                            </Modal.Footer>
                           </Modal.Content>
                         </Modal>
                       </Modal.Content>
@@ -148,14 +178,20 @@ export const Positions: Story = {
         <Modal
           align={args.align}
           justify={args.justify}
-          onClosed={() => console.log('Closed')}
           onCloseRequested={() => setIsOpened(false)}
-          onOpened={() => console.log(document.activeElement)}
           opened={isOpened}
         >
           <Modal.Backdrop />
           <Modal.Content>
-            <p>Modal content</p>
+            <Modal.Header>
+              <Modal.Title>Modal Title</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Modal content</p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={() => setIsOpened(false)}>Close</Button>
+            </Modal.Footer>
           </Modal.Content>
         </Modal>
       </>
