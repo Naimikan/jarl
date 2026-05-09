@@ -14,6 +14,7 @@
     "@jarl/anchored-element": "workspace:*",
     "@jarl/button": "workspace:*",
     "@jarl/portal": "workspace:*",
+    "@jarl/modal": "workspace:*",
     "@jarl/styled-system": "workspace:*",
     "next": "^16.1.6",
     "nextra": "^4.6.1",

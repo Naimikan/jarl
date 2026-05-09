@@ -19,6 +19,7 @@ export interface ContentProps {
 export const Content = ({ className, children }: ContentProps) => {
   const {
     appendTo,
+    titleId,
     contentId,
     role,
     align,
@@ -92,7 +93,7 @@ export const Content = ({ className, children }: ContentProps) => {
   useClickOutside({
     callback: onClickOutside,
     disabled: avoidCloseOnClickOutside,
-    rootElement: modalRef.current,
+    rootElement: contentId, // ToDo: use ref instead id
   });
 
   useEscape({ callback: onEscape, disabled: avoidCloseOnEscape });
@@ -115,6 +116,7 @@ export const Content = ({ className, children }: ContentProps) => {
     >
       {/* biome-ignore lint/a11y/useAriaPropsSupportedByRole: aria-modal is valid for dialog and alertdialog roles */}
       <div
+        aria-labelledby={titleId}
         aria-modal="true"
         className={cx(modal().content, className)}
         id={contentId}

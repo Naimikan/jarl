@@ -1,14 +1,13 @@
 import { createContext, useCallback, useEffect, useId, useMemo, useState } from 'react';
 
-import {
-  useClickOutside,
-  useDisableBackgroundScroll,
-  useEscape,
-  useLatest,
-} from '@jarl/react-utils';
+import { useDisableBackgroundScroll, useLatest } from '@jarl/react-utils';
 
 import { Backdrop } from './components/Backdrop';
+import { Body } from './components/Body';
 import { Content } from './components/Content';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { Title } from './components/Title';
 import { ANIMATION_STATES } from './constants/animationStates';
 import { POSITIONS } from './constants/positions';
 import { getClosestOpenedDialog } from './helpers/getClosestOpenedDialog';
@@ -20,7 +19,7 @@ import type { AnimationState, ModalContextType, ModalProps } from './Modal.types
 export const ModalContext = createContext<ModalContextType | null>(null);
 
 export const Modal = ({
-  appendTo = document.body,
+  appendTo,
   avoidCloseOnClickOutside = false,
   avoidCloseOnEscape = false,
   children,
@@ -69,7 +68,7 @@ export const Modal = ({
   }, []);
 
   useDisableBackgroundScroll({
-    rootElement: document.body,
+    rootElement: typeof document !== 'undefined' ? document.body : null,
     recursive: true,
     disabled: animationState === ANIMATION_STATES.CLOSED,
   });
@@ -140,3 +139,7 @@ Modal.POSITIONS = POSITIONS;
 
 Modal.Backdrop = Backdrop;
 Modal.Content = Content;
+Modal.Header = Header;
+Modal.Title = Title;
+Modal.Body = Body;
+Modal.Footer = Footer;
