@@ -6,13 +6,14 @@ export interface UseFocusableOtherParams {
 }
 
 export interface UseFocusableReturn {
-  'aria-disabled': boolean;
+  'aria-disabled': boolean | undefined;
+  'data-disabled': boolean | undefined;
   disabled: boolean | undefined;
   tabIndex: number | undefined;
 }
 
 const isNativeTabbable = (elementTag: string) =>
-  ['button', 'input', 'select', 'textarea', 'a'].includes(elementTag.toLowerCase());
+  ['button', 'input', 'select', 'textarea'].includes(elementTag.toLowerCase());
 
 const supportsDisabledAttribute = (elementTag: string) =>
   ['button', 'input', 'select', 'textarea', 'fieldset', 'optgroup', 'option'].includes(
@@ -53,6 +54,7 @@ export const useFocusable = (
   return {
     tabIndex,
     disabled: supportsDisabled ? isCompletelyDisabled : undefined,
-    'aria-disabled': disabled,
+    'aria-disabled': supportsDisabled ? undefined : disabled || undefined,
+    'data-disabled': disabled || undefined,
   };
 };

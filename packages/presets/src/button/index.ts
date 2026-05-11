@@ -3,6 +3,7 @@ import { defineRecipe } from '@pandacss/dev';
 export const button = defineRecipe({
   className: 'jarl-button',
   base: {
+    appearance: 'none',
     border: '1px solid #ccc',
     backgroundColor: '#fff',
     color: '#000',
@@ -10,6 +11,7 @@ export const button = defineRecipe({
     padding: '4px',
     display: 'inline-flex',
     alignItems: 'center',
+    isolation: 'isolate',
     cursor: 'pointer',
     justifyContent: 'center',
     gap: '2',

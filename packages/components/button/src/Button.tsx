@@ -1,31 +1,27 @@
-import { useFocusable } from '@jarl/react-utils';
-import { cx } from '@jarl/styled-system/css';
-import { button } from '@jarl/styled-system/recipes';
+import classNames from 'classnames';
+
+import { DEFAULT_TAG } from './constants';
+import { useButton } from './useButton';
 
 import type { ElementType } from 'react';
 
 import type { ButtonProps } from './Button.types';
 
-const DEFAULT_TAG = 'button';
+import './Button.styles.css';
 
 export const Button = <T extends ElementType = typeof DEFAULT_TAG>({
   as,
   children,
-  disabled,
-  focusable,
   className,
   ref,
   ...props
 }: ButtonProps<T>) => {
   const ComponentTag = as || DEFAULT_TAG;
 
-  const focusableProps = useFocusable(ComponentTag, {
-    disabled,
-    focusable,
-  });
+  const buttonProps = useButton(ComponentTag, props);
 
   return (
-    <ComponentTag className={cx(button(), className)} ref={ref} {...focusableProps} {...props}>
+    <ComponentTag className={classNames('jarl-button', className)} ref={ref} {...buttonProps}>
       {children}
     </ComponentTag>
   );
