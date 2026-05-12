@@ -53,7 +53,7 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
 
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        (event.target as HTMLElement).setAttribute('data-active', '');
+        (event.currentTarget as HTMLElement).setAttribute('data-active', '');
 
         if (event.key === 'Enter') {
           event.currentTarget.click();
@@ -72,7 +72,7 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
       }
 
       if (event.key === 'Enter' || event.key === ' ') {
-        (event.target as HTMLElement).removeAttribute('data-active');
+        (event.currentTarget as HTMLElement).removeAttribute('data-active');
 
         if (event.key === ' ') {
           event.currentTarget.click();
@@ -89,13 +89,11 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
     ...props,
   };
 
-  if (isNativeInteractive(elementTag)) {
-    return commonButtonProps;
-  }
-
   return {
+    ...(!(isNativeInteractive(elementTag) || hasSelfSemantics(elementTag)) && {
+      role: 'button' as const,
+    }),
     ...commonButtonProps,
-    ...(!hasSelfSemantics(elementTag) && { role: 'button' as const }),
     onKeyDown: keyDownHandler,
     onKeyUp: keyUpHandler,
     onClick: clickHandler,

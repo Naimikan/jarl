@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { Button } from '@jarl/button';
 import { Modal } from '@jarl/modal';
@@ -10,6 +11,11 @@ const meta = {
   component: Modal,
   parameters: {
     layout: 'centered',
+  },
+  args: {
+    opened: false,
+    onCloseRequested: fn(),
+    children: null,
   },
 } satisfies Meta<typeof Modal>;
 
