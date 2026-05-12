@@ -1,9 +1,12 @@
-import { cx } from '@jarl/styled-system/css';
-import { modal } from '@jarl/styled-system/recipes';
+/// <reference path="../../../../typescript-config/declarations.d.ts" />
+
+import classNames from 'classnames';
 
 import { useModalContext } from '../hooks/useModalContext';
 
 import type { ComponentProps, ElementType, PropsWithChildren } from 'react';
+
+import './Title.styles.css';
 
 const DEFAULT_TAG = 'h2';
 
@@ -27,7 +30,7 @@ export const Title = <T extends ElementType = typeof DEFAULT_TAG>({
   const ComponentTag = as || DEFAULT_TAG;
 
   return (
-    <ComponentTag className={cx(modal().title, className)} id={titleId}>
+    <ComponentTag className={classNames('jarl-modal__title', className)} id={titleId}>
       {children}
     </ComponentTag>
   );

@@ -1,7 +1,10 @@
-import { cx } from '@jarl/styled-system/css';
-import { modal } from '@jarl/styled-system/recipes';
+/// <reference path="../../../../typescript-config/declarations.d.ts" />
+
+import classNames from 'classnames';
 
 import type { ReactNode } from 'react';
+
+import './Footer.styles.css';
 
 export interface FooterProps {
   children: ReactNode;
@@ -9,7 +12,7 @@ export interface FooterProps {
 }
 
 export const Footer = ({ children, className }: FooterProps) => (
-  <div className={cx(modal().footer, className)}>{children}</div>
+  <div className={classNames('jarl-modal__footer', className)}>{children}</div>
 );
 
 Footer.displayName = 'Jarl.Modal.Content.Footer';

@@ -1,0 +1,43 @@
+.jarl-modal__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--jarl-modal-backdrop-z-index, 100);
+  width: 100dvw;
+  height: 100dvh;
+  background-color: var(--jarl-modal-backdrop-bg, rgba(0, 0, 0, 0.4));
+
+  &[data-state="closed"] {
+    opacity: 0;
+  }
+
+  &[data-state="opened"] {
+    opacity: 1;
+  }
+
+  &[data-state="opening"] {
+    animation: "300ms fadeInAnimation backwards";
+  }
+
+  &[data-state="closing"] {
+    animation: "300ms fadeOutAnimation forwards";
+  }
+
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutAnimation {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
