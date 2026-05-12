@@ -1,7 +1,10 @@
-import { cx } from '@jarl/styled-system/css';
-import { modal } from '@jarl/styled-system/recipes';
+/// <reference path="../../../../typescript-config/declarations.d.ts" />
+
+import classNames from 'classnames';
 
 import type { ReactNode } from 'react';
+
+import './Body.styles.css';
 
 export interface BodyProps {
   children: ReactNode;
@@ -9,7 +12,7 @@ export interface BodyProps {
 }
 
 export const Body = ({ children, className }: BodyProps) => (
-  <div className={cx(modal().body, className)}>{children}</div>
+  <div className={classNames('jarl-modal__body', className)}>{children}</div>
 );
 
 Body.displayName = 'Jarl.Modal.Content.Body';

@@ -1,0 +1,64 @@
+.jarl-modal {
+  position: fixed;
+  inset: 0px auto auto 0px;
+  z-index: var(--jarl-modal-z-index, 100);
+  display: flex;
+  width: 100dvw;
+  height: 100dvh;
+  white-space: nowrap;
+  will-change: opacity;
+
+  &[data-state="closed"] {
+    opacity: 0;
+  }
+
+  &[data-state="opened"] {
+    opacity: 1;
+  }
+
+  &[data-state="opening"] {
+    animation: 300ms fadeInAnimation backwards;
+  }
+
+  &[data-state="closing"] {
+    animation: 300ms fadeOutAnimation forwards;
+  }
+
+  &[data-align="start"] {
+    align-items: start;
+  }
+
+  &[data-align="center"] {
+    align-items: center;
+  }
+
+  &[data-align="end"] {
+    align-items: end;
+  }
+
+  &[data-justify="start"] {
+    justify-content: start;
+  }
+
+  &[data-justify="center"] {
+    justify-content: center;
+  }
+
+  &[data-justify="end"] {
+    justify-content: end;
+  }
+
+  .jarl-modal__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-block: var(--jarl-modal-content-my, 24px);
+    margin-inline: var(--jarl-modal-content-mx, 24px);
+    color: var(--jarl-modal-content-color, #000);
+    background-color: var(--jarl-modal-content-bg, #fff);
+    border-color: var(--jarl-modal-content-border-color, #ccc);
+    border-style: var(--jarl-modal-content-border-style, solid);
+    border-width: vaR(--jarl-modal-content-border-width, 1px);
+    border-radius: var(--jarl-modal-content-border-radius, 8px);
+  }
+}

@@ -1,7 +1,10 @@
-import { cx } from '@jarl/styled-system/css';
-import { modal } from '@jarl/styled-system/recipes';
+/// <reference path="../../../../typescript-config/declarations.d.ts" />
+
+import classNames from 'classnames';
 
 import type { ReactNode } from 'react';
+
+import './Header.styles.css';
 
 export interface HeaderProps {
   children: ReactNode;
@@ -9,7 +12,7 @@ export interface HeaderProps {
 }
 
 export const Header = ({ children, className }: HeaderProps) => (
-  <div className={cx(modal().header, className)}>{children}</div>
+  <div className={classNames('jarl-modal__header', className)}>{children}</div>
 );
 
 Header.displayName = 'Jarl.Modal.Content.Header';

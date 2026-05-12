@@ -27,12 +27,7 @@
     "classnames": "latest"
   },
   "devDependencies": {
-    "@jarl/typescript-config": "workspace:*",
-    "@microsoft/api-extractor": "latest",
-    "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "vite-plugin-dts": "latest",
-    "vite-plugin-lib-inject-css": "latest"
+    "@jarl/typescript-config": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18.0.0"

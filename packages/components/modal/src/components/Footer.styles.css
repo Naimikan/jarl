@@ -1,0 +1,8 @@
+.jarl-modal__footer {
+  display: flex;
+  gap: var(--jarl-modal-footer-gap, 8px);
+  align-items: center;
+  justify-content: flex-end;
+  padding-block: var(--jarl-modal-footer-py, 4px 8px);
+  padding-inline: var(--jarl-modal-footer-px, 16px);
+}

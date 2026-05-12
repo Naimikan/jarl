@@ -5,7 +5,6 @@ import { cx } from '@jarl/styled-system/css';
 import { anchoredElement } from '@jarl/styled-system/recipes';
 
 import { ANIMATION_STATES } from '../../constants/animationStates';
-import { TRIGGER_EVENTS } from '../../constants/triggerEvents';
 import { useAnchoredContext } from '../../hooks/useAnchoredContext';
 import { Arrow } from './arrow';
 import { useContentListeners } from './hooks/useAnchorContentListeners';

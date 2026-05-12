@@ -1,0 +1,5 @@
+.jarl-modal__title {
+  margin-block: var(--jarl-modal-title-py, 0);
+  margin-inline: var(--jarl-modal-title-px, 0);
+  overflow-wrap: break-word;
+}

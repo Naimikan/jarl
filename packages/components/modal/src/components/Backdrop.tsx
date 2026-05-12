@@ -1,8 +1,12 @@
+/// <reference path="../../../../typescript-config/declarations.d.ts" />
+
+import classNames from 'classnames';
+
 import { Portal } from '@jarl/portal';
-import { cx } from '@jarl/styled-system/css';
-import { modal } from '@jarl/styled-system/recipes';
 
 import { useModalContext } from '../hooks/useModalContext';
+
+import './Backdrop.styles.css';
 
 export interface BackdropProps {
   className?: string;
@@ -15,7 +19,7 @@ export const Backdrop = ({ className }: BackdropProps) => {
     <Portal
       appendTo={appendTo}
       aria-hidden={true}
-      className={cx(modal().backdrop, className)}
+      className={classNames('jarl-modal__backdrop', className)}
       data-state={animationState}
       id={backdropId}
     />

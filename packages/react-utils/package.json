@@ -3,21 +3,19 @@
   "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "vite build",
+    "dev": "vite build --watch",
     "lint": "biome format --write ./src",
     "test": "vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit"
@@ -25,10 +23,13 @@
   "dependencies": {
     "@jarl/utils": "workspace:*"
   },
+  "devDependencies": {
+    "@jarl/typescript-config": "workspace:*"
+  },
   "peerDependencies": {
-    "react": "^19.2.4"
+    "react": ">=18.0.0"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=18.0.0"
   }
 }

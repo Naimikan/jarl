@@ -1,15 +1,18 @@
+/// <reference path="../../../../typescript-config/declarations.d.ts" />
+
+import classNames from 'classnames';
 import { type ReactNode, useCallback, useRef } from 'react';
 
 import { Portal } from '@jarl/portal';
 import { useClickOutside, useEscape } from '@jarl/react-utils';
-import { cx } from '@jarl/styled-system/css';
-import { modal } from '@jarl/styled-system/recipes';
 
 import { ANIMATION_STATES } from '../constants/animationStates';
 import { useInert } from '../hooks/useInert';
 import { useModalContext } from '../hooks/useModalContext';
 
 import type { AnimationState } from '../Modal.types';
+
+import './Content.styles.css';
 
 export interface ContentProps {
   children: ReactNode;
@@ -106,7 +109,7 @@ export const Content = ({ className, children }: ContentProps) => {
   return (
     <Portal
       appendTo={appendTo}
-      className={cx(modal().root, classNameProp)}
+      className={classNames('jarl-modal', classNameProp)}
       data-align={align}
       data-justify={justify}
       data-state={animationState}
@@ -118,7 +121,7 @@ export const Content = ({ className, children }: ContentProps) => {
       <div
         aria-labelledby={titleId}
         aria-modal="true"
-        className={cx(modal().content, className)}
+        className={classNames('jarl-modal__content', className)}
         id={contentId}
         ref={modalRef}
         role={role}
