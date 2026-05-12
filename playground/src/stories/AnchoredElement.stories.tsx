@@ -11,6 +11,10 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  args: {
+    children: undefined,
+    content: null,
+  },
 } satisfies Meta<typeof AnchoredElement>;
 
 export default meta;
