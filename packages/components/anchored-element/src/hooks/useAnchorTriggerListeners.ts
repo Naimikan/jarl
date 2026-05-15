@@ -1,11 +1,9 @@
 import { useCallback, useEffect } from 'react';
 
-import { ANIMATION_STATES } from '../../../constants/animationStates';
-import { POSITIONS } from '../../../constants/positions';
-import { TRIGGER_EVENTS } from '../../../constants/triggerEvents';
-import { useAnchoredContext } from '../../../hooks/useAnchoredContext';
+import { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from '../constants';
+import { useAnchoredContext } from './useAnchoredContext';
 
-import type { AnimationState, Position } from '../../../AnchoredElement.types';
+import type { AnimationState, Position } from '../AnchoredElement.types';
 
 type EventHandlers = {
   [key: string]: EventListener;

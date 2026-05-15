@@ -20,7 +20,6 @@
     "@jarl/button": "workspace:*",
     "@jarl/modal": "workspace:*",
     "@jarl/portal": "workspace:*",
-    "@jarl/styled-system": "workspace:*",
     "@storybook/react-vite": "^10.2.8",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",

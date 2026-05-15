@@ -8,11 +8,9 @@ import {
   useMutationObserver,
 } from '@jarl/react-utils';
 
-import { AnchorContent } from './components/content';
-import { AnchorTrigger } from './components/trigger';
-import { ANIMATION_STATES } from './constants/animationStates';
-import { POSITIONS } from './constants/positions';
-import { TRIGGER_EVENTS } from './constants/triggerEvents';
+import { AnchorContent } from './components/Content';
+import { AnchorTrigger } from './components/Trigger';
+import { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from './constants';
 import { getDelay } from './helpers/get-delay';
 
 import type {
@@ -40,7 +38,7 @@ export const AnchoredElement = ({
   avoidCloseOnClickOutside = false,
   avoidCloseOnEscape = false,
   triggerEvents = [TRIGGER_EVENTS.HOVER, TRIGGER_EVENTS.FOCUS],
-  wrapTrigger = false,
+  disabledTrigger = false,
   forceOpenEvenNotFit = false,
   interactive = false,
   sameWithAsTrigger = false,
@@ -281,7 +279,7 @@ export const AnchoredElement = ({
       delay: delayRef.current,
       boundary: boundaryRef.current,
       allowedPositions: allowedPositionsRef.current,
-      wrapTrigger,
+      disabledTrigger,
       sameWithAsTrigger,
       disableBackgroundScroll,
       withArrow,
@@ -305,7 +303,7 @@ export const AnchoredElement = ({
       arrowClassName,
       disabled,
       animationState,
-      wrapTrigger,
+      disabledTrigger,
       sameWithAsTrigger,
       disableBackgroundScroll,
       withArrow,

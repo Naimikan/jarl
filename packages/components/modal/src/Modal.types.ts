@@ -1,9 +1,10 @@
+/// <reference path="../../../typescript-config/declarations.d.ts" />
+
 import type { ReactNode } from 'react';
 
 import type { AppendTo } from '@jarl/portal';
 
-import type { ANIMATION_STATES } from './constants/animationStates';
-import type { POSITIONS } from './constants/positions';
+import type { ANIMATION_STATES, POSITIONS } from './constants';
 
 export type AnimationState = (typeof ANIMATION_STATES)[keyof typeof ANIMATION_STATES];
 export type Position = (typeof POSITIONS)[keyof typeof POSITIONS];

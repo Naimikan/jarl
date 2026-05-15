@@ -1,0 +1,54 @@
+.jarl-anchored-element {
+  position: absolute;
+  inset-block: 0px auto;
+  inset-inline: 0px auto;
+  z-index: var(--jarl-anchored-element-z-index, 100);
+  white-space: nowrap;
+
+  .jarl-anchored-element__content {
+    position: relative;
+    padding-block: var(--jarl-anchored-element-py, 8px);
+    padding-inline: var(--jarl-anchored-element-px, 8px);
+    color: var(--jarl-anchored-element-color, #111);
+    background-color: var(--jarl-anchored-element-bg, #fff);
+    border-color: var(--jarl-anchored-element-border-color, #ccc);
+    border-style: var(--jarl-anchored-element-border-style, solid);
+    border-width: var(--jarl-anchored-element-border-width, 1px);
+    border-radius: var(--jarl-anchored-element-border-radius, 4px);
+    will-change: transform, visibility, opacity;
+
+    &[data-state="closed"] {
+      opacity: 0;
+    }
+
+    &[data-state="opened"] {
+      opacity: 1;
+    }
+
+    &[data-state="opening"] {
+      animation: 300ms fadeInAnimation backwards;
+    }
+
+    &[data-state="closing"] {
+      animation: 300ms fadeOutAnimation forwards;
+    }
+  }
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

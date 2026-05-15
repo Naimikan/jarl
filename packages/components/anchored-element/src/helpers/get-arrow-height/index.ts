@@ -1,4 +1,4 @@
-import { POSITIONS } from '../../constants/positions';
+import { POSITIONS } from '../../constants';
 
 import type { Position } from '../../AnchoredElement.types';
 

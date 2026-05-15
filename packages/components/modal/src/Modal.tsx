@@ -8,8 +8,7 @@ import { Content } from './components/Content';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Title } from './components/Title';
-import { ANIMATION_STATES } from './constants/animationStates';
-import { POSITIONS } from './constants/positions';
+import { ANIMATION_STATES, POSITIONS } from './constants';
 import { getClosestOpenedDialog } from './helpers/getClosestOpenedDialog';
 
 import type { AppendTo } from '@jarl/portal';

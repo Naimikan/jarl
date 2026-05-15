@@ -1,3 +1,10 @@
+export const ANIMATION_STATES = {
+  CLOSED: 'closed',
+  CLOSING: 'closing',
+  OPENING: 'opening',
+  OPENED: 'opened',
+} as const;
+
 export const POSITIONS = {
   TOP_LEFT: 'top_left',
   TOP: 'top',
@@ -11,4 +18,11 @@ export const POSITIONS = {
   LEFT_TOP: 'left_top',
   LEFT: 'left',
   LEFT_BOTTOM: 'left_bottom',
+} as const;
+
+export const TRIGGER_EVENTS = {
+  HOVER: 'hover',
+  CLICK: 'click',
+  FOCUS: 'focus',
+  MANUAL: 'manual',
 } as const;

@@ -1,6 +1,6 @@
 import { isElementVisibleInContainer } from '@jarl/utils';
 
-import { POSITIONS } from '../../constants/positions';
+import { POSITIONS } from '../../constants';
 import { getBottomLeftPosition } from './bottom-positions/getBottomLeftPosition';
 import { getBottomPosition } from './bottom-positions/getBottomPosition';
 import { getBottomRightPosition } from './bottom-positions/getBottomRightPosition';

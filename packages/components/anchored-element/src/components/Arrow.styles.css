@@ -1,0 +1,77 @@
+.jarl-anchored-element__arrow {
+  --_width: var(--jarl-anchored-element-arrow-width, 10px);
+  --_height: var(--jarl-anchored-element-arrow-height, 10px);
+  --_border-width: var(--jarl-anchored-element-arrow-border-width, 1px);
+  --_border-color: var(--jarl-anchored-element-arrow-border-color, #ccc);
+
+  --_offset: calc(-1 * (var(--_height) / 2 + var(--_border-width)));
+  --_center-x: calc(50% - (var(--_width) / 2 + var(--_border-width)));
+  --_center-y: calc(50% - (var(--_height) / 2 + var(--_border-width)));
+
+  position: absolute;
+  width: var(--_width);
+  height: var(--_height);
+  background-color: var(--jarl-anchored-element-arrow-bg, #fff);
+  border-style: var(--jarl-anchored-element-arrow-border-style, solid);
+  border-width: var(--_border-width);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+
+  &[data-position^="top"] {
+    bottom: var(--_offset);
+    border-right-color: var(--_border-color);
+    border-bottom-color: var(--_border-color);
+  }
+
+  &[data-position="top"],
+  &[data-position="bottom"] {
+    left: var(--_center-x);
+  }
+
+  &[data-position="top_left"],
+  &[data-position="bottom_left"] {
+    left: var(--_width);
+  }
+
+  &[data-position="top_right"],
+  &[data-position="bottom_right"] {
+    right: var(--_width);
+  }
+
+  &[data-position^="bottom"] {
+    top: var(--_offset);
+    border-top-color: var(--_border-color);
+    border-left-color: var(--_border-color);
+  }
+
+  &[data-position^="left"] {
+    right: var(--_offset);
+    border-top-color: var(--_border-color);
+    border-right-color: var(--_border-color);
+  }
+
+  &[data-position="left"],
+  &[data-position="right"] {
+    top: var(--_center-y);
+  }
+
+  &[data-position="left_bottom"],
+  &[data-position="right_bottom"] {
+    bottom: calc(var(--_height) / 2);
+  }
+
+  &[data-position^="right"] {
+    left: var(--_offset);
+    border-top-color: var(--_border-color);
+    border-left-color: var(--_border-color);
+    transform: rotate(-45deg);
+  }
+
+  &[data-position="left_top"],
+  &[data-position="right_top"] {
+    top: calc(var(--_height) / 2);
+  }
+}
