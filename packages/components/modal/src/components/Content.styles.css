@@ -1,3 +1,5 @@
+@import url(../helpers/cssAnimations.css);
+
 .jarl-modal {
   position: fixed;
   inset: 0px auto auto 0px;

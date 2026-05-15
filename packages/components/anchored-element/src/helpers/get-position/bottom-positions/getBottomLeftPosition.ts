@@ -1,6 +1,6 @@
 import { getOffsetFromParent } from '@jarl/utils';
 
-import { POSITIONS } from '../../../constants/positions';
+import { POSITIONS } from '../../../constants';
 import { getArrowHeight } from '../../get-arrow-height';
 
 import type { GetBasicPositionParams } from '../index.types';

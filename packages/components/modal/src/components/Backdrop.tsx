@@ -1,5 +1,3 @@
-/// <reference path="../../../../typescript-config/declarations.d.ts" />
-
 import classNames from 'classnames';
 
 import { Portal } from '@jarl/portal';

@@ -1,15 +1,27 @@
+import classNames from 'classnames';
 import { useCallback } from 'react';
 
 import { Portal } from '@jarl/portal';
-import { cx } from '@jarl/styled-system/css';
-import { anchoredElement } from '@jarl/styled-system/recipes';
 
-import { ANIMATION_STATES } from '../../constants/animationStates';
-import { useAnchoredContext } from '../../hooks/useAnchoredContext';
-import { Arrow } from './arrow';
-import { useContentListeners } from './hooks/useAnchorContentListeners';
+import { ANIMATION_STATES } from '../constants';
+import { useContentListeners } from '../hooks/useAnchorContentListeners';
+import { useAnchoredContext } from '../hooks/useAnchoredContext';
+import { Arrow } from './Arrow';
 
-import type { AnchorContentProps } from './index.types';
+import type { ReactNode } from 'react';
+
+import './Content.styles.css';
+
+export type ChildrenFunction = {
+  show?: () => void;
+  hide?: () => void;
+};
+
+export type ChildrenAsFunction = (params?: ChildrenFunction) => ReactNode;
+
+export interface AnchorContentProps {
+  children: ReactNode | ChildrenAsFunction;
+}
 
 export const AnchorContent = ({ children }: AnchorContentProps) => {
   const context = useAnchoredContext();
@@ -76,13 +88,13 @@ export const AnchorContent = ({ children }: AnchorContentProps) => {
   return (
     <Portal
       appendTo={appendTo}
-      className={cx(anchoredElement().root, className)}
+      className={classNames('jarl-anchored-element', className)}
       data-anchor-id={id}
       ref={setAnchoredElementRef}
     >
       {animationState !== ANIMATION_STATES.CLOSED && (
         <div
-          className={cx(anchoredElement().content, contentClassName)}
+          className={classNames('jarl-anchored-element__content', contentClassName)}
           data-position={context.position}
           data-state={animationState}
           id={contentId}
@@ -93,7 +105,7 @@ export const AnchorContent = ({ children }: AnchorContentProps) => {
 
           {withArrow && (
             <Arrow
-              className={cx(anchoredElement().arrow, arrowClassName)}
+              className={arrowClassName}
               data-position={context.position}
               ref={setArrowElementRef}
             />

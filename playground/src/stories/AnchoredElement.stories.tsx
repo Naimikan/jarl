@@ -54,7 +54,12 @@ export const WithArrow: Story = {
 export const Trigger: Story = {
   render: () => {
     return (
-      <AnchoredElement content="Anchored content" triggerEvents="click">
+      <AnchoredElement
+        content="Anchored content"
+        position="left_top"
+        triggerEvents="click"
+        withArrow
+      >
         <Button>Click</Button>
       </AnchoredElement>
     );

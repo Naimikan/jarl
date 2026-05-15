@@ -2,24 +2,22 @@
   "name": "@jarl/anchored-element",
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./recipe": {
-      "types": "./dist/recipe.d.ts",
-      "import": "./dist/recipe.js",
-      "require": "./dist/recipe.cjs"
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "vite build",
+    "dev": "vite build --watch",
     "lint": "biome format --write ./src",
     "test": "vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit"
@@ -27,18 +25,17 @@
   "dependencies": {
     "@jarl/portal": "workspace:*",
     "@jarl/react-utils": "workspace:*",
-    "@jarl/utils": "workspace:*"
+    "@jarl/utils": "workspace:*",
+    "classnames": "latest"
   },
   "devDependencies": {
-    "@jarl/styled-system": "workspace:*",
-    "@pandacss/dev": "latest"
+    "@jarl/typescript-config": "workspace:*"
   },
   "peerDependencies": {
-    "@jarl/styled-system": "workspace:*",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react": ">=18.0.0",
+    "react-dom": ">=19.0.0"
   },
   "engines": {
-    "node": ">=24.0.0"
+    "node": ">=18.0.0"
   }
 }

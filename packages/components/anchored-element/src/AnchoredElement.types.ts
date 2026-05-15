@@ -1,16 +1,16 @@
+/// <reference path="../../../typescript-config/declarations.d.ts" />
+
 import type { ReactElement, ReactNode, Ref } from 'react';
 
 import type { AppendTo } from '@jarl/portal';
 
-import type { ANIMATION_STATES } from './constants/animationStates';
-import type { POSITIONS } from './constants/positions';
-import type { TRIGGER_EVENTS } from './constants/triggerEvents';
+import type { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from './constants';
 
 export type TriggerEvent = (typeof TRIGGER_EVENTS)[keyof typeof TRIGGER_EVENTS];
 export type Position = (typeof POSITIONS)[keyof typeof POSITIONS];
 export type AnimationState = (typeof ANIMATION_STATES)[keyof typeof ANIMATION_STATES];
 
-export type ElementWithRef = ReactElement & {
+export type ElementWithRef = ReactElement<Record<string, unknown>> & {
   ref?: Ref<HTMLElement | null>;
 };
 
@@ -34,13 +34,14 @@ export interface AnchoredElementProps {
   avoidCloseOnEscape?: boolean;
   avoidPositionRecalculation?: boolean;
   boundary?: HTMLElement | null;
-  children: ReactElement;
+  children: ReactElement<Record<string, unknown>>;
   className?: string;
   content: ReactNode;
   contentClassName?: string;
   delay?: number | [number, number];
   disableBackgroundScroll?: boolean;
   disabled?: boolean;
+  disabledTrigger?: boolean;
   forceOpenEvenNotFit?: boolean;
   interactive?: boolean;
   onClickOutside?: (params?: CustomOnClickOutsidePropParams) => void;
@@ -53,7 +54,6 @@ export interface AnchoredElementProps {
   sameWithAsTrigger?: boolean;
   triggerEvents?: TriggerEvent | TriggerEvent[];
   withArrow?: boolean;
-  wrapTrigger?: boolean;
 }
 
 type AnchoredElementPropsToContext = Pick<
@@ -67,13 +67,13 @@ type AnchoredElementPropsToContext = Pick<
   | 'contentClassName'
   | 'disableBackgroundScroll'
   | 'disabled'
+  | 'disabledTrigger'
   | 'forceOpenEvenNotFit'
   | 'interactive'
   | 'sameWithAsTrigger'
   | 'onClosed'
   | 'onOpened'
   | 'withArrow'
-  | 'wrapTrigger'
 >;
 
 export type AnchoredElementContextType = AnchoredElementPropsToContext & {

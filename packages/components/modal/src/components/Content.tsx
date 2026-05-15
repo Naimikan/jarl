@@ -1,12 +1,10 @@
-/// <reference path="../../../../typescript-config/declarations.d.ts" />
-
 import classNames from 'classnames';
 import { type ReactNode, useCallback, useRef } from 'react';
 
 import { Portal } from '@jarl/portal';
 import { useClickOutside, useEscape } from '@jarl/react-utils';
 
-import { ANIMATION_STATES } from '../constants/animationStates';
+import { ANIMATION_STATES } from '../constants';
 import { useInert } from '../hooks/useInert';
 import { useModalContext } from '../hooks/useModalContext';
 

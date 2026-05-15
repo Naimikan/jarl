@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import { DEFAULT_TAG } from './constants';
-import { useButton } from './useButton';
+import { useButton } from './hooks/useButton';
 
 import type { ElementType } from 'react';
 

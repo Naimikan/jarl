@@ -8,8 +8,8 @@ import {
 
 import { useFocusable } from '@jarl/react-utils';
 
-import type { ButtonProps } from './Button.types';
-import type { DEFAULT_TAG } from './constants';
+import type { ButtonProps } from '../Button.types';
+import type { DEFAULT_TAG } from '../constants';
 
 const NATIVE_INTERACTIVE_TAGS = new Set(['button', 'input', 'select', 'textarea']);
 const SEMANTIC_TAGS = new Set(['a', 'area']);

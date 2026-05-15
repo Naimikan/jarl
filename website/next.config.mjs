@@ -27,7 +27,6 @@ export default withNextra({
     '@jarl/react-utils',
     '@jarl/utils',
     '@jarl/portal',
-    '@jarl/styled-system',
   ],
   images: {
     unoptimized: true,

@@ -1,3 +1,5 @@
+@import url(../helpers/cssAnimations.css);
+
 .jarl-modal__backdrop {
   position: fixed;
   top: 0;
@@ -16,28 +18,10 @@
   }
 
   &[data-state="opening"] {
-    animation: "300ms fadeInAnimation backwards";
+    animation: 300ms fadeInAnimation backwards;
   }
 
   &[data-state="closing"] {
-    animation: "300ms fadeOutAnimation forwards";
-  }
-
-  @keyframes fadeInAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOutAnimation {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
+    animation: 300ms fadeOutAnimation forwards;
   }
 }
