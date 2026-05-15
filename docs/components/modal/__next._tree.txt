@@ -1,5 +1,5 @@
 :HL["/jarl/_next/static/css/11c59cc40cabfed8.css","style"]
-:HL["/jarl/_next/static/css/b3c07e24e7292a60.css","style"]
-:HL["/jarl/_next/static/css/5330390ec04bd2c1.css","style"]
-:HL["/jarl/_next/static/css/0160ee336e31b369.css","style"]
-0:{"buildId":"fnkiKTr_Qtp-7KO4YgkSq","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"docs","paramType":null,"paramKey":"docs","hasRuntimePrefetch":false,"slots":{"children":{"name":"components","paramType":null,"paramKey":"components","hasRuntimePrefetch":false,"slots":{"children":{"name":"modal","paramType":null,"paramKey":"modal","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/jarl/_next/static/css/bb4b7b3c30f3a38f.css","style"]
+:HL["/jarl/_next/static/css/aa1c519e35e98bb2.css","style"]
+:HL["/jarl/_next/static/css/6d88d3c8d9a1b30d.css","style"]
+0:{"buildId":"QV0D_LIVPJzXSXcRhiQVq","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"docs","paramType":null,"paramKey":"docs","hasRuntimePrefetch":false,"slots":{"children":{"name":"components","paramType":null,"paramKey":"components","hasRuntimePrefetch":false,"slots":{"children":{"name":"modal","paramType":null,"paramKey":"modal","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
