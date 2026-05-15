@@ -9,8 +9,8 @@ export const getOffsetFromParent = ({ parentElement, element }: GetOffsetFromPar
 
   const { borderTopWidth, borderLeftWidth } = window.getComputedStyle(parentElement);
 
-  const borderTopOffset = parseInt(borderTopWidth, 10) ?? 0;
-  const borderLeftOffset = parseInt(borderLeftWidth, 10) ?? 0;
+  const borderTopOffset = parseInt(borderTopWidth, 10) || 0;
+  const borderLeftOffset = parseInt(borderLeftWidth, 10) || 0;
 
   const top = elementPosition.top - parentElementPosition.top - borderTopOffset;
   const bottom = top + elementPosition.height;

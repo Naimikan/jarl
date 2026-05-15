@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cx } from '@jarl/utils';
 
 import { DEFAULT_TAG } from './constants';
 import { useButton } from './hooks/useButton';
@@ -21,7 +21,7 @@ export const Button = <T extends ElementType = typeof DEFAULT_TAG>({
   const buttonProps = useButton(ComponentTag, props);
 
   return (
-    <ComponentTag className={classNames('jarl-button', className)} ref={ref} {...buttonProps}>
+    <ComponentTag className={cx('jarl-button', className)} ref={ref} {...buttonProps}>
       {children}
     </ComponentTag>
   );

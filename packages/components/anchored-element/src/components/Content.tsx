@@ -1,7 +1,7 @@
-import classNames from 'classnames';
 import { useCallback } from 'react';
 
 import { Portal } from '@jarl/portal';
+import { cx } from '@jarl/utils';
 
 import { ANIMATION_STATES } from '../constants';
 import { useContentListeners } from '../hooks/useAnchorContentListeners';
@@ -88,13 +88,13 @@ export const AnchorContent = ({ children }: AnchorContentProps) => {
   return (
     <Portal
       appendTo={appendTo}
-      className={classNames('jarl-anchored-element', className)}
+      className={cx('jarl-anchored-element', className)}
       data-anchor-id={id}
       ref={setAnchoredElementRef}
     >
       {animationState !== ANIMATION_STATES.CLOSED && (
         <div
-          className={classNames('jarl-anchored-element__content', contentClassName)}
+          className={cx('jarl-anchored-element__content', contentClassName)}
           data-position={context.position}
           data-state={animationState}
           id={contentId}

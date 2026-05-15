@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cx } from '@jarl/utils';
 
 import type { ReactNode } from 'react';
 
@@ -10,7 +10,7 @@ export interface FooterProps {
 }
 
 export const Footer = ({ children, className }: FooterProps) => (
-  <div className={classNames('jarl-modal__footer', className)}>{children}</div>
+  <div className={cx('jarl-modal__footer', className)}>{children}</div>
 );
 
 Footer.displayName = 'Jarl.Modal.Content.Footer';

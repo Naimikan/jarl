@@ -4,7 +4,7 @@ const focusableElementsSelectors = [
   'textarea:not([disabled])',
   'input:not([type="hidden"]):not([disabled])',
   'select:not([disabled])',
-  '[tabindex]:not([tabindex="-1"]):not([disabled])',
+  '[tabindex]:not([tabindex^="-"]):not([disabled])',
   '[contenteditable="true"]',
   'details > summary:not([disabled])',
   'audio[controls]',

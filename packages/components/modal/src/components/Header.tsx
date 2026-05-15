@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cx } from '@jarl/utils';
 
 import type { ReactNode } from 'react';
 
@@ -10,7 +10,7 @@ export interface HeaderProps {
 }
 
 export const Header = ({ children, className }: HeaderProps) => (
-  <div className={classNames('jarl-modal__header', className)}>{children}</div>
+  <div className={cx('jarl-modal__header', className)}>{children}</div>
 );
 
 Header.displayName = 'Jarl.Modal.Content.Header';
