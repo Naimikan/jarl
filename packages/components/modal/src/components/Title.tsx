@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cx } from '@jarl/utils';
 
 import { useModalContext } from '../hooks/useModalContext';
 
@@ -28,7 +28,7 @@ export const Title = <T extends ElementType = typeof DEFAULT_TAG>({
   const ComponentTag = as || DEFAULT_TAG;
 
   return (
-    <ComponentTag className={classNames('jarl-modal__title', className)} id={titleId}>
+    <ComponentTag className={cx('jarl-modal__title', className)} id={titleId}>
       {children}
     </ComponentTag>
   );

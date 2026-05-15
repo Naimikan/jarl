@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cx } from '@jarl/utils';
 
 import type { ComponentPropsWithRef } from 'react';
 
@@ -9,5 +9,5 @@ interface ArrowProps extends ComponentPropsWithRef<'div'> {
 }
 
 export const Arrow = ({ ref, className, ...props }: ArrowProps) => (
-  <div className={classNames('jarl-anchored-element__arrow', className)} ref={ref} {...props} />
+  <div className={cx('jarl-anchored-element__arrow', className)} ref={ref} {...props} />
 );

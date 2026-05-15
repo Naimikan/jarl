@@ -25,7 +25,7 @@
   "dependencies": {
     "@jarl/portal": "workspace:*",
     "@jarl/react-utils": "workspace:*",
-    "classnames": "latest"
+    "@jarl/utils": "workspace:*"
   },
   "devDependencies": {
     "@jarl/typescript-config": "workspace:*"

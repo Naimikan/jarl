@@ -1,6 +1,5 @@
-import classNames from 'classnames';
-
 import { Portal } from '@jarl/portal';
+import { cx } from '@jarl/utils';
 
 import { useModalContext } from '../hooks/useModalContext';
 
@@ -17,7 +16,7 @@ export const Backdrop = ({ className }: BackdropProps) => {
     <Portal
       appendTo={appendTo}
       aria-hidden={true}
-      className={classNames('jarl-modal__backdrop', className)}
+      className={cx('jarl-modal__backdrop', className)}
       data-state={animationState}
       id={backdropId}
     />

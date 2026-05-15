@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cx } from '@jarl/utils';
 
 import type { ReactNode } from 'react';
 
@@ -10,7 +10,7 @@ export interface BodyProps {
 }
 
 export const Body = ({ children, className }: BodyProps) => (
-  <div className={classNames('jarl-modal__body', className)}>{children}</div>
+  <div className={cx('jarl-modal__body', className)}>{children}</div>
 );
 
 Body.displayName = 'Jarl.Modal.Content.Body';

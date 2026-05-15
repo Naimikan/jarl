@@ -1,8 +1,8 @@
-import classNames from 'classnames';
 import { type ReactNode, useCallback, useRef } from 'react';
 
 import { Portal } from '@jarl/portal';
 import { useClickOutside, useEscape } from '@jarl/react-utils';
+import { cx } from '@jarl/utils';
 
 import { ANIMATION_STATES } from '../constants';
 import { useInert } from '../hooks/useInert';
@@ -107,7 +107,7 @@ export const Content = ({ className, children }: ContentProps) => {
   return (
     <Portal
       appendTo={appendTo}
-      className={classNames('jarl-modal', classNameProp)}
+      className={cx('jarl-modal', classNameProp)}
       data-align={align}
       data-justify={justify}
       data-state={animationState}
@@ -119,7 +119,7 @@ export const Content = ({ className, children }: ContentProps) => {
       <div
         aria-labelledby={titleId}
         aria-modal="true"
-        className={classNames('jarl-modal__content', className)}
+        className={cx('jarl-modal__content', className)}
         id={contentId}
         ref={modalRef}
         role={role}
