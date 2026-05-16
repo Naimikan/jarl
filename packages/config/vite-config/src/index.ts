@@ -34,6 +34,9 @@ export function createReactLibConfig({
       },
       rollupOptions: {
         external: ['react', 'react-dom', 'react/jsx-runtime', ...externalDeps],
+        output: {
+          banner: '"use client";',
+        },
       },
     },
   });
