@@ -21,9 +21,18 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@jarl/typescript-config": "workspace:*"
+    "@jarl/typescript-config": "workspace:*",
+    "@jarl/vite-config": "workspace:*",
+    "@jarl/vitest-config": "workspace:*",
+    "@vitejs/plugin-react": "catalog:",
+    "happy-dom": "catalog:",
+    "vitest": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vite-plugin-lib-inject-css": "catalog:"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   }
 }

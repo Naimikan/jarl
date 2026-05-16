@@ -1,0 +1,14 @@
+{
+  "name": "@jarl/vitest-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "@vitejs/plugin-react": "catalog:",
+    "happy-dom": "catalog:",
+    "vitest": "catalog:"
+  }
+}
