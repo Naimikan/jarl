@@ -27,12 +27,22 @@
     "@jarl/utils": "workspace:*"
   },
   "devDependencies": {
-    "@jarl/typescript-config": "workspace:*"
+    "@jarl/typescript-config": "workspace:*",
+    "@jarl/vite-config": "workspace:*",
+    "@types/react": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "happy-dom": "catalog:",
+    "vitest": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vite-plugin-lib-inject-css": "catalog:",
+    "react": "catalog:"
   },
   "peerDependencies": {
-    "react": ">=18.0.0"
+    "react": ">=19.0.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   }
 }

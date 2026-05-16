@@ -1,28 +1,3 @@
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
-import dts from 'vite-plugin-dts';
+import { createLibConfig } from '@jarl/vite-config';
 
-import { resolve } from 'node:path';
-
-export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      include: ['src'],
-      bundleTypes: true,
-    }),
-  ],
-  build: {
-    lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
-    },
-    rollupOptions: {
-      output: {
-        assetFileNames: '[name][extname]',
-      },
-    },
-    minify: false,
-  },
-});
+export default createLibConfig();

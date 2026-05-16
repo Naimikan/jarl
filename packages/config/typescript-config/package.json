@@ -1,0 +1,14 @@
+{
+  "name": "@jarl/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./base": "./configs/base.json",
+    "./react": "./configs/react.json",
+    "./browser": "./configs/browser.json",
+    "./declarations": "./declarations/declarations.d.ts"
+  },
+  "peerDependencies": {
+    "typescript": "catalog:"
+  }
+}

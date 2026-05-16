@@ -1,5 +1,3 @@
-/// <reference path="../../../typescript-config/declarations.d.ts" />
-
 import type { ComponentPropsWithRef, ElementType, PropsWithChildren } from 'react';
 
 interface ButtonBaseProps {

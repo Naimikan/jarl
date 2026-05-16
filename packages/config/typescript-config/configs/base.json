@@ -1,31 +1,23 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Jarl Base",
+  "display": "Jarl base tsconfig",
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["ES2022"],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "composite": false,
+    "isolatedModules": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "isolatedModules": true,
+    "noPropertyAccessFromIndexSignature": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": false
-  },
-  "exclude": ["node_modules", "dist", ".turbo"]
+    "forceConsistentCasingInFileNames": true
+  }
 }

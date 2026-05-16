@@ -1,5 +1,3 @@
-/// <reference path="../../../typescript-config/declarations.d.ts" />
-
 import type { ReactNode } from 'react';
 
 import type { AppendTo } from '@jarl/portal';
