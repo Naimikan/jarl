@@ -20,6 +20,7 @@ const meta = {
     onClick: fn(),
     children: 'Button',
     disabled: false,
+    focusable: true,
   },
 } satisfies Meta<typeof Button>;
 

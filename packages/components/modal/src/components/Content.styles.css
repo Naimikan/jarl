@@ -51,16 +51,24 @@
   }
 
   .jarl-modal__content {
+    --_marginX: var(--jarl-modal-content-mx, 24px);
+    --_marginY: var(--jarl-modal-content-my, 24px);
+
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-block: var(--jarl-modal-content-my, 24px);
-    margin-inline: var(--jarl-modal-content-mx, 24px);
+    max-width: calc(100% - 2 * var(--_marginX));
+    max-height: calc(100% - 2 * var(--_marginY));
+    margin-block: var(--_marginY);
+    margin-inline: var(--_marginX);
+    overflow: auto;
     color: var(--jarl-modal-content-color, #000);
+
+    white-space: normal;
     background-color: var(--jarl-modal-content-bg, #fff);
     border-color: var(--jarl-modal-content-border-color, #ccc);
     border-style: var(--jarl-modal-content-border-style, solid);
-    border-width: vaR(--jarl-modal-content-border-width, 1px);
+    border-width: var(--jarl-modal-content-border-width, 1px);
     border-radius: var(--jarl-modal-content-border-radius, 8px);
   }
 }

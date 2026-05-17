@@ -7,7 +7,6 @@ export interface UseFocusableOtherParams {
 
 export interface UseFocusableReturn {
   'aria-disabled': boolean | undefined;
-  'data-disabled': boolean | undefined;
   disabled: boolean | undefined;
   tabIndex: number | undefined;
 }
@@ -54,7 +53,10 @@ export const useFocusable = (
   return {
     tabIndex,
     disabled: supportsDisabled ? isCompletelyDisabled : undefined,
-    'aria-disabled': supportsDisabled ? undefined : disabled || undefined,
-    'data-disabled': disabled || undefined,
+    'aria-disabled': supportsDisabled
+      ? disabled && !isCompletelyDisabled
+        ? true
+        : undefined
+      : disabled || undefined,
   };
 };

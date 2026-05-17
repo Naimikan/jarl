@@ -13,6 +13,7 @@
     "@heroicons/react": "^2.2.0",
     "@jarl/anchored-element": "workspace:*",
     "@jarl/button": "workspace:*",
+    "@jarl/checkbox": "workspace:*",
     "@jarl/portal": "workspace:*",
     "@jarl/modal": "workspace:*",
     "next": "^16.1.6",

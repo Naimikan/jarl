@@ -44,11 +44,9 @@
                 "source": [":PATH:"]
               },
               ":BLANK_LINE:",
-              "**/*.css",
-              "**/*.scss",
-              "**/*.sass",
-              "**/*.less",
-              "**/*.styl"
+              {
+                "source": ["**/*.css", "**/*.scss", "**/*.sass", "**/*.less", "**/*.styl"]
+              }
             ]
           }
         },
