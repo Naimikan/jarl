@@ -23,6 +23,7 @@ export default withNextra({
   transpilePackages: [
     '@jarl/anchored-element',
     '@jarl/button',
+    '@jarl/checkbox',
     '@jarl/modal',
     '@jarl/react-utils',
     '@jarl/utils',

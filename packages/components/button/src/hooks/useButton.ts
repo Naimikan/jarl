@@ -94,6 +94,7 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
       role: 'button' as const,
     }),
     ...commonButtonProps,
+    'data-disabled': disabled || undefined,
     onKeyDown: keyDownHandler,
     onKeyUp: keyUpHandler,
     onClick: clickHandler,

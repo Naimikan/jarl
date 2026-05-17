@@ -1,13 +1,15 @@
 import { Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import { Layout as NextraLayout } from 'nextra-theme-docs';
-import 'nextra-theme-docs/style.css';
 
 import { Footer } from './_components/footer';
 import { Navbar } from './_components/navbar';
 import { METADATA, REPOSITORY_URL } from './constants';
 
 import type { ReactNode } from 'react';
+
+import 'nextra-theme-docs/style.css';
+import './globals.css';
 
 interface RootLayoutProps {
   children: ReactNode;

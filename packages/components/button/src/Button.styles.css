@@ -42,7 +42,8 @@
   }
 
   &:focus-visible {
-    outline-color: var(--jarl-button-focus-outline-color, #111);
+    outline: var(--jarl-button-focus-outline-width, 2px)
+      var(--jarl-button-focus-outline-style, solid) var(--jarl-button-focus-outline-color, #111);
     outline-offset: var(--jarl-button-focus-outline-offset, 4px);
   }
 }

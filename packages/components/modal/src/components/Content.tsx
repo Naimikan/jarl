@@ -63,7 +63,11 @@ export const Content = ({ className, children }: ContentProps) => {
         `[role="dialog"]:not([id="${contentId}"]), [role="alertdialog"]:not([id="${contentId}"])`,
       );
 
-      if (!existNestedDialog) {
+      const existNestedAnchoredElement = modalPortalRef.current?.querySelector(
+        '[data-anchor-id] > [data-state]',
+      );
+
+      if (!(existNestedDialog || existNestedAnchoredElement)) {
         onCloseRequested();
       }
     }
