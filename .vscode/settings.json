@@ -23,10 +23,9 @@
     "**/coverage": true,
     "**/.next": true
   },
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.format.enable": false,
-  "javascript.format.enable": false,
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "js/ts.format.enabled": false,
   "json.format.enable": false,
   "json.schemas": [],
   "[json]": {

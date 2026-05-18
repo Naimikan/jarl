@@ -1,7 +1,7 @@
 import { type ChangeEvent, useCallback, useId } from 'react';
 
 import { useControlledField, useFocusable } from '@jarl/react-utils';
-import { cx } from '@jarl/utils';
+import { cx, isDefinedAndNotNull } from '@jarl/utils';
 
 import { Checkmark } from './components/Checkmark';
 import { Positions } from './constants';
@@ -42,11 +42,11 @@ export const Checkbox = ({
     value: checked,
     defaultValue: defaultChecked,
     initialitator: () => {
-      if (typeof defaultChecked !== 'undefined' && defaultChecked !== null) {
+      if (isDefinedAndNotNull(defaultChecked)) {
         return defaultChecked;
       }
 
-      if (typeof checked !== 'undefined' && checked !== null) {
+      if (isDefinedAndNotNull(checked)) {
         return checked;
       }
 
@@ -83,7 +83,7 @@ export const Checkbox = ({
         type="checkbox"
         {...focusableProps}
       />
-      {typeof CustomComponent !== 'undefined' && CustomComponent !== null ? (
+      {isDefinedAndNotNull(CustomComponent) ? (
         <CustomComponent
           checkboxId={checkboxId}
           checked={fieldValue}

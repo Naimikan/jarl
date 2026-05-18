@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 
-import { getScrollableContainersByElement } from '@jarl/utils';
+import { getScrollableContainersByElement, isNull } from '@jarl/utils';
 
 import { ANIMATION_STATES, TRIGGER_EVENTS } from '../constants';
 import { getPosition } from '../helpers/get-position';
@@ -62,9 +62,9 @@ export const useContentListeners = () => {
       if (shouldHide) {
         if (
           triggerEvents.includes(TRIGGER_EVENTS.MANUAL) ||
-          top === null ||
-          left === null ||
-          width === null
+          isNull(top) ||
+          isNull(left) ||
+          isNull(width)
         ) {
           context.anchoredElement.style.visibility = 'hidden';
           context.anchoredElement.style.top = '0';

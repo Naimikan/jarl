@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { isDefined, isNull } from '@jarl/utils';
+
 export interface UseInertParams {
   isOpened: boolean;
   modalElement: HTMLElement | null;
@@ -26,8 +28,8 @@ export const useInert = ({ isOpened, modalElement }: UseInertParams) => {
         if (!element.contains(modalElement)) {
           const originalInert = originalInertStates.get(element);
 
-          if (originalInert !== undefined) {
-            if (originalInert === null) {
+          if (isDefined(originalInert)) {
+            if (isNull(originalInert)) {
               element.removeAttribute('inert');
             } else {
               element.setAttribute('inert', originalInert);

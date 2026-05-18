@@ -264,6 +264,9 @@ importers:
       '@jarl/react-utils':
         specifier: workspace:*
         version: link:../../react-utils
+      '@jarl/utils':
+        specifier: workspace:*
+        version: link:../../utils
     devDependencies:
       '@jarl/typescript-config':
         specifier: workspace:*
