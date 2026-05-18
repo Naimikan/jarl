@@ -1,6 +1,7 @@
 import { createContext, useCallback, useEffect, useId, useMemo, useState } from 'react';
 
 import { useDisableBackgroundScroll, useLatest } from '@jarl/react-utils';
+import { isDefined } from '@jarl/utils';
 
 import { Backdrop } from './components/Backdrop';
 import { Body } from './components/Body';
@@ -67,7 +68,7 @@ export const Modal = ({
   }, []);
 
   useDisableBackgroundScroll({
-    rootElement: typeof document !== 'undefined' ? document.body : null,
+    rootElement: isDefined(document) ? document.body : null,
     recursive: true,
     disabled: animationState === ANIMATION_STATES.CLOSED,
   });

@@ -1,5 +1,7 @@
 import { createContext } from 'react';
 
+import { isDefined } from '@jarl/utils';
+
 export const PortalContext = createContext<HTMLElement | null>(
-  typeof document !== 'undefined' ? document.body : null,
+  isDefined(document) ? document.body : null,
 );

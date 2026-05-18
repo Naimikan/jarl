@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 
+import { isDefinedAndNotNull } from '@jarl/utils';
+
 export interface IsControlledStateParams<T> {
   defaultValue: T;
   value: T;
@@ -10,9 +12,8 @@ export type UseControlledFieldParams<T> = IsControlledStateParams<T> & {
 };
 
 export const isControlledState = <T>({ value, defaultValue }: IsControlledStateParams<T>) => {
-  const isValueDefinedAndNotNull = typeof value !== 'undefined' && value !== null;
-  const isDefaultValueDefinedAndNotNull =
-    typeof defaultValue !== 'undefined' && defaultValue !== null;
+  const isValueDefinedAndNotNull = isDefinedAndNotNull(value);
+  const isDefaultValueDefinedAndNotNull = isDefinedAndNotNull(defaultValue);
 
   if (isValueDefinedAndNotNull && isDefaultValueDefinedAndNotNull) {
     console.error(`Warning: This component contains an input with both value and defaultValue props.
@@ -35,11 +36,11 @@ export const useControlledField = <T>({
     setFieldValue((prevState) => {
       let newFieldValue = prevState;
 
-      if (typeof defaultValue !== 'undefined' && defaultValue !== null) {
+      if (isDefinedAndNotNull(defaultValue)) {
         newFieldValue = defaultValue;
       }
 
-      if (typeof value !== 'undefined' && value !== null) {
+      if (isDefinedAndNotNull(value)) {
         newFieldValue = value;
       }
 

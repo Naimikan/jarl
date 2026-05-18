@@ -1,3 +1,5 @@
+import { isDefinedAndNotNull } from '@jarl/utils';
+
 import { getEventName } from './getEventName';
 import { isEventHandler } from './isEventHandler';
 
@@ -7,7 +9,7 @@ export const createElementWithProps = (props: NoReservedPortalProps): HTMLElemen
   const element = document.createElement('div');
 
   Object.entries(props).forEach(([propName, value]) => {
-    if (value !== undefined) {
+    if (isDefinedAndNotNull(value)) {
       if (isEventHandler(propName) && typeof value === 'function') {
         const eventName = getEventName(propName);
         element.addEventListener(eventName, value as EventListener);

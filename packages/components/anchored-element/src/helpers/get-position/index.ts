@@ -1,4 +1,4 @@
-import { isElementVisibleInContainer } from '@jarl/utils';
+import { isElementVisibleInContainer, isNull } from '@jarl/utils';
 
 import { POSITIONS } from '../../constants';
 import { getBottomLeftPosition } from './bottom-positions/getBottomLeftPosition';
@@ -344,7 +344,7 @@ export const getPosition = ({
     })
   ) {
     newPosition.shouldHide = true;
-  } else if (newPosition.top === null || newPosition.left === null || !isInsideViewportOrBoundary) {
+  } else if (isNull(newPosition.top) || isNull(newPosition.left) || !isInsideViewportOrBoundary) {
     let allowedPositionsToCheck = allowedPositions;
 
     if (!avoidPositionRecalculation) {

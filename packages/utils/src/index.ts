@@ -1,3 +1,6 @@
+export * from './assert/isDefined';
+export * from './assert/isDefinedAndNotNull';
+export * from './assert/isNull';
 export * from './css/cx';
 export * from './dom/getClosestScrollableElement';
 export * from './dom/getFocusableElements';
