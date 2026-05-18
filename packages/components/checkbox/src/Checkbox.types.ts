@@ -1,8 +1,8 @@
 import type { ChangeEvent, ComponentType, ReactNode } from 'react';
 
-import type { POSITIONS } from './constants';
+import type { Positions } from './constants';
 
-export type Position = (typeof POSITIONS)[keyof typeof POSITIONS];
+export type Position = (typeof Positions)[keyof typeof Positions];
 
 interface OnChangeParams {
   checked: CheckboxProps['checked'];

@@ -72,7 +72,7 @@ export const Positions: Story = {
     position: 'right',
   },
   argTypes: {
-    position: { control: 'select', options: Object.values(Checkbox.POSITIONS) },
+    position: { control: 'select', options: Object.values(Checkbox.Positions) },
   },
 };
 
