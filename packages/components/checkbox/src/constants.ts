@@ -1,6 +1,6 @@
-export const POSITIONS = {
-  TOP: 'top',
-  BOTTOM: 'bottom',
-  LEFT: 'left',
-  RIGHT: 'right',
+export const Positions = {
+  top: 'top',
+  bottom: 'bottom',
+  left: 'left',
+  right: 'right',
 } as const;

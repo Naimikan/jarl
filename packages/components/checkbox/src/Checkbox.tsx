@@ -4,7 +4,7 @@ import { useControlledField, useFocusable } from '@jarl/react-utils';
 import { cx } from '@jarl/utils';
 
 import { Checkmark } from './components/Checkmark';
-import { POSITIONS } from './constants';
+import { Positions } from './constants';
 
 import './Checkbox.styles.css';
 
@@ -23,7 +23,7 @@ export const Checkbox = ({
     focusable,
     invalid,
     name,
-    position = 'right',
+    position = Positions.right,
     indeterminate = false,
     onChange,
   } = props;
@@ -113,6 +113,6 @@ export const Checkbox = ({
 
 Checkbox.displayName = 'Jarl.Checkbox';
 
-Checkbox.POSITIONS = POSITIONS;
+Checkbox.Positions = Positions;
 
 Checkbox.Checkmark = Checkmark;
