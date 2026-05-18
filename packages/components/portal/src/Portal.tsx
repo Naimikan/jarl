@@ -1,8 +1,6 @@
 import { useEffect, useImperativeHandle, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import { isDefined } from '@jarl/utils';
-
 import { createElementWithProps } from './helpers/createElementWithProps';
 import { useParentElement } from './hooks/useParentElement';
 import { useSyncElementProps } from './hooks/useSyncElementProps';
@@ -14,7 +12,7 @@ export const Portal = ({ appendTo, children, ref, ...props }: PortalProps) => {
   const parentElementInContext = useParentElement(appendTo);
   const portalElementRef = useRef<HTMLElement | null>(null);
 
-  if (isDefined(document) && !portalElementRef.current) {
+  if (typeof document !== 'undefined' && !portalElementRef.current) {
     portalElementRef.current = createElementWithProps(props);
   }
 
