@@ -1,3 +1,4 @@
+export * from './helpers/extractElementFromRef';
 export * from './hooks/useClickOutside';
 export * from './hooks/useControlledField';
 export * from './hooks/useDisableBackgroundScroll';

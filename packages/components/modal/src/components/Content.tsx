@@ -1,10 +1,10 @@
-import { type ReactNode, useCallback, useRef } from 'react';
+import { type ReactNode, useCallback, useMemo, useRef } from 'react';
 
 import { Portal } from '@jarl/portal';
-import { useClickOutside, useEscape } from '@jarl/react-utils';
-import { cx } from '@jarl/utils';
+import { useClickOutside, useEscape, useFocusTrap } from '@jarl/react-utils';
+import { cx, getFocusableElements } from '@jarl/utils';
 
-import { ANIMATION_STATES } from '../constants';
+import { AnimationStates } from '../constants';
 import { useInert } from '../hooks/useInert';
 import { useModalContext } from '../hooks/useModalContext';
 
@@ -29,6 +29,7 @@ export const Content = ({ className, children }: ContentProps) => {
     avoidCloseOnClickOutside,
     avoidCloseOnEscape,
     id,
+    initialFocusRef,
     className: classNameProp,
     setAnimationState,
     onOpened,
@@ -41,24 +42,36 @@ export const Content = ({ className, children }: ContentProps) => {
   const modalPortalRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const openStatesRef = useRef([ANIMATION_STATES.OPENED, ANIMATION_STATES.OPENING] as Partial<
+  const restoreToTriggerFocusRef = useRef<HTMLElement | null>(null);
+
+  const openStatesRef = useRef([AnimationStates.opened, AnimationStates.opening] as Partial<
     AnimationState[]
   >);
 
+  const isOpened = useMemo(() => openStatesRef.current.includes(animationState), [animationState]);
+
   const onAnimationEnd = useCallback(() => {
-    if (animationState === ANIMATION_STATES.OPENING) {
-      setAnimationState(ANIMATION_STATES.OPENED);
+    if (animationState === AnimationStates.opening) {
+      restoreToTriggerFocusRef.current = document.activeElement as HTMLElement;
+
+      if (getFocusableElements(modalPortalRef.current).length === 0) {
+        modalRef.current?.focus();
+      }
+
+      setAnimationState(AnimationStates.opened);
 
       onOpened?.();
-    } else if (animationState === ANIMATION_STATES.CLOSING) {
-      setAnimationState(ANIMATION_STATES.CLOSED);
+    } else if (animationState === AnimationStates.closing) {
+      setAnimationState(AnimationStates.closed);
+
+      restoreToTriggerFocusRef.current?.focus();
 
       onClosed?.();
     }
   }, [animationState, onClosed, onOpened, setAnimationState]);
 
   const closeCallback = useCallback(() => {
-    if (openStatesRef.current.includes(animationState)) {
+    if (isOpened) {
       const existNestedDialog = modalRef.current?.querySelector(
         `[role="dialog"]:not([id="${contentId}"]), [role="alertdialog"]:not([id="${contentId}"])`,
       );
@@ -71,7 +84,7 @@ export const Content = ({ className, children }: ContentProps) => {
         onCloseRequested();
       }
     }
-  }, [animationState, contentId, onCloseRequested]);
+  }, [contentId, isOpened, onCloseRequested]);
 
   const onEscape = useCallback(
     (event: KeyboardEvent) => {
@@ -98,14 +111,19 @@ export const Content = ({ className, children }: ContentProps) => {
   useClickOutside({
     callback: onClickOutside,
     disabled: avoidCloseOnClickOutside,
-    rootElement: contentId, // ToDo: use ref instead id
+    rootElement: modalRef.current,
   });
 
   useEscape({ callback: onEscape, disabled: avoidCloseOnEscape });
 
   useInert({
-    isOpened: openStatesRef.current.includes(animationState),
+    isOpened,
     modalElement: modalPortalRef.current,
+  });
+
+  useFocusTrap({
+    initialFocusedElement: initialFocusRef,
+    rootElement: modalPortalRef,
   });
 
   return (
@@ -127,6 +145,7 @@ export const Content = ({ className, children }: ContentProps) => {
         id={contentId}
         ref={modalRef}
         role={role}
+        tabIndex={-1}
       >
         {children}
       </div>

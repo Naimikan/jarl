@@ -40,13 +40,34 @@ export const Default: Story = {
             </Modal.Header>
             <Modal.Body>
               <p>Modal content</p>
-              <AnchoredElement content="Inside modal" triggerEvents="click">
-                <Button>Click me</Button>
-              </AnchoredElement>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={() => setIsOpened(false)}>Close</Button>
             </Modal.Footer>
+          </Modal.Content>
+        </Modal>
+      </>
+    );
+  },
+};
+
+export const NoFocusableContent: Story = {
+  render: () => {
+    const [isOpened, setIsOpened] = useState(false);
+
+    return (
+      <>
+        <Button onClick={() => setIsOpened(true)}>Open modal</Button>
+
+        <Modal onCloseRequested={() => setIsOpened(false)} opened={isOpened}>
+          <Modal.Backdrop />
+          <Modal.Content>
+            <Modal.Header>
+              <Modal.Title>Modal Title</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Modal content</p>
+            </Modal.Body>
           </Modal.Content>
         </Modal>
       </>
@@ -487,12 +508,12 @@ export const Role: Story = {
 
 export const Positions: Story = {
   args: {
-    align: Modal.POSITIONS.CENTER,
-    justify: Modal.POSITIONS.CENTER,
+    align: Modal.Positions.center,
+    justify: Modal.Positions.center,
   },
   argTypes: {
-    align: { control: 'select', options: Object.values(Modal.POSITIONS) },
-    justify: { control: 'select', options: Object.values(Modal.POSITIONS) },
+    align: { control: 'select', options: Object.values(Modal.Positions) },
+    justify: { control: 'select', options: Object.values(Modal.Positions) },
   },
   render: (args) => {
     const [isOpened, setIsOpened] = useState(false);

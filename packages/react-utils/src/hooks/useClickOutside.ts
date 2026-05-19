@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { type RefObject, useEffect } from 'react';
 
+import { extractElementFromRef } from '../helpers/extractElementFromRef';
 import { useLatest } from './useLatest';
 
 export interface UseClickOutsideParams {
   callback: (event: MouseEvent | TouchEvent) => void;
   disabled?: boolean;
-  rootElement: string | HTMLElement | null;
+  rootElement: RefObject<HTMLElement | null> | HTMLElement | null;
 }
 
 export const useClickOutside = ({ callback, disabled, rootElement }: UseClickOutsideParams) => {
@@ -16,10 +17,7 @@ export const useClickOutside = ({ callback, disabled, rootElement }: UseClickOut
       return;
     }
 
-    const finalRootElement =
-      rootElement && typeof rootElement === 'string'
-        ? document.getElementById(rootElement)
-        : (rootElement as HTMLElement | null);
+    const finalRootElement = extractElementFromRef(rootElement);
 
     const clickOutsideHandler = (event: MouseEvent | TouchEvent) => {
       if (

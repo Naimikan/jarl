@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
+import { type RefObject, useEffect } from 'react';
 
 import { getFocusableElements } from '@jarl/utils';
 
+import { extractElementFromRef } from '../helpers/extractElementFromRef';
 import { useLatest } from './useLatest';
 
 export interface UseFocusTrapParams {
   disabled?: boolean;
   focusOnMount?: boolean;
-  initialFocusedElement?: string | HTMLElement | null;
-  rootElement: string | HTMLElement | null;
+  initialFocusedElement?: RefObject<HTMLElement | null> | HTMLElement | null;
+  rootElement: RefObject<HTMLElement | null> | HTMLElement | null;
 }
 
 const isTabKeyPressed = (event: KeyboardEvent) => event.key === 'Tab' || event.code === 'Tab';
-
 export const useFocusTrap = ({
-  focusOnMount,
+  focusOnMount = true,
   initialFocusedElement,
   disabled,
   rootElement,
@@ -27,10 +27,7 @@ export const useFocusTrap = ({
       return;
     }
 
-    const finalRootElement =
-      rootElement && typeof rootElement === 'string'
-        ? document.getElementById(rootElement)
-        : (rootElement as HTMLElement | null);
+    const finalRootElement = extractElementFromRef(rootElement);
 
     if (!finalRootElement) {
       return;
@@ -39,12 +36,9 @@ export const useFocusTrap = ({
     const getAllFocusableElements = () => Array.from(getFocusableElements(finalRootElement));
 
     if (focusOnMountRef.current) {
-      const finalInitialFocusedElement =
-        typeof initialFocusedElementRef.current === 'string'
-          ? document.getElementById(initialFocusedElementRef.current)
-          : (initialFocusedElementRef.current as HTMLElement | null);
+      const initialElementToFocus = extractElementFromRef(initialFocusedElementRef.current);
 
-      (finalInitialFocusedElement ?? getAllFocusableElements()[0])?.focus();
+      (initialElementToFocus ?? getAllFocusableElements()[0])?.focus();
     }
 
     const onTab = (event: KeyboardEvent) => {

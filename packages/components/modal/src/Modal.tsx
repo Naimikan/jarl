@@ -8,7 +8,7 @@ import { Content } from './components/Content';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Title } from './components/Title';
-import { ANIMATION_STATES, POSITIONS } from './constants';
+import { AnimationStates, Positions } from './constants';
 import { getClosestOpenedDialog } from './helpers/getClosestOpenedDialog';
 
 import type { AppendTo } from '@jarl/portal';
@@ -29,8 +29,9 @@ export const Modal = ({
   onOpened,
   onCloseRequested,
   opened,
-  align = 'center',
-  justify = 'center',
+  initialFocusRef,
+  align = Positions.center,
+  justify = Positions.center,
   role = 'dialog',
 }: ModalProps) => {
   const modalId = useId();
@@ -45,7 +46,7 @@ export const Modal = ({
   const onClickOutsideRef = useLatest(onClickOutsideProp);
 
   const [animationState, setAnimationState] = useState<AnimationState>(
-    opened ? ANIMATION_STATES.OPENING : ANIMATION_STATES.CLOSED,
+    opened ? AnimationStates.opening : AnimationStates.closed,
   );
 
   const [stateAppendTo, setStateAppendTo] = useState<AppendTo | undefined>(appendTo);
@@ -59,25 +60,25 @@ export const Modal = ({
       isBodyElement ? prevAppendTo : closestOpenedDialog || prevAppendTo,
     );
 
-    setAnimationState(ANIMATION_STATES.OPENING);
+    setAnimationState(AnimationStates.opening);
   }, []);
 
   const startCloseAnimation = useCallback(() => {
-    setAnimationState(ANIMATION_STATES.CLOSING);
+    setAnimationState(AnimationStates.closing);
   }, []);
 
   useDisableBackgroundScroll({
     rootElement: typeof document !== 'undefined' ? document.body : null,
     recursive: true,
-    disabled: animationState === ANIMATION_STATES.CLOSED,
+    disabled: animationState === AnimationStates.closed,
   });
 
   useEffect(() => {
-    const openStates = [ANIMATION_STATES.OPENED, ANIMATION_STATES.OPENING] as Partial<
+    const openStates = [AnimationStates.opened, AnimationStates.opening] as Partial<
       AnimationState[]
     >;
 
-    const closeStates = [ANIMATION_STATES.CLOSED, ANIMATION_STATES.CLOSING] as Partial<
+    const closeStates = [AnimationStates.closed, AnimationStates.closing] as Partial<
       AnimationState[]
     >;
 
@@ -102,6 +103,7 @@ export const Modal = ({
       align,
       justify,
       animationState,
+      initialFocusRef,
       setAnimationState,
       onOpened: onOpenedRef.current,
       onClosed: onClosedRef.current,
@@ -126,7 +128,7 @@ export const Modal = ({
   );
 
   return (
-    animationState !== ANIMATION_STATES.CLOSED && (
+    animationState !== AnimationStates.closed && (
       <ModalContext.Provider value={contextValue}>{children}</ModalContext.Provider>
     )
   );
@@ -134,7 +136,7 @@ export const Modal = ({
 
 Modal.displayName = 'Jarl.Modal';
 
-Modal.POSITIONS = POSITIONS;
+Modal.Positions = Positions;
 
 Modal.Backdrop = Backdrop;
 Modal.Content = Content;
