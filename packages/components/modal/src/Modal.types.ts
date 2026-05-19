@@ -26,6 +26,7 @@ export interface ModalProps {
   avoidCloseOnEscape?: boolean;
   children: ReactNode;
   className?: string;
+  initialFocusRef?: React.RefObject<HTMLElement | null>;
   justify?: Position;
   onClickOutside?: (params?: CustomOnClickOutsidePropParams) => void;
   onClosed?: () => void;
@@ -45,6 +46,7 @@ type ModalPropsToContext = Pick<
   | 'onOpened'
   | 'onClickOutside'
   | 'onEscape'
+  | 'initialFocusRef'
 >;
 
 export type ModalContextType = ModalPropsToContext & {

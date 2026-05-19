@@ -70,5 +70,11 @@
     border-style: var(--jarl-modal-content-border-style, solid);
     border-width: var(--jarl-modal-content-border-width, 1px);
     border-radius: var(--jarl-modal-content-border-radius, 8px);
+
+    &:focus-visible {
+      outline: var(--jarl-modal-focus-outline-width, 2px)
+        var(--jarl-modal-focus-outline-style, solid) var(--jarl-modal-focus-outline-color, #111);
+      outline-offset: var(--jarl-modal-focus-outline-offset, -4px);
+    }
   }
 }

@@ -1,20 +1,24 @@
-import { useEffect } from 'react';
+import { type RefObject, useEffect } from 'react';
+
+import { extractElementFromRef } from '../helpers/extractElementFromRef';
 
 export type UseMutationObserverParams = {
-  element: HTMLElement | null;
+  element: RefObject<HTMLElement | null> | HTMLElement | null;
   callback: MutationCallback;
   options?: MutationObserverInit;
 };
 
 export const useMutationObserver = ({ element, callback, options }: UseMutationObserverParams) => {
   useEffect(() => {
-    if (!element) {
+    const elementToUse = extractElementFromRef(element);
+
+    if (!elementToUse) {
       return;
     }
 
     const observer = new MutationObserver(callback);
 
-    observer.observe(element, options);
+    observer.observe(elementToUse, options);
 
     return () => {
       observer.disconnect();

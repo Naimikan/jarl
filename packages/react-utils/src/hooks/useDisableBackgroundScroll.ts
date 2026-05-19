@@ -1,11 +1,13 @@
-import { useLayoutEffect } from 'react';
+import { type RefObject, useLayoutEffect } from 'react';
 
 import { getScrollableContainersByElement } from '@jarl/utils';
+
+import { extractElementFromRef } from '../helpers/extractElementFromRef';
 
 export interface UseDisableBackgroundScrollParams {
   disabled?: boolean;
   recursive?: boolean;
-  rootElement: string | HTMLElement | null;
+  rootElement: RefObject<HTMLElement | null> | HTMLElement | null;
 }
 
 export const useDisableBackgroundScroll = ({
@@ -14,10 +16,7 @@ export const useDisableBackgroundScroll = ({
   recursive = false,
 }: UseDisableBackgroundScrollParams) => {
   useLayoutEffect(() => {
-    const finalRootElement =
-      rootElement && typeof rootElement === 'string'
-        ? document.getElementById(rootElement)
-        : (rootElement as HTMLElement | null);
+    const finalRootElement = extractElementFromRef(rootElement);
 
     let initialOverflow: string;
     let initialOverflowHorizontal: string;
