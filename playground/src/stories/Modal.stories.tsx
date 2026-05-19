@@ -508,12 +508,12 @@ export const Role: Story = {
 
 export const Positions: Story = {
   args: {
-    align: Modal.POSITIONS.CENTER,
-    justify: Modal.POSITIONS.CENTER,
+    align: Modal.Positions.center,
+    justify: Modal.Positions.center,
   },
   argTypes: {
-    align: { control: 'select', options: Object.values(Modal.POSITIONS) },
-    justify: { control: 'select', options: Object.values(Modal.POSITIONS) },
+    align: { control: 'select', options: Object.values(Modal.Positions) },
+    justify: { control: 'select', options: Object.values(Modal.Positions) },
   },
   render: (args) => {
     const [isOpened, setIsOpened] = useState(false);

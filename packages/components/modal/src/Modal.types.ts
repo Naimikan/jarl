@@ -2,10 +2,10 @@ import type { ReactNode } from 'react';
 
 import type { AppendTo } from '@jarl/portal';
 
-import type { ANIMATION_STATES, POSITIONS } from './constants';
+import type { AnimationStates, Positions } from './constants';
 
-export type AnimationState = (typeof ANIMATION_STATES)[keyof typeof ANIMATION_STATES];
-export type Position = (typeof POSITIONS)[keyof typeof POSITIONS];
+export type AnimationState = (typeof AnimationStates)[keyof typeof AnimationStates];
+export type Position = (typeof Positions)[keyof typeof Positions];
 
 export type DialogRole = 'dialog' | 'alertdialog';
 
@@ -26,7 +26,7 @@ export interface ModalProps {
   avoidCloseOnEscape?: boolean;
   children: ReactNode;
   className?: string;
-  initialFocusRef?: React.RefObject<HTMLElement | null>;
+  initialFocusRef?: React.RefObject<HTMLElement | null> | HTMLElement | null;
   justify?: Position;
   onClickOutside?: (params?: CustomOnClickOutsidePropParams) => void;
   onClosed?: () => void;

@@ -4,7 +4,7 @@ import { Portal } from '@jarl/portal';
 import { useClickOutside, useEscape, useFocusTrap } from '@jarl/react-utils';
 import { cx, getFocusableElements } from '@jarl/utils';
 
-import { ANIMATION_STATES } from '../constants';
+import { AnimationStates } from '../constants';
 import { useInert } from '../hooks/useInert';
 import { useModalContext } from '../hooks/useModalContext';
 
@@ -44,25 +44,25 @@ export const Content = ({ className, children }: ContentProps) => {
 
   const restoreToTriggerFocusRef = useRef<HTMLElement | null>(null);
 
-  const openStatesRef = useRef([ANIMATION_STATES.OPENED, ANIMATION_STATES.OPENING] as Partial<
+  const openStatesRef = useRef([AnimationStates.opened, AnimationStates.opening] as Partial<
     AnimationState[]
   >);
 
   const isOpened = useMemo(() => openStatesRef.current.includes(animationState), [animationState]);
 
   const onAnimationEnd = useCallback(() => {
-    if (animationState === ANIMATION_STATES.OPENING) {
+    if (animationState === AnimationStates.opening) {
       restoreToTriggerFocusRef.current = document.activeElement as HTMLElement;
 
       if (getFocusableElements(modalPortalRef.current).length === 0) {
         modalRef.current?.focus();
       }
 
-      setAnimationState(ANIMATION_STATES.OPENED);
+      setAnimationState(AnimationStates.opened);
 
       onOpened?.();
-    } else if (animationState === ANIMATION_STATES.CLOSING) {
-      setAnimationState(ANIMATION_STATES.CLOSED);
+    } else if (animationState === AnimationStates.closing) {
+      setAnimationState(AnimationStates.closed);
 
       restoreToTriggerFocusRef.current?.focus();
 
