@@ -13,6 +13,7 @@ export interface UseFocusTrapParams {
 }
 
 const isTabKeyPressed = (event: KeyboardEvent) => event.key === 'Tab' || event.code === 'Tab';
+
 export const useFocusTrap = ({
   focusOnMount = true,
   initialFocusedElement,
@@ -33,7 +34,12 @@ export const useFocusTrap = ({
       return;
     }
 
-    const getAllFocusableElements = () => Array.from(getFocusableElements(finalRootElement));
+    finalRootElement.setAttribute('data-focus-trap', 'true');
+
+    const getAllFocusableElements = () =>
+      Array.from(getFocusableElements(finalRootElement)).filter(
+        (element) => element.closest('[data-focus-trap]') === finalRootElement,
+      );
 
     if (focusOnMountRef.current) {
       const initialElementToFocus = extractElementFromRef(initialFocusedElementRef.current);
@@ -52,6 +58,10 @@ export const useFocusTrap = ({
         focusableElement.isSameNode(document.activeElement),
       );
 
+      if (currentIndex === -1) {
+        return;
+      }
+
       currentIndex += event.shiftKey ? -1 : 1;
 
       if (currentIndex < 0) {
@@ -68,6 +78,7 @@ export const useFocusTrap = ({
 
     return () => {
       finalRootElement.removeEventListener('keydown', onTab);
+      finalRootElement.removeAttribute('data-focus-trap');
     };
   }, [disabled, rootElement]);
 };
