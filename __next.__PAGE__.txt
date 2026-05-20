@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
 2:I[6423,[],"OutletBoundary"]
 3:"$Sreact.suspense"
-0:{"buildId":"tgs4sTSI4lvIedRsMzNMN","rsc":["$","$1","c",{"children":[["$","div",null,{"style":{"height":"calc(100dvh - 64px - 43px - 44px)","display":"flex","padding":"48px","alignItems":"center","justifyContent":"center"},"children":["$","h1",null,{"style":{"fontSize":"48px"},"children":["Develop web applications faster with ",["$","span",null,{"style":{"color":"aquamarine"},"children":"Jarl"}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"2Kf7le0w5bITWG_U2yhIT","rsc":["$","$1","c",{"children":[["$","div",null,{"style":{"height":"calc(100dvh - 64px - 43px - 44px)","display":"flex","padding":"48px","alignItems":"center","justifyContent":"center"},"children":["$","h1",null,{"style":{"fontSize":"48px"},"children":["Develop web applications faster with ",["$","span",null,{"style":{"color":"aquamarine"},"children":"Jarl"}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
 4:null
