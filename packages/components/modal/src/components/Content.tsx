@@ -30,6 +30,7 @@ export const Content = ({ className, children }: ContentProps) => {
     avoidCloseOnEscape,
     id,
     initialFocusRef,
+    restoreToTriggerFocusRef,
     className: classNameProp,
     setAnimationState,
     onOpened,
@@ -42,8 +43,6 @@ export const Content = ({ className, children }: ContentProps) => {
   const modalPortalRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const restoreToTriggerFocusRef = useRef<HTMLElement | null>(null);
-
   const openStatesRef = useRef([AnimationStates.opened, AnimationStates.opening] as Partial<
     AnimationState[]
   >);
@@ -52,8 +51,6 @@ export const Content = ({ className, children }: ContentProps) => {
 
   const onAnimationEnd = useCallback(() => {
     if (animationState === AnimationStates.opening) {
-      restoreToTriggerFocusRef.current = document.activeElement as HTMLElement;
-
       if (getFocusableElements(modalPortalRef.current).length === 0) {
         modalRef.current?.focus();
       }
@@ -62,9 +59,9 @@ export const Content = ({ className, children }: ContentProps) => {
 
       onOpened?.();
     } else if (animationState === AnimationStates.closing) {
-      setAnimationState(AnimationStates.closed);
-
       restoreToTriggerFocusRef.current?.focus();
+
+      setAnimationState(AnimationStates.closed);
 
       onClosed?.();
     }

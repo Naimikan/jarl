@@ -1,6 +1,6 @@
-import { createContext, useCallback, useEffect, useId, useMemo, useState } from 'react';
+import { createContext, useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 
-import { useDisableBackgroundScroll, useLatest } from '@jarl/react-utils';
+import { extractElementFromRef, useDisableBackgroundScroll, useLatest } from '@jarl/react-utils';
 
 import { Backdrop } from './components/Backdrop';
 import { Body } from './components/Body';
@@ -30,6 +30,7 @@ export const Modal = ({
   onCloseRequested,
   opened,
   initialFocusRef,
+  endFocusRef,
   align = Positions.center,
   justify = Positions.center,
   role = 'dialog',
@@ -38,6 +39,8 @@ export const Modal = ({
   const modalBackdropId = `${modalId}:backdrop`;
   const modalTitleId = `${modalId}:title`;
   const modalContentId = `${modalId}:content`;
+
+  const restoreToTriggerFocusRef = useRef<HTMLElement | null>(null);
 
   const onOpenedRef = useLatest(onOpened);
   const onClosedRef = useLatest(onClosed);
@@ -52,6 +55,9 @@ export const Modal = ({
   const [stateAppendTo, setStateAppendTo] = useState<AppendTo | undefined>(appendTo);
 
   const startOpenAnimation = useCallback(() => {
+    const endFocusElement = extractElementFromRef(endFocusRef);
+    restoreToTriggerFocusRef.current = endFocusElement || (document.activeElement as HTMLElement);
+
     const closestOpenedDialog = getClosestOpenedDialog();
 
     const isBodyElement = closestOpenedDialog === document.body;
@@ -61,7 +67,7 @@ export const Modal = ({
     );
 
     setAnimationState(AnimationStates.opening);
-  }, []);
+  }, [endFocusRef]);
 
   const startCloseAnimation = useCallback(() => {
     setAnimationState(AnimationStates.closing);
@@ -104,6 +110,7 @@ export const Modal = ({
       justify,
       animationState,
       initialFocusRef,
+      restoreToTriggerFocusRef,
       setAnimationState,
       onOpened: onOpenedRef.current,
       onClosed: onClosedRef.current,
