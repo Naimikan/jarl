@@ -23,6 +23,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@jarl/button": "workspace:*",
     "@jarl/portal": "workspace:*",
     "@jarl/react-utils": "workspace:*",
     "@jarl/utils": "workspace:*"

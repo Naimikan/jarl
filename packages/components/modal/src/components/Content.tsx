@@ -47,7 +47,7 @@ export const Content = ({ className, children }: ContentProps) => {
     AnimationState[]
   >);
 
-  const isOpened = useMemo(() => openStatesRef.current.includes(animationState), [animationState]);
+  const isOpened = openStatesRef.current.includes(animationState);
 
   const onAnimationEnd = useCallback(() => {
     if (animationState === AnimationStates.opening) {
