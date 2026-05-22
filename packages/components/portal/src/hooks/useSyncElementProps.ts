@@ -57,22 +57,14 @@ export const useSyncElementProps = ({ element, props }: UseSyncElementPropsParam
       const callbackHandlerName = `on${eventName.charAt(0).toUpperCase()}${eventName.slice(1)}`;
 
       if (
-        !Object.keys(props).some((propName) => propName !== callbackHandlerName) &&
+        Object.keys(props).every(
+          (propName) => propName.toLowerCase() !== callbackHandlerName.toLowerCase(),
+        ) &&
         currentListeners[eventName]
       ) {
         element.removeEventListener(eventName, currentListeners[eventName]);
         delete currentListeners[eventName];
       }
-    });
-  });
-
-  useEffect(() => () => {
-    if (!element) {
-      return;
-    }
-
-    Object.entries(listenersRef.current).forEach(([eventName, listener]) => {
-      element.removeEventListener(eventName, listener);
     });
   });
 };

@@ -209,6 +209,9 @@ importers:
 
   packages/components/modal:
     dependencies:
+      '@jarl/button':
+        specifier: workspace:*
+        version: link:../button
       '@jarl/portal':
         specifier: workspace:*
         version: link:../portal

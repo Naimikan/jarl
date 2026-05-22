@@ -51,7 +51,7 @@ export const Default: Story = {
   },
 };
 
-export const NoFocusableContent: Story = {
+export const WithCloseButton: Story = {
   render: () => {
     const [isOpened, setIsOpened] = useState(false);
 
@@ -62,12 +62,16 @@ export const NoFocusableContent: Story = {
         <Modal onCloseRequested={() => setIsOpened(false)} opened={isOpened}>
           <Modal.Backdrop />
           <Modal.Content>
+            <Modal.CloseButton />
             <Modal.Header>
               <Modal.Title>Modal Title</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <p>Modal content</p>
             </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={() => setIsOpened(false)}>Close</Button>
+            </Modal.Footer>
           </Modal.Content>
         </Modal>
       </>
@@ -539,6 +543,30 @@ export const Positions: Story = {
             <Modal.Footer>
               <Button onClick={() => setIsOpened(false)}>Close</Button>
             </Modal.Footer>
+          </Modal.Content>
+        </Modal>
+      </>
+    );
+  },
+};
+
+export const NoFocusableContent: Story = {
+  render: () => {
+    const [isOpened, setIsOpened] = useState(false);
+
+    return (
+      <>
+        <Button onClick={() => setIsOpened(true)}>Open modal</Button>
+
+        <Modal onCloseRequested={() => setIsOpened(false)} opened={isOpened}>
+          <Modal.Backdrop />
+          <Modal.Content>
+            <Modal.Header>
+              <Modal.Title>Modal Title</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Modal content</p>
+            </Modal.Body>
           </Modal.Content>
         </Modal>
       </>
