@@ -4,7 +4,6 @@ import { extractElementFromRef, useDisableBackgroundScroll, useLatest } from '@j
 
 import { Backdrop } from './components/Backdrop';
 import { Body } from './components/Body';
-import { CloseButton } from './components/CloseButton';
 import { Content } from './components/Content';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
@@ -148,7 +147,6 @@ Modal.Positions = Positions;
 
 Modal.Backdrop = Backdrop;
 Modal.Content = Content;
-Modal.CloseButton = CloseButton;
 Modal.Header = Header;
 Modal.Title = Title;
 Modal.Body = Body;
