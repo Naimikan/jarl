@@ -1,5 +1,6 @@
 1:"$Sreact.fragment"
-2:I[6423,[],"OutletBoundary"]
-3:"$Sreact.suspense"
-0:{"buildId":"0XxGo5I_Wu0KCrM428l-4","rsc":["$","$1","c",{"children":[["$","div",null,{"style":{"height":"calc(100dvh - 64px - 43px - 44px)","display":"flex","padding":"48px","alignItems":"center","justifyContent":"center"},"children":["$","h1",null,{"style":{"fontSize":"48px"},"children":["Develop web applications faster with ",["$","span",null,{"style":{"color":"aquamarine"},"children":"Jarl"}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
-4:null
+2:I[4707,["974","static/chunks/app/page-694587ce415926de.js"],"Button"]
+3:I[6423,[],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"yjAUcPi4ZvlU-0tXV1x_f","rsc":["$","$1","c",{"children":[["$","main",null,{"style":{"height":"calc(100dvh - 64px - 43px - 44px)","display":"flex","padding":"48px","width":"100dvw","alignItems":"center","justifyContent":"center","textAlign":"center"},"children":["$","div",null,{"style":{"display":"flex","alignItems":"center","justifyContent":"center","flexDirection":"column","gap":"16px","maxWidth":"1024px"},"children":[["$","h1",null,{"style":{"fontSize":"48px"},"children":["Build faster with ",["$","span",null,{"style":{"color":"var(--jarl-colors-blue-400)"},"children":"Jarl"}]," | dependency-free, headless and accessible React components"]}],["$","div",null,{"children":["$","$L2",null,{"as":"a","href":"/docs/installation","style":{"--jarl-button-py":"12px","--jarl-button-px":"24px"},"children":"Get Started"}]}]]}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
