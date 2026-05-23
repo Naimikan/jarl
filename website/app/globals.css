@@ -1,3 +1,5 @@
+@import url("@jarl/theme/index.css");
+
 html.light .jarl-checkbox,
 html[data-theme="light"] .jarl-checkbox {
   --jarl-checkbox-label-color: #111;
