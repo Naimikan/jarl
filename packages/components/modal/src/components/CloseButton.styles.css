@@ -1,0 +1,19 @@
+.jarl-modal__close-button {
+  --jarl-button-color: var(--jarl-modal-close-button-color, #111);
+  --jarl-button-bg: var(--jarl-modal-close-button-bg, #fff);
+  --jarl-button-py: var(--jarl-modal-close-button-py, 0.375rem);
+  --jarl-button-px: var(--jarl-modal-close-button-px, 0.375rem);
+  --jarl-button-border-color: var(--jarl-modal-close-button-border-color, transparent);
+
+  position: absolute;
+  top: var(--jarl-modal-close-button-top, 12px);
+  right: var(--jarl-modal-close-button-right, 12px);
+  bottom: var(--jarl-modal-close-button-bottom, unset);
+  left: var(--jarl-modal-close-button-left, unset);
+  width: var(--jarl-modal-close-button-size, 24px);
+  height: var(--jarl-modal-close-button-size, 24px);
+
+  .jarl-modal__close-button-icon {
+    width: 100%;
+  }
+}

@@ -12,14 +12,10 @@ export const BasicExample = () => {
     <>
       <Button onClick={() => setIsOpened(true)}>Open modal</Button>
 
-      <Modal
-        onClosed={() => console.log('closed')}
-        onCloseRequested={() => setIsOpened(false)}
-        onOpened={() => console.log('opened')}
-        opened={isOpened}
-      >
+      <Modal onCloseRequested={() => setIsOpened(false)} opened={isOpened}>
         <Modal.Backdrop />
         <Modal.Content>
+          <Modal.CloseButton />
           <Modal.Header>
             <Modal.Title>Modal Title</Modal.Title>
           </Modal.Header>
