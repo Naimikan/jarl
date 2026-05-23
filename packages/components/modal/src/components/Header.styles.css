@@ -2,5 +2,5 @@
   display: flex;
   flex: 0 1 0%;
   padding-block: var(--jarl-modal-header-py, 16px 8px);
-  padding-inline: var(--jarl-modal-header-px, 16px);
+  padding-inline: var(--jarl-modal-header-px, 16px 48px);
 }

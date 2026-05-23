@@ -62,6 +62,7 @@ export const PositionsExample = () => {
       >
         <Modal.Backdrop />
         <Modal.Content>
+          <Modal.CloseButton />
           <Modal.Header>
             <Modal.Title>Modal Title</Modal.Title>
           </Modal.Header>

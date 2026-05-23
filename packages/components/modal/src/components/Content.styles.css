@@ -71,10 +71,6 @@
     border-width: var(--jarl-modal-content-border-width, 1px);
     border-radius: var(--jarl-modal-content-border-radius, 8px);
 
-    &:has(.jarl-modal__close-button) .jarl-modal__header {
-      padding-inline: calc(var(--jarl-modal-header-px, 16px) + 26px);
-    }
-
     &:focus-visible {
       outline: var(--jarl-modal-focus-outline-width, 2px)
         var(--jarl-modal-focus-outline-style, solid) var(--jarl-modal-focus-outline-color, #111);

@@ -19,6 +19,7 @@ export const NestedExample = () => {
       <Modal onCloseRequested={() => setIsOpenedModal1(false)} opened={isOpenedModal1}>
         <Modal.Backdrop />
         <Modal.Content>
+          <Modal.CloseButton />
           <Modal.Header>
             <Modal.Title>Modal 1</Modal.Title>
           </Modal.Header>
@@ -38,6 +39,7 @@ export const NestedExample = () => {
           >
             <Modal.Backdrop />
             <Modal.Content>
+              <Modal.CloseButton />
               <Modal.Header>
                 <Modal.Title>Modal 2</Modal.Title>
               </Modal.Header>
@@ -57,6 +59,7 @@ export const NestedExample = () => {
               >
                 <Modal.Backdrop />
                 <Modal.Content>
+                  <Modal.CloseButton />
                   <Modal.Header>
                     <Modal.Title>Modal 3</Modal.Title>
                   </Modal.Header>
@@ -76,6 +79,7 @@ export const NestedExample = () => {
                   >
                     <Modal.Backdrop />
                     <Modal.Content>
+                      <Modal.CloseButton />
                       <Modal.Header>
                         <Modal.Title>Modal 4</Modal.Title>
                       </Modal.Header>
@@ -95,6 +99,7 @@ export const NestedExample = () => {
                       >
                         <Modal.Backdrop />
                         <Modal.Content>
+                          <Modal.CloseButton />
                           <Modal.Header>
                             <Modal.Title>Modal 5</Modal.Title>
                           </Modal.Header>
