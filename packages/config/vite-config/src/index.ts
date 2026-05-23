@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
@@ -11,6 +11,7 @@ interface ReactLibConfigOptions {
 interface LibConfigOptions {
   entry?: string;
   externalDeps?: string[];
+  plugins?: Plugin[];
 }
 
 export function createReactLibConfig({
@@ -45,6 +46,7 @@ export function createReactLibConfig({
 export function createLibConfig({
   entry = 'src/index.ts',
   externalDeps = [],
+  plugins = [],
 }: LibConfigOptions = {}) {
   return defineConfig({
     plugins: [
@@ -52,6 +54,7 @@ export function createLibConfig({
         include: ['src'],
         exclude: ['src/**/*.{test,spec}.{ts,tsx}'],
       }),
+      ...plugins,
     ],
     build: {
       lib: {

@@ -7,7 +7,6 @@
   padding-inline: var(--jarl-button-px, 0.75rem);
   overflow: hidden;
   vertical-align: middle;
-  color: var(--jarl-button-color, #111);
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
@@ -22,11 +21,13 @@
   isolation: isolate;
 
   &[data-disabled] {
+    color: var(--jarl-button-disabled-color, #111);
     cursor: not-allowed;
     opacity: var(--jarl-button-disabled-opacity, 0.5);
   }
 
   &:not([data-disabled]) {
+    color: var(--jarl-button-color, #111);
     cursor: pointer;
 
     &:hover {

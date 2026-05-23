@@ -384,6 +384,27 @@ importers:
         specifier: 'catalog:'
         version: 4.1.6(@types/node@24.10.12)(happy-dom@20.9.0)(vite@6.4.2(@types/node@24.10.12)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.97.3)(yaml@2.8.2))
 
+  packages/theme:
+    devDependencies:
+      '@jarl/typescript-config':
+        specifier: workspace:*
+        version: link:../config/typescript-config
+      '@jarl/utils':
+        specifier: workspace:*
+        version: link:../utils
+      '@jarl/vite-config':
+        specifier: workspace:*
+        version: link:../config/vite-config
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vite:
+        specifier: 'catalog:'
+        version: 6.4.2(@types/node@24.10.12)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.97.3)(yaml@2.8.2)
+      vite-plugin-dts:
+        specifier: 'catalog:'
+        version: 4.5.4(@types/node@24.10.12)(rollup@4.60.3)(typescript@5.9.3)(vite@6.4.2(@types/node@24.10.12)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.97.3)(yaml@2.8.2))
+
   packages/utils:
     devDependencies:
       '@jarl/typescript-config':
@@ -507,6 +528,9 @@ importers:
       '@jarl/portal':
         specifier: workspace:*
         version: link:../packages/components/portal
+      '@jarl/theme':
+        specifier: workspace:*
+        version: link:../packages/theme
       next:
         specifier: ^16.1.6
         version: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)

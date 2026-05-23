@@ -1,0 +1,39 @@
+{
+  "name": "@jarl/theme",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": [
+    "./dist/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./index.css": "./dist/index.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./light-only.css": "./dist/light-only.css",
+    "./dark-only.css": "./dist/dark-only.css"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "lint": "biome format --write ./src",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@jarl/typescript-config": "workspace:*",
+    "@jarl/vite-config": "workspace:*",
+    "@jarl/utils": "workspace:*",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

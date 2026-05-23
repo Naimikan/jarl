@@ -5,7 +5,7 @@ export default {
   },
   docs: {
     type: 'page',
-    title: 'Documentation',
+    title: 'Docs',
     items: {
       index: '',
       installation: {
