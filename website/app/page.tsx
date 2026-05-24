@@ -22,7 +22,7 @@ const IndexPage = () => (
         maxWidth: '1024px',
       }}
     >
-      <h1 style={{ fontSize: '48px' }}>
+      <h1 style={{ fontSize: 'clamp(1rem, 8vw, 3rem)' }}>
         Build faster with <span style={{ color: 'var(--jarl-colors-blue-400)' }}>Jarl</span> |
         dependency-free, headless and accessible React components
       </h1>
