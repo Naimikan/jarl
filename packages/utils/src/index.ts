@@ -9,3 +9,5 @@ export * from './dom/getOffsetFromParent';
 export * from './dom/getScrollableContainersByElement';
 export * from './dom/getScrollbarWidthByElement';
 export * from './dom/isElementVisibleInContainer';
+
+export type * from './types/types';

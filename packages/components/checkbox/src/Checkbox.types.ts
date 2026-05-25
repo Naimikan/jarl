@@ -1,4 +1,6 @@
-import type { ChangeEvent, ComponentType, ReactNode } from 'react';
+import type { AriaAttributes, ChangeEvent, ComponentType, ReactNode } from 'react';
+
+import type { DataAttributes } from '@jarl/utils';
 
 import type { Positions } from './constants';
 
@@ -21,7 +23,7 @@ export type CheckboxCustomComponentProps = Omit<
   checkmarkId: string;
 };
 
-export interface CheckboxProps {
+export interface CheckboxProps extends AriaAttributes, DataAttributes {
   as?: ComponentType<CheckboxCustomComponentProps>;
   checked?: boolean;
   children: ReactNode;

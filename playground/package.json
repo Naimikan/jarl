@@ -19,6 +19,7 @@
     "@jarl/anchored-element": "workspace:*",
     "@jarl/button": "workspace:*",
     "@jarl/checkbox": "workspace:*",
+    "@jarl/input": "workspace:*",
     "@jarl/modal": "workspace:*",
     "@jarl/portal": "workspace:*",
     "@storybook/react-vite": "^10.2.8",

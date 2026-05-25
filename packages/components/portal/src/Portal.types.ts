@@ -1,11 +1,14 @@
-import type { ComponentPropsWithRef, PropsWithChildren } from 'react';
+import type { AriaAttributes, ComponentPropsWithRef, PropsWithChildren } from 'react';
+
+import type { DataAttributes } from '@jarl/utils';
 
 export type AppendTo = string | (() => HTMLElement) | HTMLElement;
 
-export interface PortalProps extends PropsWithChildren<ComponentPropsWithRef<'div'>> {
+export interface PortalProps
+  extends AriaAttributes,
+    DataAttributes,
+    PropsWithChildren<ComponentPropsWithRef<'div'>> {
   appendTo?: AppendTo;
-  [key: `data-${string}`]: string | undefined;
-  [key: `aria-${string}`]: string | number | boolean | undefined;
 }
 
 export type NoReservedPortalProps = Omit<PortalProps, 'appendTo' | 'ref' | 'children' | 'key'>;
