@@ -1,6 +1,11 @@
 import { type ChangeEvent, useCallback, useId } from 'react';
 
-import { useControlledField, useFocusable } from '@jarl/react-utils';
+import {
+  useAriaAttributes,
+  useControlledField,
+  useDataAttributes,
+  useFocusable,
+} from '@jarl/react-utils';
 import { cx, isDefinedAndNotNull } from '@jarl/utils';
 
 import { Checkmark } from './components/Checkmark';
@@ -27,6 +32,14 @@ export const Checkbox = ({
     indeterminate = false,
     onChange,
   } = props;
+
+  const ariaAttributes = useAriaAttributes(props, [
+    'aria-checked',
+    'aria-invalid',
+    'aria-labelledby',
+    'aria-disabled',
+  ]);
+  const dataAttributes = useDataAttributes(props, ['data-position']);
 
   const checkboxId = useId();
   const checkboxInputId = `${checkboxId}:input`;
@@ -70,7 +83,12 @@ export const Checkbox = ({
   );
 
   return (
-    <label className={cx('jarl-checkbox', className)} data-position={position} id={checkboxId}>
+    <label
+      className={cx('jarl-checkbox', className)}
+      data-position={position}
+      id={checkboxId}
+      {...dataAttributes}
+    >
       <input
         aria-checked={indeterminate && fieldValue ? 'mixed' : undefined}
         aria-invalid={invalid || undefined}
@@ -82,6 +100,7 @@ export const Checkbox = ({
         onChange={changeHandler}
         type="checkbox"
         {...focusableProps}
+        {...ariaAttributes}
       />
       {isDefinedAndNotNull(CustomComponent) ? (
         <CustomComponent
