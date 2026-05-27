@@ -1,5 +1,6 @@
 import {
   type ElementType,
+  type FocusEvent,
   type KeyboardEvent,
   type MouseEvent,
   type TouchEvent,
@@ -28,6 +29,7 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
     onKeyDown: keyDownProp,
     onKeyUp: keyUpProp,
     onClick: onClickProp,
+    onBlur: onBlurProp,
     ...props
   }: Omit<ButtonProps<T>, 'as' | 'className' | 'ref' | 'children'>,
 ) => {
@@ -54,10 +56,6 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         (event.currentTarget as HTMLElement).setAttribute('data-active', '');
-
-        if (event.key === 'Enter') {
-          event.currentTarget.click();
-        }
       }
 
       keyDownProp?.(event);
@@ -74,14 +72,20 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
       if (event.key === 'Enter' || event.key === ' ') {
         (event.currentTarget as HTMLElement).removeAttribute('data-active');
 
-        if (event.key === ' ') {
-          event.currentTarget.click();
-        }
+        event.currentTarget.click();
       }
 
       keyUpProp?.(event);
     },
     [disabled, keyUpProp],
+  );
+
+  const blurHandler = useCallback(
+    (event: FocusEvent<HTMLElement>) => {
+      (event.currentTarget as HTMLElement).removeAttribute('data-active');
+      onBlurProp?.(event);
+    },
+    [onBlurProp],
   );
 
   const commonButtonProps = {
@@ -98,5 +102,6 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
     onKeyDown: keyDownHandler,
     onKeyUp: keyUpHandler,
     onClick: clickHandler,
+    onBlur: blurHandler,
   };
 };

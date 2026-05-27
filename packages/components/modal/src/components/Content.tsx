@@ -142,7 +142,7 @@ export const Content = ({ className, children }: ContentProps) => {
         id={contentId}
         ref={modalRef}
         role={role}
-        tabIndex={-1}
+        tabIndex={getFocusableElements(modalPortalRef.current).length === 0 ? -1 : undefined}
       >
         {children}
       </div>

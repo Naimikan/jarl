@@ -44,7 +44,15 @@ export const useFocusTrap = ({
     if (focusOnMountRef.current) {
       const initialElementToFocus = extractElementFromRef(initialFocusedElementRef.current);
 
-      (initialElementToFocus ?? getAllFocusableElements()[0])?.focus();
+      const [firstFocusableElement] = getAllFocusableElements();
+
+      (initialElementToFocus ?? firstFocusableElement)?.focus();
+
+      if (!(initialElementToFocus || firstFocusableElement)) {
+        const tabGuardElement = finalRootElement.querySelector('[tabindex^="-"]');
+
+        (tabGuardElement as HTMLElement | null)?.focus();
+      }
     }
 
     const onTab = (event: KeyboardEvent) => {
@@ -53,6 +61,11 @@ export const useFocusTrap = ({
       }
 
       const allFocusableElementsByRootElement = getAllFocusableElements();
+
+      if (allFocusableElementsByRootElement.length === 0) {
+        event.preventDefault();
+        return;
+      }
 
       let currentIndex = allFocusableElementsByRootElement.findIndex((focusableElement) =>
         focusableElement.isSameNode(document.activeElement),

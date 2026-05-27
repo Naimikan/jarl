@@ -76,7 +76,6 @@ export const Modal = ({
 
   useDisableBackgroundScroll({
     rootElement: typeof document !== 'undefined' ? document.body : null,
-    recursive: true,
     disabled: animationState === AnimationStates.closed,
   });
 

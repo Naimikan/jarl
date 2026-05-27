@@ -99,16 +99,12 @@ export const NestedExample = () => {
                       >
                         <Modal.Backdrop />
                         <Modal.Content>
-                          <Modal.CloseButton />
                           <Modal.Header>
                             <Modal.Title>Modal 5</Modal.Title>
                           </Modal.Header>
                           <Modal.Body>
                             <p>Modal 5 content</p>
                           </Modal.Body>
-                          <Modal.Footer>
-                            <Button onClick={() => setIsOpenedModal5(false)}>Close</Button>
-                          </Modal.Footer>
                         </Modal.Content>
                       </Modal>
                     </Modal.Content>
