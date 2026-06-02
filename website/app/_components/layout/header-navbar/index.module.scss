@@ -1,0 +1,112 @@
+.headerNavbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  padding: 0 16px;
+  margin: 0 auto;
+  min-height: 60px;
+  width: 100%;
+
+  .logoContainer {
+    margin-inline-end: auto;
+  }
+
+  .anchor {
+    font-size: 14px;
+
+    &:has(.githubIcon) {
+      color: light-dark(var(--jarl-colors-gray-700), var(--jarl-colors-gray-300));
+
+      &:hover,
+      &:active {
+        color: light-dark(var(--jarl-colors-black), var(--jarl-colors-gray-100));
+      }
+    }
+  }
+
+  .githubIcon {
+    fill: currentColor;
+  }
+
+  .themeSwitch {
+    --jarl-button-border-color: transparent;
+    --jarl-button-bg: transparent;
+    --jarl-button-py: 0;
+    --jarl-button-px: 0;
+    --jarl-button-color: var(--jarl-colors-gray-700);
+
+    height: 30px;
+    width: 30px;
+
+    &.loading {
+      &::after {
+        animation: 750ms loading ease-out infinite;
+        background: linear-gradient(90deg, transparent, var(--jarl-colors-gray-100), transparent);
+        inset: 0;
+        content: "";
+        position: absolute;
+        transform: translateX(-100%);
+      }
+    }
+
+    .switchIcon {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .headerNavbar {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .headerNavbar {
+    max-width: 1440px;
+  }
+}
+
+@keyframes loading {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    .themeSwitch {
+      --jarl-button-color: var(--jarl-colors-gray-300);
+      --jarl-button-hover-bg: var(--jarl-colors-gray-900);
+      --jarl-button-hover-color: var(--jarl-colors-gray-200);
+      --jarl-button-active-color: var(--jarl-colors-gray-200);
+      --jarl-button-active-bg: var(--jarl-colors-gray-900);
+      --jarl-button-focus-outline-color: var(--jarl-colors-gray-50);
+    }
+
+    .anchor {
+      &:has(.githubIcon) {
+        color: var(--jarl-colors-gray-300);
+
+        &:hover,
+        &:active {
+          color: var(--jarl-colors-gray-100);
+        }
+      }
+    }
+  }
+}
+
+:root[data-theme="dark"] {
+  .anchor {
+    &:has(.githubIcon) {
+      color: var(--jarl-colors-gray-300);
+
+      &:hover,
+      &:active {
+        color: var(--jarl-colors-gray-100);
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+:root {
+  --jarl-checkbox-label-color: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-100));
+  --jarl-checkbox-label-invalid-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-label-hover-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-label-checked-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-hover-border-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-label-invalid-hover-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-invalid-hover-border-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-label-invalid-checked-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-color: light-dark(
+    var(--jarl-colors-gray-100),
+    var(--jarl-colors-gray-950)
+  );
+  --jarl-checkbox-checkmark-border-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-checked-bg: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-checked-border-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-hover-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-invalid-border-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-invalid-checked-bg: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-invalid-checked-border-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-focus-outline-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+}

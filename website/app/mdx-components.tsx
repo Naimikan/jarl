@@ -1,13 +1,24 @@
-import { useMDXComponents as getThemeComponents } from 'nextra-theme-docs';
+import { useMDXComponents as getNextraComponents } from 'nextra/mdx-components';
 
-import { LiveEditor } from './_components/live-editor/dynamic';
+import { TableOfContents } from './_components/table-of-contents';
 
-const themeComponents = getThemeComponents();
+// import { LiveEditor } from './_components/live-editor/dynamic';
+
+const defaultComponents = getNextraComponents({
+  wrapper({ children, toc }) {
+    return (
+      <>
+        <main style={{ flexGrow: 1, padding: 20 }}>{children}</main>
+        <TableOfContents contents={toc} />
+      </>
+    );
+  },
+});
 
 export function useMDXComponents(components) {
   return {
-    ...themeComponents,
+    ...defaultComponents,
     ...components,
-    customLiveCode: LiveEditor,
+    // customLiveCode: LiveEditor,
   };
 }

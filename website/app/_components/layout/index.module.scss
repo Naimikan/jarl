@@ -1,0 +1,12 @@
+.layout {
+  display: flex;
+  flex: 1;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 1440px) {
+  .layout {
+    max-width: 1440px;
+  }
+}

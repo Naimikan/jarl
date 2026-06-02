@@ -1,14 +1,10 @@
-import { Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
-import { Layout as NextraLayout } from 'nextra-theme-docs';
 
-import { Footer } from './_components/footer';
-import { Navbar } from './_components/navbar';
-import { METADATA, REPOSITORY_URL } from './constants';
+import { Layout } from './_components/layout';
+import { METADATA } from './constants';
 
 import type { ReactNode } from 'react';
 
-import 'nextra-theme-docs/style.css';
 import './globals.css';
 
 interface RootLayoutProps {
@@ -18,16 +14,27 @@ interface RootLayoutProps {
 export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html dir="ltr" lang="en" suppressHydrationWarning>
-      <Head />
+      <head>
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: needed to avoid FOUC
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (theme) {
+                    document.documentElement.setAttribute('data-theme', theme);
+                  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body>
-        <NextraLayout
-          docsRepositoryBase={`${REPOSITORY_URL}/tree/main/website`}
-          footer={<Footer />}
-          navbar={<Navbar />}
-          pageMap={await getPageMap()}
-        >
-          {children}
-        </NextraLayout>
+        <Layout pageMap={await getPageMap()}>{children}</Layout>
       </body>
     </html>
   );

@@ -15,9 +15,7 @@
       "require": "./dist/index.cjs"
     },
     "./index.css": "./dist/index.css",
-    "./tokens.css": "./dist/tokens.css",
-    "./light-only.css": "./dist/light-only.css",
-    "./dark-only.css": "./dist/dark-only.css"
+    "./tokens.css": "./dist/tokens.css"
   },
   "scripts": {
     "build": "vite build",
