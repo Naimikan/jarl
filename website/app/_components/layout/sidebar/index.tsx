@@ -1,59 +1,47 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Anchor } from 'nextra/components';
-import { normalizePages } from 'nextra/normalize-pages';
 
-import type { PageMapItem } from 'nextra';
+import { cx } from '@jarl/utils';
+
+import type { NavigationSection } from '../../../constants';
+
+import './index.styles.css';
 
 export interface SidebarProps {
-  pageMap: PageMapItem[];
+  pageMap: NavigationSection[];
 }
 
 export const Sidebar = ({ pageMap }: SidebarProps) => {
   const pathname = usePathname();
-
-  const { docsDirectories } = normalizePages({
-    list: pageMap,
-    route: pathname,
-  });
+  const pathnameToUse = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 
   return pathname !== '/' ? (
-    <nav
-      style={{
-        background: 'lightgreen',
-        padding: 20,
-      }}
-    >
-      <ul
-        style={{
-          margin: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          listStyleType: 'none',
-          padding: 0,
-          gap: 20,
-        }}
-      >
-        {docsDirectories.map(function renderItem(item) {
-          const route = item.route || ('href' in item ? (item.href as string) : '');
-          const { title } = item;
-          return (
-            <li key={route} style={{ padding: '4px 4px 4px 10px', border: '1px solid' }}>
-              {'children' in item ? (
-                <details>
-                  <summary>{title}</summary>
-                  {item.children.map((child) => renderItem(child))}
-                </details>
-              ) : (
-                <Anchor href={route} style={{ textDecoration: 'none' }}>
-                  {title}
-                </Anchor>
-              )}
+    <nav className="sidebar">
+      <div className="sidebar__content">
+        <ul className="sidebar__sections">
+          {pageMap.map((section) => (
+            <li className="sidebar__item" key={section.label}>
+              <span className="sidebar__item-title">{section.label}</span>
+              <ul className="sidebar__subsections">
+                {section.items.map((item) => (
+                  <li
+                    className={cx('sidebar__subsection-item', {
+                      'sidebar__subsection-item--active': pathnameToUse === item.href,
+                    })}
+                    key={item.href}
+                  >
+                    <Link className="sidebar__subsection-item-link" href={item.href}>
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </li>
-          );
-        })}
-      </ul>
+          ))}
+        </ul>
+      </div>
     </nav>
   ) : null;
 };

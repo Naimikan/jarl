@@ -13,6 +13,7 @@
 
 html {
   background-color: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  scroll-behavior: smooth;
 
   &[data-theme="light"] {
     color-scheme: light;
@@ -28,6 +29,15 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: calc(var(--jarl-header-height) + 24px);
 }
 
 a {
@@ -47,5 +57,29 @@ a {
 
   &:active {
     color: light-dark(var(--jarl-colors-gray-700), var(--jarl-colors-gray-100));
+  }
+}
+
+figure[data-rehype-pretty-code-figure] {
+  margin: 1.5rem 0;
+  overflow: hidden;
+
+  pre {
+    padding-block: 1rem;
+    margin: 0;
+    overflow-x: auto;
+    background-color: light-dark(var(--jarl-colors-gray-50), var(--jarl-colors-gray-900));
+    border: 1px solid light-dark(var(--jarl-colors-gray-200), var(--jarl-colors-gray-500));
+    border-radius: 8px;
+
+    span {
+      font-size: 14px;
+      color: light-dark(var(--shiki-light), var(--shiki-dark));
+
+      &[data-line] {
+        padding-inline: 16px;
+        line-height: 20px;
+      }
+    }
   }
 }

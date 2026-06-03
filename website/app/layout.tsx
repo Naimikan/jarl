@@ -1,7 +1,5 @@
-import { getPageMap } from 'nextra/page-map';
-
 import { Layout } from './_components/layout';
-import { METADATA } from './constants';
+import { METADATA, NAVIGATION } from './constants';
 
 import type { ReactNode } from 'react';
 
@@ -11,10 +9,11 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-export default async function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html dir="ltr" lang="en" suppressHydrationWarning>
       <head>
+        <link href="/jarl-no-barba.png" rel="icon" type="image/x-icon" />
         <script
           // biome-ignore lint/security/noDangerouslySetInnerHtml: needed to avoid FOUC
           dangerouslySetInnerHTML={{
@@ -34,7 +33,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body>
-        <Layout pageMap={await getPageMap()}>{children}</Layout>
+        <Layout pageMap={NAVIGATION}>{children}</Layout>
       </body>
     </html>
   );

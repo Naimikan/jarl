@@ -8,7 +8,7 @@ export interface ColorCardProps {
 
 export const ColorCard = ({ colorName, colorHex }: ColorCardProps) => (
   <div className={styles.container}>
-    <div className={styles.colorContainer} />
+    <div className={styles.colorContainer} style={{ backgroundColor: colorHex }} />
     <div className={styles.colorNameContainer}>
       <span className={styles.colorName}>{colorName}</span>
     </div>

@@ -2,22 +2,17 @@ import { HeartIcon } from '@heroicons/react/24/solid';
 
 import { OWNER_URL } from '../../../constants';
 
-import styles from './index.module.scss';
+import './index.styles.css';
 
 export const Footer = () => (
-  <footer className={styles.footer}>
-    <div className={styles.container}>
-      <p className={styles['footer-paragraph']}>
-        <span className={styles['footer-text']}>
+  <footer className="footer">
+    <div className="footer-container">
+      <p className="footer-paragraph">
+        <span className="footer-text">
           Made with
-          <HeartIcon className={styles['heart-icon']} />
+          <HeartIcon className="heart-icon" />
           by{' '}
-          <a
-            className={styles['footer-owner']}
-            href={OWNER_URL}
-            rel="noopener,noreferrer"
-            target="_blank"
-          >
+          <a className="footer-owner" href={OWNER_URL} rel="noopener,noreferrer" target="_blank">
             Naimikan
           </a>
         </span>

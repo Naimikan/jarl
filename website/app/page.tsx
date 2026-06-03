@@ -1,6 +1,6 @@
 'use client';
 
-import { Anchor } from 'nextra/components';
+import Link from 'next/link';
 
 import { Button } from '@jarl/button';
 
@@ -31,7 +31,7 @@ const IndexPage = () => (
       </h1>
       <div>
         <Button
-          as={Anchor}
+          as={Link}
           href="/docs/installation"
           style={{ '--jarl-button-py': '12px', '--jarl-button-px': '24px' } as React.CSSProperties}
         >

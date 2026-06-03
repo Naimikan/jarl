@@ -4,15 +4,9 @@ import { REPOSITORY_URL } from '../../../constants';
 import { NavLinks } from './NavLinks';
 import { ThemeSwitch } from './ThemeSwitch';
 
-import type { PageMapItem } from 'nextra';
-
 import styles from './index.module.scss';
 
-export interface HeaderNavbarProps {
-  pageMap: PageMapItem[];
-}
-
-export const HeaderNavbar = ({ pageMap }: HeaderNavbarProps) => (
+export const HeaderNavbar = () => (
   <nav className={styles.headerNavbar}>
     <div className={styles.logoContainer}>
       <a className={styles.anchor} href="/">
@@ -20,7 +14,7 @@ export const HeaderNavbar = ({ pageMap }: HeaderNavbarProps) => (
       </a>
     </div>
 
-    <NavLinks pageMap={pageMap} />
+    <NavLinks />
 
     <a className={styles.anchor} href={REPOSITORY_URL} rel="noreferrer" target="_blank">
       <svg

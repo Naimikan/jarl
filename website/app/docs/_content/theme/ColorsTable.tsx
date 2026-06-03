@@ -1,6 +1,6 @@
 import { colors } from '@jarl/theme';
 
-import { ColorCard } from '../../_components/color-card';
+import { ColorCard } from '../../../_components/color-card';
 
 export const ColorsTable = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

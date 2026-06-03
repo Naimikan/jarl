@@ -1,26 +1,56 @@
-import { Anchor } from 'nextra/components';
+import Link from 'next/link';
 
-import type { Heading } from 'nextra';
+import './index.styles.css';
+
+export interface Heading {
+  children?: Heading[];
+  data: {
+    id: string;
+  };
+  depth: number;
+  value: string;
+}
 
 export interface TableOfContentsProps {
   contents: Heading[];
 }
 
-export const TableOfContents = ({ contents }: TableOfContentsProps) => {
+const RenderNodes = ({ nodes }: { nodes: Heading[] }) => {
+  if (!nodes || nodes.length === 0) {
+    return null;
+  }
+
   return (
-    <aside style={{ background: 'lightblue', padding: 20 }}>
-      <h3>Table of Contents</h3>
-      <nav>
-        <ul>
-          {contents.map((heading) => (
-            <li key={heading.id}>
-              <Anchor href={`#${heading.id}`} key={heading.id} style={{ textDecoration: 'none' }}>
-                {heading.value}
-              </Anchor>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </aside>
+    <ul className="toc__options">
+      {nodes.map((node) => {
+        const id = node.value.toLowerCase().replace(/\s+/g, '-');
+        const text = node.value;
+
+        return (
+          <li className="toc__item" key={id}>
+            <Link className="toc__item-link" href={`#${id}`}>
+              {text}
+            </Link>
+
+            {node.children && node.children.length > 0 && <RenderNodes nodes={node.children} />}
+          </li>
+        );
+      })}
+    </ul>
   );
+};
+
+export const TableOfContents = ({ contents }: TableOfContentsProps) => {
+  const subHeadings = contents.flatMap((node) => node.children || []);
+
+  return subHeadings.length > 0 ? (
+    <aside className="toc">
+      <div className="toc__content">
+        <p className="toc__content-title">Contents</p>
+        <nav>
+          <RenderNodes nodes={subHeadings} />
+        </nav>
+      </div>
+    </aside>
+  ) : null;
 };
