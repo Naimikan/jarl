@@ -1,5 +1,5 @@
 import { Layout } from './_components/layout';
-import { METADATA, NAVIGATION, VIEWPORT } from './constants';
+import { METADATA, NAVIGATION } from './constants';
 
 import type { ReactNode } from 'react';
 
@@ -38,4 +38,4 @@ export default function RootLayout({ children }: RootLayoutProps) {
   );
 }
 
-export { METADATA as metadata, VIEWPORT as viewport };
+export { METADATA as metadata };
