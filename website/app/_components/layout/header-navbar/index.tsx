@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { isProduction, REPOSITORY_URL } from '../../../constants';
 import { NavLinks } from './NavLinks';
@@ -9,7 +10,7 @@ import styles from './index.module.scss';
 export const HeaderNavbar = () => (
   <nav className={styles.headerNavbar}>
     <div className={styles.logoContainer}>
-      <a className={styles.anchor} href={isProduction ? '/jarl' : '/'}>
+      <Link className={styles.anchor} href="/">
         <Image
           alt="logo"
           height={45}
@@ -17,7 +18,7 @@ export const HeaderNavbar = () => (
           src={isProduction ? 'https://naimikan.github.io/jarl/jarl.png' : '/jarl.png'}
           width={45}
         />
-      </a>
+      </Link>
     </div>
 
     <NavLinks />
