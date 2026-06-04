@@ -2,7 +2,7 @@ import { colors } from '@jarl/theme';
 
 import type { Metadata, Viewport } from 'next';
 
-const isProduction = process.env.NODE_ENV === 'production';
+export const isProduction = process.env.NODE_ENV === 'production';
 
 export const OWNER_URL = 'https://github.com/Naimikan';
 export const REPOSITORY_URL = 'https://github.com/Naimikan/jarl';
