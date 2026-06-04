@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { NAVIGATION } from '../../../constants';
@@ -15,13 +16,13 @@ export const NavLinks = () => {
   const pathname = usePathname();
 
   return NAV_ITEMS.map((item) => (
-    <a
+    <Link
       aria-current={pathname.startsWith(item.href) ? 'page' : undefined}
       className={styles.anchor}
       href={item.href}
       key={item.href}
     >
       {item.title}
-    </a>
+    </Link>
   ));
 };
