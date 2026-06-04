@@ -2,6 +2,8 @@ import { colors } from '@jarl/theme';
 
 import type { Metadata, Viewport } from 'next';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export const OWNER_URL = 'https://github.com/Naimikan';
 export const REPOSITORY_URL = 'https://github.com/Naimikan/jarl';
 
@@ -56,7 +58,7 @@ export const METADATA: Metadata = {
     },
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
-  metadataBase: new URL('https://naimikan.github.io/jarl'),
+  metadataBase: new URL(isProduction ? 'https://naimikan.github.io/jarl' : 'http://localhost:3000'),
   robots: {
     index: true,
     follow: true,
