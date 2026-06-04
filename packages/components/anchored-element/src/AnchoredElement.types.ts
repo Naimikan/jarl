@@ -47,6 +47,8 @@ export interface AnchoredElementProps {
   onEscape?: (params?: CustomOnEscapePropParams) => void;
   onOpened?: () => void;
   onPositionChanged?: (newPosition: Position) => void;
+  onStartClose?: () => void;
+  onStartOpen?: () => void;
   opened?: boolean;
   position?: Position;
   sameWithAsTrigger?: boolean;

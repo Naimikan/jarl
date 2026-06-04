@@ -2,10 +2,12 @@
 
 import { usePathname } from 'next/navigation';
 
+import { NAVIGATION } from '../../../constants';
+
 import styles from './index.module.scss';
 
 const NAV_ITEMS = [
-  { title: 'Docs', href: '/docs' },
+  { title: 'Docs', href: NAVIGATION.find((each) => each.label === 'Components').items[0].href },
   { title: 'Guides', href: '/guides' },
 ];
 

@@ -10,7 +10,7 @@ export const HeaderNavbar = () => (
   <nav className={styles.headerNavbar}>
     <div className={styles.logoContainer}>
       <a className={styles.anchor} href="/">
-        <Image alt="logo" height={45} priority src="/jarl-no-barba.png" width={45} />
+        <Image alt="logo" height={45} priority src="/jarl.png" width={45} />
       </a>
     </div>
 

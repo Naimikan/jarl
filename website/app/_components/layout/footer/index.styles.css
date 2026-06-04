@@ -9,7 +9,7 @@
 
   .footer-container {
     width: 100%;
-    padding: 0 16px;
+    padding: 0 24px;
     margin: 0 auto;
 
     .footer-paragraph {
@@ -33,22 +33,6 @@
           fill: var(--jarl-colors-red-400);
         }
       }
-    }
-  }
-}
-
-@media (min-width: 640px) {
-  .footer {
-    .footer-container {
-      padding: 0 24px;
-    }
-  }
-}
-
-@media (min-width: 1440px) {
-  .footer {
-    .footer-container {
-      max-width: 1440px;
     }
   }
 }

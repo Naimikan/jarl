@@ -38,6 +38,34 @@ h4,
 h5,
 h6 {
   scroll-margin-top: calc(var(--jarl-header-height) + 24px);
+
+  .anchor {
+    display: inline;
+    margin-left: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    &:focus-visible {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .anchor {
+      opacity: 1;
+    }
+  }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding-block-end: 8px;
+  border-bottom: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
 }
 
 a {

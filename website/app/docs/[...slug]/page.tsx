@@ -16,8 +16,6 @@ export default async function DocPage({ params }: PageProps) {
   const { slug = [] } = await params;
   const path = slug.length > 0 ? slug.join('/') : 'index';
 
-  console.log(path);
-
   let Content: React.ComponentType;
   let toc: Heading[] = [];
 

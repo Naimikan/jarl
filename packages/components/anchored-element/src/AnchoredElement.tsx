@@ -47,7 +47,9 @@ export const AnchoredElement = ({
   opened,
   onEscape: onEscapeProp,
   onClickOutside: onClickOutsideProp,
+  onStartOpen,
   onOpened,
+  onStartClose,
   onClosed,
   onPositionChanged,
 }: AnchoredElementProps) => {
@@ -67,6 +69,8 @@ export const AnchoredElement = ({
 
   const onOpenedRef = useLatest(onOpened);
   const onClosedRef = useLatest(onClosed);
+  const onStartOpenRef = useLatest(onStartOpen);
+  const onStartCloseRef = useLatest(onStartClose);
   const onPositionChangedRef = useLatest(onPositionChanged);
   const positionRef = useLatest(position);
   const boundaryRef = useLatest(boundary);
@@ -83,6 +87,8 @@ export const AnchoredElement = ({
   );
 
   const show = useCallback(() => {
+    onStartOpenRef.current?.();
+
     // Cancel current hide in progress
     if (hideDelayTimeoutIdRef.current) {
       clearTimeout(hideDelayTimeoutIdRef.current);
@@ -104,6 +110,8 @@ export const AnchoredElement = ({
   }, []);
 
   const hide = useCallback(() => {
+    onStartCloseRef.current?.();
+
     // Cancel current show in progress
     if (showDelayTimeoutIdRef.current) {
       clearTimeout(showDelayTimeoutIdRef.current);

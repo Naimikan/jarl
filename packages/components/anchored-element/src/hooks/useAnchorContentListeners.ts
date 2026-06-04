@@ -129,7 +129,9 @@ export const useContentListeners = () => {
     boundary,
     position,
     sameWithAsTrigger,
+    avoidPositionRecalculation,
     allowedPositions,
+    forceOpenEvenNotFit,
     triggerEvents,
     hide,
     setAnimationState,
@@ -157,9 +159,10 @@ export const useContentListeners = () => {
 
       if (context.anchoredElementContent) {
         const isClosing = context.anchoredElementContent.dataset.state === ANIMATION_STATES.CLOSING;
+        const isOpening = context.anchoredElementContent.dataset.state === ANIMATION_STATES.OPENING;
 
-        // In case that the element is resizing and the anchored element is closing, we should avoid a reposition
-        if (isClosing) {
+        // In case that the element is resizing and the anchored element is closing or opening, we should avoid a reposition
+        if (isClosing || isOpening) {
           shouldReposition = false;
         }
       }

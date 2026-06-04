@@ -2,17 +2,22 @@ import { colors } from '@jarl/theme';
 
 import { ColorCard } from '../../../_components/color-card';
 
+import './ColorTable.styles.css';
+
 export const ColorsTable = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+  <div className="colors-table">
     {Object.keys(colors).map((colorKey) => {
       if (typeof colors[colorKey] === 'string') {
         return <ColorCard colorHex={colors[colorKey]} colorName={colorKey} key={colorKey} />;
       }
 
       return (
-        <div key={colorKey} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <p>{colorKey}</p>
-          <div style={{ display: 'flex', gap: '12px' }}>
+        <div className="palette-section" key={colorKey}>
+          <div className="palette-information">
+            <p className="palette-name">{colorKey}</p>
+            <span className="palette-count">{Object.keys(colors[colorKey]).length}</span>
+          </div>
+          <div className="palette-grid">
             {Object.keys(colors[colorKey]).map((subColorKey) => (
               <ColorCard
                 colorHex={colors[colorKey][subColorKey]}

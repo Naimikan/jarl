@@ -1,5 +1,5 @@
 import { Layout } from './_components/layout';
-import { METADATA, NAVIGATION } from './constants';
+import { METADATA, NAVIGATION, VIEWPORT } from './constants';
 
 import type { ReactNode } from 'react';
 
@@ -13,7 +13,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html dir="ltr" lang="en" suppressHydrationWarning>
       <head>
-        <link href="/jarl-no-barba.png" rel="icon" type="image/x-icon" />
         <script
           // biome-ignore lint/security/noDangerouslySetInnerHtml: needed to avoid FOUC
           dangerouslySetInnerHTML={{
@@ -39,4 +38,4 @@ export default function RootLayout({ children }: RootLayoutProps) {
   );
 }
 
-export { METADATA as metadata };
+export { METADATA as metadata, VIEWPORT as viewport };

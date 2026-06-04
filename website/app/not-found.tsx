@@ -15,7 +15,7 @@ const NotFound = () => {
     >
       <h1>404 - Page Not Found</h1>
       <p>The page you're looking for doesn't exist.</p>
-      <Link href="/" style={{ color: 'blue', textDecoration: 'underline' }}>
+      <Link href="/" style={{ textDecoration: 'underline' }}>
         Go home
       </Link>
     </div>

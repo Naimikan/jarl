@@ -1,4 +1,5 @@
 import createMdx from '@next/mdx';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import { remarkMdxToc } from 'remark-mdx-toc';
@@ -12,6 +13,23 @@ const withMdx = createMdx({
     remarkPlugins: [remarkMdxToc, remarkCustomLiveCode],
     rehypePlugins: [
       rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          test: ['h2', 'h3', 'h4', 'h5', 'h6'],
+          behavior: 'append',
+          properties: {
+            className: ['anchor'],
+            ariaLabel: 'Link to section',
+          },
+          content: {
+            type: 'element',
+            tagName: 'span',
+            properties: {},
+            children: [{ type: 'text', value: '#' }],
+          },
+        },
+      ],
       [rehypePrettyCode, { theme: { dark: 'github-dark', light: 'github-light' } }],
     ],
   },

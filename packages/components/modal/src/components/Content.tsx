@@ -51,10 +51,6 @@ export const Content = ({ className, children }: ContentProps) => {
 
   const onAnimationEnd = useCallback(() => {
     if (animationState === AnimationStates.opening) {
-      if (getFocusableElements(modalPortalRef.current).length === 0) {
-        modalRef.current?.focus();
-      }
-
       setAnimationState(AnimationStates.opened);
 
       onOpened?.();
@@ -142,7 +138,7 @@ export const Content = ({ className, children }: ContentProps) => {
         id={contentId}
         ref={modalRef}
         role={role}
-        tabIndex={getFocusableElements(modalPortalRef.current).length === 0 ? -1 : undefined}
+        tabIndex={-1}
       >
         {children}
       </div>

@@ -107,7 +107,7 @@ const checkInsideViewport = ({
       topToCheck >= 0 &&
       topToCheck + anchoredElementHeight <= window.innerHeight &&
       leftToCheck >= 0 &&
-      leftToCheck + anchoredElementWidth <= window.innerHeight
+      leftToCheck + anchoredElementWidth <= window.innerWidth
     );
   }
 
