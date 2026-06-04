@@ -33,30 +33,51 @@ export const METADATA: Metadata = {
     title: 'Jarl - Just another react library',
     description: 'A headless React component library focused on accessibility and flexibility.',
     siteName: 'Jarl',
-    images: [{ url: '/jarl.png', width: 630, height: 630 }],
+    images: [
+      {
+        url: isProduction ? 'https://naimikan.github.io/jarl/jarl.png' : '/jarl.png',
+        width: 630,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: 'summary',
     title: 'Jarl - Just another react library',
     description: 'A headless React component library focused on accessibility and flexibility.',
-    images: ['/favicon-96x96.png'],
+    images: [
+      isProduction ? 'https://naimikan.github.io/jarl/favicon-96x96.png' : '/favicon-96x96.png',
+    ],
   },
-  manifest: '/site.webmanifest',
+  manifest: isProduction ? 'https://naimikan.github.io/jarl/site.webmanifest' : '/site.webmanifest',
   alternates: {
     canonical: 'https://naimikan.github.io/jarl',
   },
   icons: {
     icon: [
-      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
       {
-        url: '/favicon.svg',
+        url: isProduction
+          ? 'https://naimikan.github.io/jarl/favicon-96x96.png'
+          : '/favicon-96x96.png',
+        type: 'image/png',
+        sizes: '96x96',
+      },
+      {
+        url: isProduction ? 'https://naimikan.github.io/jarl/favicon.svg' : '/favicon.svg',
         type: 'image/svg+xml',
       },
     ],
     shortcut: {
-      url: '/favicon.ico',
+      url: isProduction ? 'https://naimikan.github.io/jarl/favicon.ico' : '/favicon.ico',
     },
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+    apple: [
+      {
+        url: isProduction
+          ? 'https://naimikan.github.io/jarl/apple-touch-icon.png'
+          : '/apple-touch-icon.png',
+        sizes: '180x180',
+      },
+    ],
   },
   metadataBase: new URL(isProduction ? 'https://naimikan.github.io/jarl' : 'http://localhost:3000'),
   robots: {
