@@ -43,7 +43,10 @@ const remarkCustomLiveCode = () => (tree) => {
     const parsedMeta = parseMetaString(node.meta || '');
 
     if (parsedMeta.live) {
-      const attributes = [{ type: 'mdxJsxAttribute', name: 'language', value: node.lang }];
+      const attributes = [
+        { type: 'mdxJsxAttribute', name: 'language', value: node.lang },
+        { type: 'mdxJsxAttribute', name: 'code', value: node.value }, // ← aquí
+      ];
 
       if (parsedMeta.filename) {
         attributes.push({ type: 'mdxJsxAttribute', name: 'filename', value: parsedMeta.filename });
@@ -61,7 +64,7 @@ const remarkCustomLiveCode = () => (tree) => {
         type: 'mdxJsxFlowElement',
         name: 'customLiveCode',
         attributes,
-        children: [{ type: 'mdxJsxAttribute', name: 'children', value: node.value }],
+        children: [],
       });
     }
   });

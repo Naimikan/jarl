@@ -26,6 +26,8 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
   {
     disabled,
     focusable,
+    variant,
+    color,
     onKeyDown: keyDownProp,
     onKeyUp: keyUpProp,
     onClick: onClickProp,
@@ -99,6 +101,8 @@ export const useButton = <T extends ElementType = typeof DEFAULT_TAG>(
     }),
     ...commonButtonProps,
     'data-disabled': disabled || undefined,
+    'data-variant': variant,
+    'data-color': color,
     onKeyDown: keyDownHandler,
     onKeyUp: keyUpHandler,
     onClick: clickHandler,

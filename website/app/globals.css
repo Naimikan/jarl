@@ -1,27 +1,113 @@
-@import url("@jarl/theme/tokens.css");
+@import url("@jarl/theme/index.css");
 
-html.light .jarl-checkbox,
-html[data-theme="light"] .jarl-checkbox {
-  --jarl-checkbox-label-color: #111;
-  --jarl-checkbox-label-hover-color: #111;
-  --jarl-checkbox-label-checked-color: #111;
-  --jarl-checkbox-checkmark-color: #fff;
-  --jarl-checkbox-checkmark-border-color: #111;
-  --jarl-checkbox-checkmark-checked-bg: #111;
-  --jarl-checkbox-checkmark-checked-border-color: #111;
-  --jarl-checkbox-checkmark-hover-color: #111;
-  --jarl-checkbox-focus-outline-color: #111;
+:root {
+  color-scheme: light dark;
 }
 
-html.dark .jarl-checkbox,
-html[data-theme="dark"] .jarl-checkbox {
-  --jarl-checkbox-label-color: #eee;
-  --jarl-checkbox-label-hover-color: #eee;
-  --jarl-checkbox-label-checked-color: #eee;
-  --jarl-checkbox-checkmark-color: #111;
-  --jarl-checkbox-checkmark-border-color: #eee;
-  --jarl-checkbox-checkmark-checked-bg: #eee;
-  --jarl-checkbox-checkmark-checked-border-color: #eee;
-  --jarl-checkbox-checkmark-hover-color: #eee;
-  --jarl-checkbox-focus-outline-color: #eee;
+* {
+  box-sizing: border-box;
+  font-family:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+html {
+  background-color: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  scroll-behavior: smooth;
+
+  &[data-theme="light"] {
+    color-scheme: light;
+  }
+
+  &[data-theme="dark"] {
+    color-scheme: dark;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: calc(var(--jarl-header-height) + 24px);
+
+  .anchor {
+    display: inline;
+    margin-left: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    &:focus-visible {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .anchor {
+      opacity: 1;
+    }
+  }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding-block-end: 8px;
+  border-bottom: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
+}
+
+a {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: light-dark(var(--jarl-colors-gray-500), var(--jarl-colors-gray-300));
+  text-decoration: none;
+
+  &:focus-visible {
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    color: light-dark(var(--jarl-colors-gray-600), var(--jarl-colors-gray-200));
+  }
+
+  &:active {
+    color: light-dark(var(--jarl-colors-gray-700), var(--jarl-colors-gray-100));
+  }
+}
+
+figure[data-rehype-pretty-code-figure] {
+  margin: 1.5rem 0;
+  overflow: hidden;
+
+  pre {
+    padding-block: 1rem;
+    margin: 0;
+    overflow-x: auto;
+    background-color: light-dark(var(--jarl-colors-gray-50), var(--jarl-colors-gray-900));
+    border: 1px solid light-dark(var(--jarl-colors-gray-200), var(--jarl-colors-gray-500));
+    border-radius: 8px;
+
+    span {
+      font-size: 14px;
+      color: light-dark(var(--shiki-light), var(--shiki-dark));
+
+      &[data-line] {
+        padding-inline: 16px;
+        line-height: 20px;
+      }
+    }
+  }
 }

@@ -1,0 +1,122 @@
+:root {
+  /* Anchored Element */
+  --jarl-anchored-element-border-radius: 8px;
+  --jarl-anchored-element-arrow-border-color: light-dark(
+    var(--jarl-colors-gray-200),
+    var(--jarl-colors-gray-700)
+  );
+  --jarl-anchored-element-arrow-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  --jarl-anchored-element-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-anchored-element-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  --jarl-anchored-element-border-color: light-dark(
+    var(--jarl-colors-gray-200),
+    var(--jarl-colors-gray-700)
+  );
+
+  /* Button */
+  --jarl-button-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  --jarl-button-border-color: light-dark(var(--jarl-colors-gray-700), var(--jarl-colors-gray-100));
+  --jarl-button-color: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-100));
+  --jarl-button-disabled-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-button-hover-color: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-100));
+  --jarl-button-hover-bg: light-dark(var(--jarl-colors-gray-50), var(--jarl-colors-gray-900));
+  --jarl-button-active-color: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-100));
+  --jarl-button-active-bg: light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-950));
+  --jarl-button-focus-outline-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+
+  /* Checkbox */
+  --jarl-checkbox-label-color: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-100));
+  --jarl-checkbox-label-invalid-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-label-hover-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-label-checked-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-hover-border-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-label-invalid-hover-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-invalid-hover-border-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-label-invalid-checked-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-color: light-dark(
+    var(--jarl-colors-gray-100),
+    var(--jarl-colors-gray-950)
+  );
+  --jarl-checkbox-checkmark-border-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-checked-bg: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-checked-border-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-hover-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-checkbox-checkmark-invalid-border-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-invalid-checked-bg: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-checkmark-invalid-checked-border-color: light-dark(
+    var(--jarl-colors-red-500),
+    var(--jarl-colors-red-300)
+  );
+  --jarl-checkbox-focus-outline-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+
+  /* Modal */
+  --jarl-modal-backdrop-z-index: 101;
+  --jarl-modal-backdrop-bg: color-mix(in srgb, var(--jarl-colors-black) 40%, transparent);
+  --jarl-modal-z-index: 101;
+  --jarl-modal-content-color: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-100));
+  --jarl-modal-content-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  --jarl-modal-content-border-color: light-dark(
+    var(--jarl-colors-gray-200),
+    var(--jarl-colors-gray-700)
+  );
+  --jarl-modal-focus-outline-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-modal-close-button-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-modal-close-button-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+}

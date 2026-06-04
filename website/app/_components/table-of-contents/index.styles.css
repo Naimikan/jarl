@@ -1,0 +1,34 @@
+.toc {
+  width: 256px;
+  margin-block-start: 24px;
+
+  .toc__content {
+    position: sticky;
+    top: calc(var(--jarl-header-height) + 24px);
+    display: grid;
+
+    .toc__content-title {
+      padding: 16px 16px 0;
+      margin: 0;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .toc__options {
+      padding: 16px 16px 0;
+      margin: 0;
+      list-style: none;
+
+      .toc__item {
+        margin-block: 8px;
+        font-size: 14px;
+        line-height: 24px;
+
+        .toc__item-link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

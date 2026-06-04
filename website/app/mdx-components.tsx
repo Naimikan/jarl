@@ -1,13 +1,13 @@
-import { useMDXComponents as getThemeComponents } from 'nextra-theme-docs';
+import { Content } from './_components/layout/content';
 
-import { LiveEditor } from './_components/live-editor/dynamic';
+import type { MDXComponents } from 'mdx/types';
 
-const themeComponents = getThemeComponents();
+// import { LiveEditor } from './_components/live-editor/dynamic';
 
-export function useMDXComponents(components) {
+export const useMDXComponents = (components: MDXComponents): MDXComponents => {
   return {
-    ...themeComponents,
+    wrapper: Content,
     ...components,
-    customLiveCode: LiveEditor,
+    // customLiveCode: LiveEditor,
   };
-}
+};

@@ -1,5 +1,5 @@
-import styles from './index.module.scss';
+'use client';
 
-export const PreviewBox = ({ children }) => (
-  <div className={`${styles['preview-box']} x:bg-white x:dark:bg-black x:mt-4`}>{children}</div>
-);
+import './index.styles.css';
+
+export const PreviewBox = ({ children }) => <div className="preview-box">{children}</div>;
