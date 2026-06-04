@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { isProduction, REPOSITORY_URL } from '../../../constants';
+import { REPOSITORY_URL } from '../../../constants';
 import { NavLinks } from './NavLinks';
 import { ThemeSwitch } from './ThemeSwitch';
 
@@ -10,13 +10,7 @@ export const HeaderNavbar = () => (
   <nav className={styles.headerNavbar}>
     <div className={styles.logoContainer}>
       <a className={styles.anchor} href="/">
-        <Image
-          alt="logo"
-          height={45}
-          priority
-          src={isProduction ? 'https://naimikan.github.io/jarl/jarl.png' : '/jarl.png'}
-          width={45}
-        />
+        <Image alt="logo" height={45} priority src="/jarl.png" width={45} />
       </a>
     </div>
 
