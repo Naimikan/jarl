@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 export const HeaderNavbar = () => (
   <nav className={styles.headerNavbar}>
     <div className={styles.logoContainer}>
-      <a className={styles.anchor} href="/">
+      <a className={styles.anchor} href={isProduction ? '/jarl' : '/'}>
         <Image
           alt="logo"
           height={45}
