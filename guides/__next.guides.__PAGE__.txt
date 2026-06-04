@@ -2,5 +2,5 @@
 2:I[6423,[],"OutletBoundary"]
 3:"$Sreact.suspense"
 :HL["/jarl/_next/static/css/6d0e3baf82c9cf6e.css","style"]
-0:{"buildId":"i_smOWZMBcO3WyzLZRLIX","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"main-content","children":[["$","h1",null,{"id":"guides","children":"Guides"}],"\n",["$","p",null,{"children":"Guides"}]]}],[["$","link","0",{"rel":"stylesheet","href":"/jarl/_next/static/css/6d0e3baf82c9cf6e.css","precedence":"next"}]],["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"hobCw2Rn5w7bV52Tl229K","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"main-content","children":[["$","h1",null,{"id":"guides","children":"Guides"}],"\n",["$","p",null,{"children":"Guides"}]]}],[["$","link","0",{"rel":"stylesheet","href":"/jarl/_next/static/css/6d0e3baf82c9cf6e.css","precedence":"next"}]],["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
 4:null
