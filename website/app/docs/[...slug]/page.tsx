@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import { type Heading, TableOfContents } from '../../_components/table-of-contents';
+import { type Heading, TableOfContents } from '../../_components/layout/table-of-contents';
 import { NAVIGATION } from '../../constants';
 
 interface PageProps {

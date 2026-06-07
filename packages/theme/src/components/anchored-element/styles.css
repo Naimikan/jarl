@@ -1,0 +1,17 @@
+:root {
+  --jarl-anchored-element-border-radius: 8px;
+  --jarl-anchored-element-arrow-border-color: light-dark(
+    var(--jarl-colors-gray-200),
+    var(--jarl-colors-gray-700)
+  );
+  --jarl-anchored-element-arrow-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  --jarl-anchored-element-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-anchored-element-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  --jarl-anchored-element-border-color: light-dark(
+    var(--jarl-colors-gray-200),
+    var(--jarl-colors-gray-700)
+  );
+}

@@ -1,0 +1,20 @@
+:root {
+  --jarl-modal-backdrop-z-index: 101;
+  --jarl-modal-backdrop-bg: color-mix(in srgb, var(--jarl-colors-black) 40%, transparent);
+  --jarl-modal-z-index: 101;
+  --jarl-modal-content-color: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-100));
+  --jarl-modal-content-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+  --jarl-modal-content-border-color: light-dark(
+    var(--jarl-colors-gray-200),
+    var(--jarl-colors-gray-700)
+  );
+  --jarl-modal-focus-outline-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-modal-close-button-color: light-dark(
+    var(--jarl-colors-gray-950),
+    var(--jarl-colors-gray-100)
+  );
+  --jarl-modal-close-button-bg: light-dark(var(--jarl-colors-white), var(--jarl-colors-black));
+}

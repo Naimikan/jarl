@@ -1,5 +1,5 @@
 .main-content {
-  flex-grow: 1;
+  width: 100dvw;
   padding-block: 24px;
   padding-inline: 24px;
   margin: 0 auto;

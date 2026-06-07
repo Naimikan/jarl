@@ -18,7 +18,22 @@ const buildCssFiles = () => {
   const tokensCss = `:root {\n${colorsCssVars}}\n`;
   fs.writeFileSync(path.join(DIST_DIR, 'tokens.css'), tokensCss, 'utf8');
 
-  const componentsCss = fs.readFileSync('./src/partials/components.css', 'utf8');
+  let componentsCss = '';
+
+  const componentsFolder = fs.readdirSync('./src/components', {
+    encoding: 'utf-8',
+    withFileTypes: true,
+  });
+
+  componentsFolder.forEach((each) => {
+    const stylesRoute = `${each.parentPath}/${each.name}/styles.css`;
+
+    if (fs.existsSync(stylesRoute)) {
+      const componentCss = fs.readFileSync(`${each.parentPath}/${each.name}/styles.css`, 'utf-8');
+
+      componentsCss += `${componentCss}`;
+    }
+  });
 
   fs.writeFileSync(path.join(DIST_DIR, 'index.css'), `${tokensCss}${componentsCss}`, 'utf8');
 };
