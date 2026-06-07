@@ -37,6 +37,10 @@
             padding: 4px 4px 4px 10px;
             font-size: 14px;
 
+            .sidebar__subsection-item-link {
+              text-decoration: none;
+            }
+
             &.sidebar__subsection-item--active {
               font-weight: bold;
               border-left: 2px solid
@@ -46,13 +50,15 @@
                 color: light-dark(var(--jarl-colors-blue-500), var(--jarl-colors-blue-300));
               }
             }
-
-            .sidebar__subsection-item-link {
-              text-decoration: none;
-            }
           }
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    display: none;
   }
 }

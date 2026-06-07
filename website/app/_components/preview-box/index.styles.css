@@ -1,5 +1,8 @@
 .preview-box {
-  border: 1px solid #1aa3ff;
-  border-radius: 6px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
   padding: 16px;
+  border: 1px solid var(--jarl-colors-blue-500);
+  border-radius: 6px;
 }
