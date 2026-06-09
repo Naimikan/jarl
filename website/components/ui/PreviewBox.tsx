@@ -1,5 +1,13 @@
 'use client';
 
+import type { ReactNode } from 'react';
+
 import './PreviewBox.css';
 
-export const PreviewBox = ({ children }) => <div className="preview-box">{children}</div>;
+export interface PreviewBoxProps {
+  children: ReactNode;
+}
+
+export const PreviewBox = ({ children }: PreviewBoxProps) => (
+  <div className="preview-box">{children}</div>
+);

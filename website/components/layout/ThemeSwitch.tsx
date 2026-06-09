@@ -6,11 +6,13 @@ import { useCallback, useEffect, useState } from 'react';
 import { Button } from '@jarl/button';
 import { cx } from '@jarl/utils';
 
+export type StoredTheme = 'light' | 'dark' | undefined;
+
 export const ThemeSwitch = () => {
-  const [themeSelected, setThemeSelected] = useState<'light' | 'dark' | undefined>(undefined);
+  const [themeSelected, setThemeSelected] = useState<StoredTheme>(undefined);
 
   useEffect(() => {
-    const storedTheme = window.localStorage.getItem('theme');
+    const storedTheme = window.localStorage.getItem('theme') as StoredTheme;
     const theme = document.documentElement.getAttribute('data-theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
