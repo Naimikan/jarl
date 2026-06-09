@@ -1,9 +1,10 @@
-import { Layout } from './_components/layout';
-import { METADATA, NAVIGATION } from './constants';
-
 import type { ReactNode } from 'react';
 
-import './globals.css';
+import { Footer } from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
+import { METADATA } from '@/constants';
+
+import '@/styles/globals.css';
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -32,7 +33,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body>
-        <Layout pageMap={NAVIGATION}>{children}</Layout>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );
