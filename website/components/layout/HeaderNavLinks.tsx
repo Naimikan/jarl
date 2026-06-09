@@ -5,8 +5,10 @@ import { usePathname } from 'next/navigation';
 
 import { NAVIGATION } from '@/constants';
 
+const defaultDocsUrl = NAVIGATION.find((each) => each.label === 'Get Started')?.items[0].href;
+
 const NAV_ITEMS = [
-  { title: 'Docs', href: NAVIGATION.find((each) => each.label === 'Components').items[0].href },
+  { title: 'Docs', href: defaultDocsUrl ?? '/' },
   { title: 'Guides', href: '/guides' },
 ];
 

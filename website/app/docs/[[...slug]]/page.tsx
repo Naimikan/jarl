@@ -17,9 +17,10 @@ export default async function DocPage({ params }: PageProps) {
   const { slug } = await params;
 
   if (!slug || slug.length === 0) {
-    const defaultRedirectUrl = NAVIGATION[0].items[0].href;
+    const defaultRedirectUrl = NAVIGATION.find((each) => each.label === 'Get Started')?.items[0]
+      .href;
 
-    redirect(defaultRedirectUrl);
+    redirect(defaultRedirectUrl ?? '/');
   }
 
   const path = slug.join('/');
