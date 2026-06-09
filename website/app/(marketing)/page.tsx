@@ -33,7 +33,7 @@ const IndexPage = () => (
       <div>
         <Button
           as={Link}
-          href="/docs"
+          href="/docs/get-started/installation"
           style={{ '--jarl-button-py': '12px', '--jarl-button-px': '24px' } as React.CSSProperties}
         >
           Get Started
