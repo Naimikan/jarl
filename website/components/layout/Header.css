@@ -16,6 +16,7 @@
   gap: 16px;
   align-items: center;
   width: 100%;
+  max-width: 1440px;
   min-height: 60px;
   padding: 0 24px;
   margin: 0 auto;
@@ -38,7 +39,7 @@
   }
 
   .github-icon {
-    fill: currentColor;
+    stroke: currentColor;
   }
 
   .theme-switch {
@@ -46,7 +47,7 @@
     --jarl-button-bg: transparent;
     --jarl-button-py: 0;
     --jarl-button-px: 0;
-    --jarl-button-color: var(--jarl-colors-gray-700);
+    --jarl-button-color: light-dark(var(--jarl-colors-gray-700), var(--jarl-colors-gray-300));
     width: 30px;
 
     height: 30px;
