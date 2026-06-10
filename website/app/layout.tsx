@@ -12,7 +12,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html dir="ltr" lang="en" suppressHydrationWarning>
+    <html data-scroll-behavior="smooth" dir="ltr" lang="en" suppressHydrationWarning>
       <head>
         <script
           // biome-ignore lint/security/noDangerouslySetInnerHtml: needed to avoid FOUC

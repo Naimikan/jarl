@@ -1,6 +1,6 @@
 'use client';
 
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
+import { IconMoon, IconSun } from '@tabler/icons-react';
 import { useCallback, useEffect, useState } from 'react';
 
 import { Button } from '@jarl/button';
@@ -43,8 +43,8 @@ export const ThemeSwitch = () => {
       onClick={toggleTheme}
       type="button"
     >
-      {themeSelected === 'dark' && <SunIcon className="switch-icon" color="currentColor" />}
-      {themeSelected === 'light' && <MoonIcon className="switch-icon" color="currentColor" />}
+      {themeSelected === 'dark' && <IconSun className="switch-icon" color="currentColor" />}
+      {themeSelected === 'light' && <IconMoon className="switch-icon" color="currentColor" />}
     </Button>
   );
 };
