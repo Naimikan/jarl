@@ -1,11 +1,12 @@
 .sidebar {
-  width: 256px;
-  background-color: light-dark(var(--jarl-colors-gray-50), var(--jarl-colors-gray-950));
+  flex-shrink: 0;
+  width: 220px;
+  margin-block-start: 24px;
   border-right: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
 
   .sidebar__content {
     position: sticky;
-    top: var(--jarl-header-height);
+    top: calc(var(--jarl-header-height) + 24px);
     display: grid;
 
     .sidebar__sections {

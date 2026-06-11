@@ -1,5 +1,6 @@
 .toc {
-  width: 256px;
+  flex-shrink: 0;
+  width: 220px;
   margin-block-start: 24px;
 
   .toc__content {
