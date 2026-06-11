@@ -104,6 +104,7 @@
 
     .intro {
       grid-template-columns: 1fr;
+      padding-block-start: 3rem;
     }
 
     .features {
