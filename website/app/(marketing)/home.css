@@ -95,3 +95,31 @@
     }
   }
 }
+
+@media (max-width: 720px) {
+  .home {
+    .home__divider {
+      margin: 0 1rem;
+    }
+
+    .intro {
+      grid-template-columns: 1fr;
+    }
+
+    .features {
+      .features__container {
+        grid-template-columns: 1fr;
+
+        .features__feature-card {
+          border-right: none;
+          border-bottom: 1px solid
+            light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
