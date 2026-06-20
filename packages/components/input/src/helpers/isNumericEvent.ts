@@ -21,11 +21,7 @@ const isValidDecimalPosition = (target: HTMLInputElement): boolean => {
   const { value, selectionStart } = target;
   const isCursorAtStart = selectionStart === null ? false : selectionStart === 0;
 
-  if (isCursorAtStart) {
-    return false;
-  }
-
-  if (value.includes('.')) {
+  if (isCursorAtStart || value.includes('.') || value.includes('e') || value.includes('E')) {
     return false;
   }
 
