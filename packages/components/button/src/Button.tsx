@@ -1,11 +1,10 @@
-import { cx } from '@jarl/utils';
-
-import { DEFAULT_TAG } from './constants';
-import { useButton } from './hooks/useButton';
-
 import type { ElementType } from 'react';
 
+import { cx } from '@jarl/utils';
+
 import type { ButtonProps } from './Button.types';
+import { DEFAULT_TAG } from './constants';
+import { useButton } from './hooks/useButton';
 
 import './Button.styles.css';
 

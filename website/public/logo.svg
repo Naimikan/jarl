@@ -1,0 +1,20 @@
+<svg width="540" height="200" xmlns="http://www.w3.org/2000/svg">
+ <g stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <title>Layer 1</title>
+  <path id="svg_j"
+d="m80,20l0,110l-10,10l-50,0l0,40l80,0l20,-20l0,-140l-40,0z"
+stroke="#1034a6" fill="var(--jarl-primary, #2c52d4)" transition="fill
+0.3s ease"/>
+  <path fill="var(--jarl-secondary, #3b66f5)" stroke="#1034a6"
+d="m180,20l40,0l40,160l-40,0l-20,-100l-20,100l-40,0l40,-160z"
+id="svg_a" transition="fill 0.3s ease"/>
+  <path fill="var(--jarl-primary, #2c52d4)" stroke="#1034a6"
+d="m300,20l80,0l20,20l0,60l-20,20l20,60l-40,0l-20,-60l0,-20l20,-20l0,-15l-5,-5l-35,0l-5,5l0,115l-40,0l0,-140l20,-20l5,0z"
+id="svg_r" transition="fill 0.3s ease"/>
+  <path id="svg_l"
+d="m420,20l40,0l0,110l10,10l50,0l0,40l-80,0l-20,-20l0,-140z"
+stroke="#1034a6" fill="var(--jarl-secondary, #3b66f5)"
+transition="fill 0.3s ease"/>
+ </g>
+
+</svg>

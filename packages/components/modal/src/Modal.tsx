@@ -1,5 +1,6 @@
 import { createContext, useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 
+import type { AppendTo } from '@jarl/portal';
 import { extractElementFromRef, useDisableBackgroundScroll, useLatest } from '@jarl/react-utils';
 
 import { Backdrop } from './components/Backdrop';
@@ -11,9 +12,6 @@ import { Header } from './components/Header';
 import { Title } from './components/Title';
 import { AnimationStates, Positions } from './constants';
 import { getClosestOpenedDialog } from './helpers/getClosestOpenedDialog';
-
-import type { AppendTo } from '@jarl/portal';
-
 import type { AnimationState, ModalContextType, ModalProps } from './Modal.types';
 
 export const ModalContext = createContext<ModalContextType | null>(null);

@@ -8,17 +8,16 @@ import {
   useMutationObserver,
 } from '@jarl/react-utils';
 
-import { AnchorContent } from './components/Content';
-import { AnchorTrigger } from './components/Trigger';
-import { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from './constants';
-import { getDelay } from './helpers/get-delay';
-
 import type {
   AnchoredElementContextType,
   AnchoredElementProps,
   AnimationState,
   Position,
 } from './AnchoredElement.types';
+import { AnchorContent } from './components/Content';
+import { AnchorTrigger } from './components/Trigger';
+import { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from './constants';
+import { getDelay } from './helpers/get-delay';
 
 export const AnchoredElementContext = createContext<AnchoredElementContextType | null>(null);
 

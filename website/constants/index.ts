@@ -1,6 +1,6 @@
-import { colors } from '@jarl/theme';
-
 import type { Metadata, Viewport } from 'next';
+
+import { colors } from '@jarl/theme';
 
 export const isProduction = process.env.NODE_ENV === 'production';
 

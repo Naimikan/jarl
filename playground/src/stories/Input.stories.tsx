@@ -1,8 +1,6 @@
-import { fn } from 'storybook/test';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Input } from '@jarl/input';
-
-import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'JARL/Input',
@@ -11,7 +9,6 @@ const meta = {
     layout: 'centered',
   },
   args: {
-    onClick: fn(),
     name: 'input',
   },
 } satisfies Meta<typeof Input>;
@@ -38,5 +35,36 @@ export const DisableAndFocusable: Story = {
   args: {
     disabled: true,
     focusable: true,
+  },
+};
+
+export const ReadOnly: Story = {
+  args: {
+    readOnly: true,
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    invalid: true,
+  },
+};
+
+export const FocusAndBlur: Story = {
+  args: {
+    onFocus: () => console.log('Focused'),
+    onBlur: () => console.log('Blurred'),
+  },
+};
+
+export const Prefix: Story = {
+  args: {
+    renderPrefix: () => <span>$</span>,
+  },
+};
+
+export const Suffix: Story = {
+  args: {
+    renderSuffix: () => <span>Suffix</span>,
   },
 };

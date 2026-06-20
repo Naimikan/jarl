@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 
 import { getEventName } from '../helpers/getEventName';
 import { isEventHandler } from '../helpers/isEventHandler';
-
 import type { NoReservedPortalProps } from '../Portal.types';
 
 export interface UseSyncElementPropsParams {

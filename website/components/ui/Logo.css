@@ -1,0 +1,4 @@
+.logo {
+  fill: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-50));
+  stroke: light-dark(var(--jarl-colors-gray-950), var(--jarl-colors-gray-50));
+}

@@ -2,11 +2,10 @@ import { useCallback, useEffect } from 'react';
 
 import { getScrollableContainersByElement, isNull } from '@jarl/utils';
 
+import type { AnimationState } from '../AnchoredElement.types';
 import { ANIMATION_STATES, TRIGGER_EVENTS } from '../constants';
 import { getPosition } from '../helpers/get-position';
 import { useAnchoredContext } from './useAnchoredContext';
-
-import type { AnimationState } from '../AnchoredElement.types';
 
 export const useContentListeners = () => {
   const context = useAnchoredContext();

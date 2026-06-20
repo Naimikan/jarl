@@ -3,9 +3,8 @@
 import { useState } from 'react';
 
 import { Button } from '@jarl/button';
-import { Modal } from '@jarl/modal';
-
 import type { Position } from '@jarl/modal';
+import { Modal } from '@jarl/modal';
 
 type PositionsExampleState = {
   isOpened: boolean;

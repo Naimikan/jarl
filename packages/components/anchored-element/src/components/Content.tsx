@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useCallback } from 'react';
 
 import { Portal } from '@jarl/portal';
@@ -7,8 +8,6 @@ import { ANIMATION_STATES } from '../constants';
 import { useContentListeners } from '../hooks/useAnchorContentListeners';
 import { useAnchoredContext } from '../hooks/useAnchoredContext';
 import { Arrow } from './Arrow';
-
-import type { ReactNode } from 'react';
 
 import './Content.styles.css';
 

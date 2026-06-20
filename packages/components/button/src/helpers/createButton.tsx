@@ -1,7 +1,6 @@
-import { Button } from '../Button';
-
 import type { ElementType } from 'react';
 
+import { Button } from '../Button';
 import type { ButtonProps } from '../Button.types';
 
 export const createButton = <Variant extends string = string, Color extends string = string>() => {

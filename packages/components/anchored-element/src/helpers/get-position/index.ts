@@ -1,20 +1,10 @@
 import { isElementVisibleInContainer, isNull } from '@jarl/utils';
 
+import type { Position } from '../../AnchoredElement.types';
 import { POSITIONS } from '../../constants';
 import { getBottomLeftPosition } from './bottom-positions/getBottomLeftPosition';
 import { getBottomPosition } from './bottom-positions/getBottomPosition';
 import { getBottomRightPosition } from './bottom-positions/getBottomRightPosition';
-import { getLeftBottomPosition } from './left-positions/getLeftBottomPosition';
-import { getLeftPosition } from './left-positions/getLeftPosition';
-import { getLeftTopPosition } from './left-positions/getLeftTopPosition';
-import { getRightBottomPosition } from './right-positions/getRightBottomPosition';
-import { getRightPosition } from './right-positions/getRightPosition';
-import { getRightTopPosition } from './right-positions/getRightTopPosition';
-import { getTopLeftPosition } from './top-positions/getTopLeftPosition';
-import { getTopPosition } from './top-positions/getTopPosition';
-import { getTopRightPosition } from './top-positions/getTopRightPosition';
-
-import type { Position } from '../../AnchoredElement.types';
 import type {
   CheckInsideBoundaryParams,
   CheckInsideViewportParams,
@@ -24,6 +14,15 @@ import type {
   GetPositionReturn,
   IsInsideViewportOrBoundaryParams,
 } from './index.types';
+import { getLeftBottomPosition } from './left-positions/getLeftBottomPosition';
+import { getLeftPosition } from './left-positions/getLeftPosition';
+import { getLeftTopPosition } from './left-positions/getLeftTopPosition';
+import { getRightBottomPosition } from './right-positions/getRightBottomPosition';
+import { getRightPosition } from './right-positions/getRightPosition';
+import { getRightTopPosition } from './right-positions/getRightTopPosition';
+import { getTopLeftPosition } from './top-positions/getTopLeftPosition';
+import { getTopPosition } from './top-positions/getTopPosition';
+import { getTopRightPosition } from './top-positions/getTopRightPosition';
 
 const checkInsideBoundary = ({
   anchoredElement,

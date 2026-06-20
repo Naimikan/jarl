@@ -7,46 +7,19 @@
           "level": "on",
           "options": {
             "groups": [
-              {
-                "type": false,
-                "source": [":PACKAGE:", "!@jarl/**"]
-              },
+              [":PACKAGE:", "!@jarl/**"],
               ":BLANK_LINE:",
-              {
-                "type": false,
-                "source": ["@jarl/**"]
-              },
+              ["@jarl/**"],
               ":BLANK_LINE:",
-              {
-                "type": false,
-                "source": [
-                  ":PATH:",
-                  "!**/*.css",
-                  "!**/*.scss",
-                  "!**/*.sass",
-                  "!**/*.less",
-                  "!**/*.styl"
-                ]
-              },
+              ["**", "!:STYLE:"],
               ":BLANK_LINE:",
-              {
-                "type": true,
-                "source": [":PACKAGE:", "!@jarl/**"]
-              },
+              { "type": true, "source": ["**", "!@jarl/**"] },
               ":BLANK_LINE:",
-              {
-                "type": true,
-                "source": ["@jarl/**"]
-              },
+              { "type": true, "source": ["@jarl/**"] },
               ":BLANK_LINE:",
-              {
-                "type": true,
-                "source": [":PATH:"]
-              },
+              { "type": true, "source": ["**"] },
               ":BLANK_LINE:",
-              {
-                "source": ["**/*.css", "**/*.scss", "**/*.sass", "**/*.less", "**/*.styl"]
-              }
+              [":STYLE:"]
             ]
           }
         },

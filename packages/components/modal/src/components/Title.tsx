@@ -1,8 +1,8 @@
+import type { ComponentProps, ElementType, PropsWithChildren } from 'react';
+
 import { cx } from '@jarl/utils';
 
 import { useModalContext } from '../hooks/useModalContext';
-
-import type { ComponentProps, ElementType, PropsWithChildren } from 'react';
 
 import './Title.styles.css';
 

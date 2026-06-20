@@ -1,12 +1,10 @@
+import type { ComponentPropsWithRef, Ref } from 'react';
 import { cloneElement } from 'react';
 
+import type { ElementWithRef } from '../AnchoredElement.types';
 import { ANIMATION_STATES, TRIGGER_EVENTS } from '../constants';
 import { useAnchoredContext } from '../hooks/useAnchoredContext';
 import { useTriggerListeners } from '../hooks/useAnchorTriggerListeners';
-
-import type { ComponentPropsWithRef, Ref } from 'react';
-
-import type { ElementWithRef } from '../AnchoredElement.types';
 
 export interface AnchorTriggerProps {
   children: ElementWithRef;

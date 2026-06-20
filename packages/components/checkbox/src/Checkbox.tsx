@@ -76,7 +76,7 @@ export const Checkbox = ({
           setFieldValue(newCheckedValue);
         }
 
-        onChange?.({ checked: newCheckedValue, name, event });
+        onChange?.({ value: newCheckedValue, name, event });
       }
     },
     [disabled, fieldValue, isControlledField, setFieldValue, name, onChange],

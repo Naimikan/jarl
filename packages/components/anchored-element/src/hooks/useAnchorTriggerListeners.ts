@@ -1,9 +1,8 @@
 import { useCallback, useEffect } from 'react';
 
+import type { AnimationState, Position } from '../AnchoredElement.types';
 import { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from '../constants';
 import { useAnchoredContext } from './useAnchoredContext';
-
-import type { AnimationState, Position } from '../AnchoredElement.types';
 
 type EventHandlers = {
   [key: string]: EventListener;

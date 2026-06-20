@@ -5,7 +5,6 @@ import { createElementWithProps } from './helpers/createElementWithProps';
 import { useParentElement } from './hooks/useParentElement';
 import { useSyncElementProps } from './hooks/useSyncElementProps';
 import { PortalContext } from './Portal.context';
-
 import type { PortalProps } from './Portal.types';
 
 export const Portal = ({ appendTo, children, ref, ...props }: PortalProps) => {
