@@ -6,18 +6,14 @@ import type { InputTypes } from './constants';
 
 export type InputType = (typeof InputTypes)[keyof typeof InputTypes];
 
-export interface OnChangeParams {
-  name: BaseInputProps['name'];
-  value: BaseInputProps['value'];
-}
-
-export interface RenderFixPropsParams {
+/* Base types */
+export interface RenderFixPropParams {
   disabled?: BaseInputProps['disabled'];
   invalid?: BaseInputProps['invalid'];
   readOnly?: BaseInputProps['readOnly'];
 }
 
-export type RenderFixProp = (params: RenderFixPropsParams) => ReactNode;
+export type RenderFixProp = (params: RenderFixPropParams) => ReactNode;
 
 export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement> &
   DataAttributes & {
@@ -31,13 +27,45 @@ export type BaseInputProps = React.InputHTMLAttributes<HTMLInputElement> &
     renderSuffix?: RenderFixProp;
   };
 
+/* Generic types */
+export interface OnChangeGenericParams {
+  name: BaseInputProps['name'];
+  value: BaseInputProps['value'];
+}
+
 export type InputGenericProps = Omit<BaseInputProps, 'onChange'> & {
-  onChange?: (params: OnChangeParams) => void;
+  onChange?: (params: OnChangeGenericParams) => void;
 };
+
+/* Number types */
+export interface OnChangeNumberParams {
+  name: InputNumberProps['name'];
+  value: InputNumberProps['value'];
+}
+
+export interface RenderFixNumberPropParam extends RenderFixPropParams {
+  decrease?: (forceMin?: boolean) => void;
+  increase?: (forceMax?: boolean) => void;
+  inputId?: string;
+  max?: number;
+  min?: number;
+}
+
+export type RenderFixNumberProp = (params: RenderFixNumberPropParam) => ReactNode;
 
 export type InputNumberProps = Omit<
   InputGenericProps,
-  'type' | 'role' | 'inputMode' | 'defaultValue' | 'value' | 'min' | 'max' | 'step'
+  | 'type'
+  | 'role'
+  | 'inputMode'
+  | 'defaultValue'
+  | 'value'
+  | 'min'
+  | 'max'
+  | 'step'
+  | 'onChange'
+  | 'renderPrefix'
+  | 'renderSuffix'
 > & {
   inputMode?: 'numeric' | 'decimal';
   defaultValue?: number;
@@ -45,7 +73,16 @@ export type InputNumberProps = Omit<
   step?: number;
   min?: number;
   max?: number;
+  hideStepper?: boolean;
+  enableWheelChange?: boolean;
   displayFormatter?: Intl.NumberFormat;
+  renderPrefix?: RenderFixNumberProp;
+  renderSuffix?: RenderFixNumberProp;
+  onChange?: (params: OnChangeNumberParams) => void;
 };
 
-export type InputProps = InputGenericProps | InputNumberProps;
+/* Full types */
+
+type InputTypeProp = Pick<InputGenericProps, 'type'>;
+
+export type InputProps = InputTypeProp & (Omit<InputGenericProps, 'type'> | InputNumberProps);

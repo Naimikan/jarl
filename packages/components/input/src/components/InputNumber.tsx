@@ -3,8 +3,11 @@ import {
   type FocusEvent,
   type KeyboardEvent,
   useCallback,
+  useEffect,
+  useId,
   useMemo,
   useState,
+  type WheelEvent,
 } from 'react';
 
 import { useControlledField } from '@jarl/react-utils';
@@ -13,29 +16,39 @@ import { isDefined, isDefinedAndNotNull } from '@jarl/utils';
 import { getPrecisionByNumber } from '../helpers/getPrecisionByNumber';
 import { getValidatedValue } from '../helpers/getValidatedValue';
 import { isIncompleteNumericValue } from '../helpers/isIncompleteNumericValue';
-import { isNumericEvent } from '../helpers/isNumericEvent';
 import { sanitizeInputValue } from '../helpers/sanitizeNumericValue';
 import type { InputNumberProps } from '../Input.types';
 import { BaseInput } from './BaseInput';
+import { InputNumberSuffix } from './InputNumberSuffix';
 
 export const InputNumber = ({
   inputMode = 'numeric',
-  min = -9007199254740991,
-  max = 9007199254740991,
+  min = Number.MIN_SAFE_INTEGER,
+  max = Number.MAX_SAFE_INTEGER,
   autoComplete = 'off',
-  spellCheck = 'false',
+  spellCheck = 'true',
   disabled,
   step = 1,
   value,
   defaultValue,
+  enableWheelChange = false,
+  id,
   name,
+  hideStepper = false,
+  invalid,
+  readOnly,
   displayFormatter,
+  renderPrefix,
+  renderSuffix,
   onBlur,
   onFocus,
   onChange,
   onKeyDown,
   ...otherProps
 }: InputNumberProps) => {
+  const defaultId = useId();
+  const idToUse = id || defaultId;
+
   const [isFocused, setIsFocused] = useState(false);
 
   const { isControlledField, fieldValue, setFieldValue } = useControlledField<
@@ -75,8 +88,7 @@ export const InputNumber = ({
         if (forceMax) {
           newValue = max;
         } else {
-          const precision = getPrecisionByNumber(step);
-          newValue = parseFloat(((fieldValue ?? 0) + step).toFixed(precision));
+          newValue = parseFloat(((fieldValue ?? 0) + step).toFixed(precisionToUse));
 
           if (isDefinedAndNotNull(max) && newValue > max) {
             newValue = max;
@@ -98,8 +110,8 @@ export const InputNumber = ({
     },
     [
       fieldValue,
-      precisionToUse,
       isControlledField,
+      precisionToUse,
       name,
       disabled,
       min,
@@ -118,9 +130,7 @@ export const InputNumber = ({
         if (forceMin) {
           newValue = min;
         } else {
-          const precision = getPrecisionByNumber(step);
-
-          newValue = parseFloat(((fieldValue ?? 0) - step).toFixed(precision));
+          newValue = parseFloat(((fieldValue ?? 0) - step).toFixed(precisionToUse));
 
           if (isDefinedAndNotNull(max) && newValue > max) {
             newValue = max;
@@ -208,7 +218,8 @@ export const InputNumber = ({
 
         onChange?.({ value: undefined, name });
       } else {
-        const validatedValue = getValidatedValue({ value: fieldValue, min, max });
+        const currentInputValue = parseFloat(sanitizedValue);
+        const validatedValue = getValidatedValue({ value: currentInputValue, min, max });
 
         if (fieldValue !== validatedValue) {
           if (!isControlledField) {
@@ -220,6 +231,8 @@ export const InputNumber = ({
           }
 
           onChange?.({ value: validatedValue, name });
+        } else if (isDefined(validatedValue)) {
+          setInputDisplayValue(validatedValue.toFixed(precisionToUse));
         }
       }
     },
@@ -238,33 +251,28 @@ export const InputNumber = ({
 
   const handleKeydown = useCallback(
     (event: KeyboardEvent<HTMLInputElement>) => {
-      if (!isNumericEvent(event)) {
-        event.preventDefault();
-      }
-
       const isUpArrowPressed = event.key === 'ArrowUp';
       const isDownArrowPressed = event.key === 'ArrowDown';
       const isHomePressed = event.key === 'Home';
       const isEndPressed = event.key === 'End';
 
       if (isUpArrowPressed || isDownArrowPressed || isHomePressed || isEndPressed) {
-        if (isUpArrowPressed) {
-          event.preventDefault();
-          increase();
-        } else if (isDownArrowPressed) {
-          event.preventDefault();
-          decrease();
-        } else if (
-          (isHomePressed && isDefinedAndNotNull(min)) ||
-          (isEndPressed && isDefinedAndNotNull(max))
-        ) {
-          event.preventDefault();
+        event.preventDefault();
 
-          if (isHomePressed) {
-            decrease(isHomePressed);
-          } else if (isEndPressed) {
-            increase(isEndPressed);
-          }
+        if (isUpArrowPressed) {
+          increase();
+        }
+
+        if (isDownArrowPressed) {
+          decrease();
+        }
+
+        if (isHomePressed && isDefinedAndNotNull(min)) {
+          decrease(true);
+        }
+
+        if (isEndPressed && isDefinedAndNotNull(max)) {
+          increase(true);
         }
       }
 
@@ -273,24 +281,123 @@ export const InputNumber = ({
     [increase, decrease, onKeyDown, min, max],
   );
 
+  const handleWheel = useCallback(
+    (event: WheelEvent<HTMLInputElement>) => {
+      if (!enableWheelChange || disabled) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (event.deltaY < 0) {
+        increase();
+      } else {
+        decrease();
+      }
+    },
+    [enableWheelChange, disabled, increase, decrease],
+  );
+
+  const renderPrefixToUse = useMemo(() => {
+    const inputId = `${idToUse}:input`;
+
+    if (isDefinedAndNotNull(renderPrefix)) {
+      return () =>
+        renderPrefix({
+          disabled,
+          readOnly,
+          invalid,
+          min,
+          max,
+          inputId,
+          increase,
+          decrease,
+        });
+    }
+
+    return () => null;
+  }, [disabled, readOnly, min, max, idToUse, invalid, renderPrefix, increase, decrease]);
+
+  const renderSuffixToUse = useMemo(() => {
+    const inputId = `${idToUse}:input`;
+
+    if (isDefinedAndNotNull(renderSuffix)) {
+      return () =>
+        renderSuffix({
+          disabled,
+          readOnly,
+          invalid,
+          min,
+          max,
+          inputId,
+          increase,
+          decrease,
+        });
+    }
+
+    if (hideStepper || readOnly || disabled) {
+      return () => null;
+    }
+
+    return () => (
+      <InputNumberSuffix
+        currentValue={fieldValue}
+        decrease={decrease}
+        increase={increase}
+        inputId={inputId}
+        max={max}
+        min={min}
+      />
+    );
+  }, [
+    hideStepper,
+    disabled,
+    readOnly,
+    fieldValue,
+    min,
+    max,
+    idToUse,
+    invalid,
+    renderSuffix,
+    increase,
+    decrease,
+  ]);
+
+  useEffect(() => {
+    if (isFocused) {
+      return;
+    }
+
+    setInputDisplayValue(isDefinedAndNotNull(fieldValue) ? fieldValue.toFixed(precisionToUse) : '');
+  }, [fieldValue, precisionToUse, isFocused]);
+
   return (
     <BaseInput
-      aria-valuemax={isDefinedAndNotNull(max) ? +max : undefined}
-      aria-valuemin={isDefinedAndNotNull(min) ? +min : undefined}
+      aria-valuemax={max !== Number.MAX_SAFE_INTEGER ? max : undefined}
+      aria-valuemin={min !== Number.MIN_SAFE_INTEGER ? min : undefined}
       aria-valuenow={fieldValue}
       aria-valuetext={
-        !isFocused && displayFormatter && fieldValue !== undefined
-          ? displayFormatter.format(fieldValue)
-          : inputDisplayValue
+        fieldValue !== undefined
+          ? !isFocused && displayFormatter && fieldValue !== undefined
+            ? displayFormatter.format(fieldValue)
+            : inputDisplayValue
+          : undefined
       }
       autoComplete={autoComplete}
+      containerClassName="jarl-input-number"
       disabled={disabled}
+      id={idToUse}
       inputMode={inputMode}
+      invalid={invalid}
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
       onFocus={handleFocus}
       onKeyDown={handleKeydown}
+      onWheel={handleWheel}
+      readOnly={readOnly}
+      renderPrefix={renderPrefixToUse}
+      renderSuffix={renderSuffixToUse}
       role="spinbutton"
       spellCheck={spellCheck}
       type="text"
@@ -303,3 +410,5 @@ export const InputNumber = ({
     />
   );
 };
+
+InputNumber.displayName = 'Jarl.InputNumber';

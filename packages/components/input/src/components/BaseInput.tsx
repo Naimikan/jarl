@@ -1,4 +1,4 @@
-import { type ChangeEvent, useCallback } from 'react';
+import { type ChangeEvent, useCallback, useId } from 'react';
 
 import { useAriaAttributes, useDataAttributes, useFocusable } from '@jarl/react-utils';
 import { cx } from '@jarl/utils';
@@ -12,6 +12,7 @@ export const BaseInput = ({
   containerClassName,
   invalid,
   ref,
+  id,
   focusable,
   disabled,
   value,
@@ -21,6 +22,12 @@ export const BaseInput = ({
   onChange,
   ...inputProps
 }: BaseInputProps) => {
+  const defaultId = useId();
+  const idToUse = id || defaultId;
+
+  const containerId = idToUse;
+  const inputId = `${idToUse}:input`;
+
   const ariaAttributes = useAriaAttributes(inputProps, ['aria-disabled', 'aria-invalid']);
   const dataAttributes = useDataAttributes(inputProps);
 
@@ -45,7 +52,11 @@ export const BaseInput = ({
   );
 
   return (
-    <div className={cx('jarl-input', containerClassName)} {...inputContainerFocusableProps}>
+    <div
+      className={cx('jarl-input', containerClassName)}
+      id={containerId}
+      {...inputContainerFocusableProps}
+    >
       {renderPrefix?.({
         disabled,
         invalid,
@@ -59,6 +70,7 @@ export const BaseInput = ({
         {...inputFieldFocusableProps}
         {...inputProps}
         aria-invalid={invalid ? true : undefined}
+        id={inputId}
         onChange={changeHandler}
         readOnly={readOnly ? true : undefined}
         value={value}
