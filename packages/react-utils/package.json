@@ -2,10 +2,23 @@
   "name": "@jarl/react-utils",
   "version": "0.0.0",
   "type": "module",
+  "description": "React utils for Jarl",
+  "homepage": "https://naimikan.github.io/jarl/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naimikan/jarl.git",
+    "directory": "packages/react-utils"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "license": "MIT",
   "sideEffects": false,
   "files": [
     "dist"
   ],
+
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -19,9 +32,6 @@
     "lint": "biome format --write ./src",
     "test": "vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@jarl/utils": "workspace:*"
   },
   "devDependencies": {
     "@jarl/typescript-config": "workspace:*",
@@ -40,6 +50,7 @@
     "react": "catalog:"
   },
   "peerDependencies": {
+    "@jarl/utils": "workspace:*",
     "react": ">=19.0.0"
   },
   "engines": {

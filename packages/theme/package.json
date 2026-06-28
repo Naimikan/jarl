@@ -2,6 +2,18 @@
   "name": "@jarl/theme",
   "version": "0.0.0",
   "type": "module",
+  "description": "Official theme for  Jarl",
+  "homepage": "https://naimikan.github.io/jarl/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naimikan/jarl.git",
+    "directory": "packages/theme"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "license": "MIT",
   "sideEffects": [
     "./dist/*.css"
   ],
