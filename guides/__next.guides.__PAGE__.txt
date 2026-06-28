@@ -2,5 +2,5 @@
 2:I[7613,[],"OutletBoundary"]
 3:"$Sreact.suspense"
 :HL["/jarl/_next/static/css/017e22a7ab310aea.css","style"]
-0:{"buildId":"KIGLy94tEy5Lcd3L8qSMF","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"main-content","children":[["$","h1",null,{"id":"guides","children":"Guides"}],"\n",["$","p",null,{"children":"Guides"}]]}],[["$","link","0",{"rel":"stylesheet","href":"/jarl/_next/static/css/017e22a7ab310aea.css","precedence":"next"}]],["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"qT0iUXT6QckaG4GL_ijQH","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"main-content","children":[["$","h1",null,{"id":"guides","children":"Guides"}],"\n",["$","p",null,{"children":"Guides"}]]}],[["$","link","0",{"rel":"stylesheet","href":"/jarl/_next/static/css/017e22a7ab310aea.css","precedence":"next"}]],["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
 4:null
