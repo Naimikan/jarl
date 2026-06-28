@@ -1,6 +1,6 @@
 {
   "name": "@jarl/portal",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "Accessible portal primitive for Jarl",
   "homepage": "https://naimikan.github.io/jarl/",

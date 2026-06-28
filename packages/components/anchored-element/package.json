@@ -1,6 +1,6 @@
 {
   "name": "@jarl/anchored-element",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "Accessible anchored element primitive for Jarl",
   "homepage": "https://naimikan.github.io/jarl/",

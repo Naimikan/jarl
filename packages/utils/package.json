@@ -1,6 +1,6 @@
 {
   "name": "@jarl/utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "Utility functions for  Jarl",
   "homepage": "https://naimikan.github.io/jarl/",
