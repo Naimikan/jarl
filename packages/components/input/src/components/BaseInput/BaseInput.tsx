@@ -3,7 +3,7 @@ import { type ChangeEvent, useCallback, useId } from 'react';
 import { useAriaAttributes, useDataAttributes, useFocusable } from '@jarl/react-utils';
 import { cx } from '@jarl/utils';
 
-import type { BaseInputProps } from '../Input.types';
+import type { BaseInputProps } from '../../types/BaseInput.types';
 
 import './BaseInput.styles.css';
 

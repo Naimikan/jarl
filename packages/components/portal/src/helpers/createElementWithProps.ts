@@ -1,6 +1,6 @@
 import { isDefinedAndNotNull } from '@jarl/utils';
 
-import type { NoReservedPortalProps } from '../Portal.types';
+import type { NoReservedPortalProps } from '../types/Portal.types';
 import { getEventName } from './getEventName';
 import { isEventHandler } from './isEventHandler';
 

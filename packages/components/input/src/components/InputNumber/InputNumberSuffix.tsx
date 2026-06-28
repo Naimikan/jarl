@@ -3,7 +3,7 @@ import { type MouseEvent, type TouchEvent, useCallback, useEffect, useRef } from
 import { useInterval } from '@jarl/react-utils';
 import { isDefined } from '@jarl/utils';
 
-import { isLeftMouseClickEvent } from '../helpers/isLeftMouseClickEvent';
+import { isLeftMouseClickEvent } from '../../helpers/isLeftMouseClickEvent';
 
 import './InputNumberSuffix.styles.css';
 

@@ -3,16 +3,10 @@ import { type ChangeEvent, useCallback } from 'react';
 import { useControlledField } from '@jarl/react-utils';
 import { isDefinedAndNotNull } from '@jarl/utils';
 
-import type { InputGenericProps } from '../Input.types';
-import { BaseInput } from './BaseInput';
+import type { InputProps } from '../../types/Input.types';
+import { BaseInput } from '../BaseInput/BaseInput';
 
-export const InputGeneric = ({
-  value,
-  defaultValue,
-  onChange,
-  name,
-  ...otherProps
-}: InputGenericProps) => {
+export const Input = ({ value, defaultValue, onChange, name, ...otherProps }: InputProps) => {
   const { isControlledField, fieldValue, setFieldValue } = useControlledField<
     typeof value | undefined
   >({
@@ -47,4 +41,4 @@ export const InputGeneric = ({
   return <BaseInput name={name} onChange={handleChange} value={fieldValue ?? ''} {...otherProps} />;
 };
 
-InputGeneric.displayName = 'Jarl.InputGeneric';
+Input.displayName = 'Jarl.Input';

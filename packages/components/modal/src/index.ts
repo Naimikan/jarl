@@ -1,4 +1,2 @@
-'use client';
-
-export { Modal } from './Modal';
-export type * from './Modal.types';
+export { Modal } from './components/Modal';
+export type * from './types/Modal.types';

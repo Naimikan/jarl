@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { AnchoredElementContext } from '../AnchoredElement';
+import { AnchoredElementContext } from '../components/AnchoredElement';
 
 export const useAnchoredContext = () => {
   const anchoredContext = useContext(AnchoredElementContext);

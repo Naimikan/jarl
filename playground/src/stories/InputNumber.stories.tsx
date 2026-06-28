@@ -1,19 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useCallback, useState } from 'react';
 
-import { Input, type OnChangeNumberParams, type RenderFixNumberPropParam } from '@jarl/input';
+import { InputNumber, type OnChangeNumberParams, type RenderFixNumberPropParam } from '@jarl/input';
 
 const meta = {
   title: 'JARL/InputNumber',
-  component: Input,
+  component: InputNumber,
   parameters: {
     layout: 'centered',
   },
   args: {
-    type: 'number',
     name: 'input-number',
   },
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof InputNumber>;
 
 export default meta;
 
@@ -78,7 +77,7 @@ export const Controlled: Story = {
       setValue(value);
     }, []);
 
-    return <Input onChange={onChange} type="number" value={value} />;
+    return <InputNumber onChange={onChange} value={value} />;
   },
 };
 

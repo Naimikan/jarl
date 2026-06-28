@@ -13,12 +13,12 @@ import {
 import { useControlledField } from '@jarl/react-utils';
 import { isDefined, isDefinedAndNotNull } from '@jarl/utils';
 
-import { getPrecisionByNumber } from '../helpers/getPrecisionByNumber';
-import { getValidatedValue } from '../helpers/getValidatedValue';
-import { isIncompleteNumericValue } from '../helpers/isIncompleteNumericValue';
-import { sanitizeInputValue } from '../helpers/sanitizeNumericValue';
-import type { InputNumberProps } from '../Input.types';
-import { BaseInput } from './BaseInput';
+import { getPrecisionByNumber } from '../../helpers/getPrecisionByNumber';
+import { getValidatedValue } from '../../helpers/getValidatedValue';
+import { isIncompleteNumericValue } from '../../helpers/isIncompleteNumericValue';
+import { sanitizeInputValue } from '../../helpers/sanitizeNumericValue';
+import type { InputNumberProps } from '../../types/InputNumber.types';
+import { BaseInput } from '../BaseInput/BaseInput';
 import { InputNumberSuffix } from './InputNumberSuffix';
 
 export const InputNumber = ({

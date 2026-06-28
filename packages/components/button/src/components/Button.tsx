@@ -2,9 +2,9 @@ import type { ElementType } from 'react';
 
 import { cx } from '@jarl/utils';
 
-import type { ButtonProps } from './Button.types';
-import { DEFAULT_TAG } from './constants';
-import { useButton } from './hooks/useButton';
+import { DEFAULT_TAG } from '../constants';
+import { useButton } from '../hooks/useButton';
+import type { ButtonProps } from '../types/Button.types';
 
 import './Button.styles.css';
 

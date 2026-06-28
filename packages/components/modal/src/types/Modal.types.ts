@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import type { AppendTo } from '@jarl/portal';
 
-import type { AnimationStates, Positions } from './constants';
+import type { AnimationStates, Positions } from '../constants';
 
 export type AnimationState = (typeof AnimationStates)[keyof typeof AnimationStates];
 export type Position = (typeof Positions)[keyof typeof Positions];

@@ -1,7 +1,7 @@
 import { isElementVisibleInContainer, isNull } from '@jarl/utils';
 
-import type { Position } from '../../AnchoredElement.types';
 import { POSITIONS } from '../../constants';
+import type { Position } from '../../types/AnchoredElement.types';
 import { getBottomLeftPosition } from './bottom-positions/getBottomLeftPosition';
 import { getBottomPosition } from './bottom-positions/getBottomPosition';
 import { getBottomRightPosition } from './bottom-positions/getBottomRightPosition';

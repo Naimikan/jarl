@@ -1,4 +1,2 @@
-'use client';
-
-export { Portal } from './Portal';
-export type * from './Portal.types';
+export { Portal } from './components/Portal';
+export type * from './types/Portal.types';

@@ -1,6 +1,6 @@
 import { isDefinedAndNotNull } from '@jarl/utils';
 
-export interface GetValidatedValueParams {
+interface GetValidatedValueParams {
   max: number;
   min: number;
   value?: number;

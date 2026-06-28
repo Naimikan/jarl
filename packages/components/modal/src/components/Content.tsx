@@ -7,7 +7,7 @@ import { cx } from '@jarl/utils';
 import { AnimationStates } from '../constants';
 import { useInert } from '../hooks/useInert';
 import { useModalContext } from '../hooks/useModalContext';
-import type { AnimationState } from '../Modal.types';
+import type { AnimationState } from '../types/Modal.types';
 
 import './Content.styles.css';
 
