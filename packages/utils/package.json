@@ -1,7 +1,19 @@
 {
   "name": "@jarl/utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "description": "Utility functions for  Jarl",
+  "homepage": "https://naimikan.github.io/jarl/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naimikan/jarl.git",
+    "directory": "packages/utils"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "license": "MIT",
   "sideEffects": false,
   "files": [
     "dist"

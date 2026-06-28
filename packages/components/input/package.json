@@ -1,7 +1,19 @@
 {
   "name": "@jarl/input",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "description": "Accessible input primitive for Jarl",
+  "homepage": "https://naimikan.github.io/jarl/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naimikan/jarl.git",
+    "directory": "packages/components/input"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "license": "MIT",
   "files": [
     "dist"
   ],
@@ -22,10 +34,6 @@
     "test": "vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "@jarl/react-utils": "workspace:*",
-    "@jarl/utils": "workspace:*"
-  },
   "devDependencies": {
     "@jarl/typescript-config": "workspace:*",
     "@jarl/vite-config": "workspace:*",
@@ -40,6 +48,8 @@
     "react": "catalog:"
   },
   "peerDependencies": {
+    "@jarl/react-utils": "workspace:*",
+    "@jarl/utils": "workspace:*",
     "react": ">=19.0.0"
   },
   "engines": {
