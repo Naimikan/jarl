@@ -2,7 +2,6 @@ import { getOffsetFromParent } from '@jarl/utils';
 
 import { POSITIONS } from '../../../constants';
 import { getArrowHeight } from '../../get-arrow-height';
-
 import type { GetBasicPositionParams } from '../index.types';
 
 type GetLeftPositionParams = Omit<GetBasicPositionParams, 'position' | 'sameWithAsTrigger'>;

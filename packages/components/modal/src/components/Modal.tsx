@@ -1,22 +1,19 @@
-import { createContext, useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
-
-import { extractElementFromRef, useDisableBackgroundScroll, useLatest } from '@jarl/react-utils';
-
-import { Backdrop } from './components/Backdrop';
-import { Body } from './components/Body';
-import { CloseButton } from './components/CloseButton';
-import { Content } from './components/Content';
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
-import { Title } from './components/Title';
-import { AnimationStates, Positions } from './constants';
-import { getClosestOpenedDialog } from './helpers/getClosestOpenedDialog';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 
 import type { AppendTo } from '@jarl/portal';
+import { extractElementFromRef, useDisableBackgroundScroll, useLatest } from '@jarl/react-utils';
 
-import type { AnimationState, ModalContextType, ModalProps } from './Modal.types';
-
-export const ModalContext = createContext<ModalContextType | null>(null);
+import { AnimationStates, Positions } from '../constants';
+import { ModalContext } from '../contexts/Modal.context';
+import { getClosestOpenedDialog } from '../helpers/getClosestOpenedDialog';
+import type { AnimationState, ModalContextType, ModalProps } from '../types/Modal.types';
+import { Backdrop } from './Backdrop';
+import { Body } from './Body';
+import { CloseButton } from './CloseButton';
+import { Content } from './Content';
+import { Footer } from './Footer';
+import { Header } from './Header';
+import { Title } from './Title';
 
 export const Modal = ({
   appendTo,

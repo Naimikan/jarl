@@ -1,3 +1,2 @@
-export { AnchoredElement } from './AnchoredElement';
-
-export type * from './AnchoredElement.types';
+export { AnchoredElement } from './components/AnchoredElement';
+export type * from './types/AnchoredElement.types';

@@ -8,12 +8,12 @@ import {
 } from '@jarl/react-utils';
 import { cx, isDefinedAndNotNull } from '@jarl/utils';
 
-import { Checkmark } from './components/Checkmark';
-import { Positions } from './constants';
+import { Positions } from '../constants';
+import { Checkmark } from './Checkmark';
 
 import './Checkbox.styles.css';
 
-import type { CheckboxProps } from './Checkbox.types';
+import type { CheckboxProps } from '../types/Checkbox.types';
 
 export const Checkbox = ({
   as: CustomComponent,
@@ -76,7 +76,7 @@ export const Checkbox = ({
           setFieldValue(newCheckedValue);
         }
 
-        onChange?.({ checked: newCheckedValue, name, event });
+        onChange?.({ value: newCheckedValue, name, event });
       }
     },
     [disabled, fieldValue, isControlledField, setFieldValue, name, onChange],

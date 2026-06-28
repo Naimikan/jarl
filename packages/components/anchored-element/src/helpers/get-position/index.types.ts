@@ -1,4 +1,4 @@
-import type { Position } from '../../AnchoredElement.types';
+import type { Position } from '../../types/AnchoredElement.types';
 
 export interface GetPositionParams {
   allowedPositions?: Partial<Position[]>;

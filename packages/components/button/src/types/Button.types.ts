@@ -1,6 +1,10 @@
-import type { ComponentPropsWithRef, ElementType, PropsWithChildren } from 'react';
+import type { AriaAttributes, ComponentPropsWithRef, ElementType, PropsWithChildren } from 'react';
 
-interface ButtonBaseProps<Variant extends string = string, Color extends string = string> {
+import type { DataAttributes } from '@jarl/utils';
+
+interface ButtonBaseProps<Variant extends string = string, Color extends string = string>
+  extends AriaAttributes,
+    DataAttributes {
   color?: Color;
   focusable?: boolean;
   variant?: Variant;

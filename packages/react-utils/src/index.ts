@@ -7,5 +7,6 @@ export * from './hooks/useDisableBackgroundScroll';
 export * from './hooks/useEscape';
 export * from './hooks/useFocusable';
 export * from './hooks/useFocusTrap';
+export * from './hooks/useInterval';
 export * from './hooks/useLatest';
 export * from './hooks/useMutationObserver';

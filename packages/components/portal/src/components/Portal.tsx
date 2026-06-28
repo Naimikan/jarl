@@ -1,12 +1,11 @@
 import { useEffect, useImperativeHandle, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import { createElementWithProps } from './helpers/createElementWithProps';
-import { useParentElement } from './hooks/useParentElement';
-import { useSyncElementProps } from './hooks/useSyncElementProps';
-import { PortalContext } from './Portal.context';
-
-import type { PortalProps } from './Portal.types';
+import { PortalContext } from '../contexts/Portal.context';
+import { createElementWithProps } from '../helpers/createElementWithProps';
+import { useParentElement } from '../hooks/useParentElement';
+import { useSyncElementProps } from '../hooks/useSyncElementProps';
+import type { PortalProps } from '../types/Portal.types';
 
 export const Portal = ({ appendTo, children, ref, ...props }: PortalProps) => {
   const parentElementInContext = useParentElement(appendTo);

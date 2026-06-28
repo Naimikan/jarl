@@ -1,6 +1,6 @@
-import { cx } from '@jarl/utils';
-
 import type { ComponentPropsWithRef } from 'react';
+
+import { cx } from '@jarl/utils';
 
 import './Arrow.styles.css';
 

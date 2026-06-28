@@ -1,6 +1,6 @@
-import { cx } from '@jarl/utils';
-
 import type { ReactNode } from 'react';
+
+import { cx } from '@jarl/utils';
 
 import './Footer.styles.css';
 

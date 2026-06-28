@@ -1,9 +1,8 @@
 import { isDefinedAndNotNull } from '@jarl/utils';
 
+import type { NoReservedPortalProps } from '../types/Portal.types';
 import { getEventName } from './getEventName';
 import { isEventHandler } from './isEventHandler';
-
-import type { NoReservedPortalProps } from '../Portal.types';
 
 export const createElementWithProps = (props: NoReservedPortalProps): HTMLElement => {
   const element = document.createElement('div');

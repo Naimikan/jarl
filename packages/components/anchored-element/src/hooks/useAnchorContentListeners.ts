@@ -4,9 +4,8 @@ import { getScrollableContainersByElement, isNull } from '@jarl/utils';
 
 import { ANIMATION_STATES, TRIGGER_EVENTS } from '../constants';
 import { getPosition } from '../helpers/get-position';
+import type { AnimationState } from '../types/AnchoredElement.types';
 import { useAnchoredContext } from './useAnchoredContext';
-
-import type { AnimationState } from '../AnchoredElement.types';
 
 export const useContentListeners = () => {
   const context = useAnchoredContext();

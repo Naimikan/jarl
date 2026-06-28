@@ -1,14 +1,13 @@
-import { type ReactNode, useCallback, useMemo, useRef } from 'react';
+import { type ReactNode, useCallback, useRef } from 'react';
 
 import { Portal } from '@jarl/portal';
 import { useClickOutside, useEscape, useFocusTrap } from '@jarl/react-utils';
-import { cx, getFocusableElements } from '@jarl/utils';
+import { cx } from '@jarl/utils';
 
 import { AnimationStates } from '../constants';
 import { useInert } from '../hooks/useInert';
 import { useModalContext } from '../hooks/useModalContext';
-
-import type { AnimationState } from '../Modal.types';
+import type { AnimationState } from '../types/Modal.types';
 
 import './Content.styles.css';
 

@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 
-import { PortalContext } from '../Portal.context';
-
-import type { AppendTo } from '../Portal.types';
+import { PortalContext } from '../contexts/Portal.context';
+import type { AppendTo } from '../types/Portal.types';
 
 export const useParentElement = (appendTo?: AppendTo): HTMLElement | null => {
   const parentElementInContext = useContext(PortalContext);

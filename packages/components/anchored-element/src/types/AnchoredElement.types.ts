@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode, Ref } from 'react';
 
 import type { AppendTo } from '@jarl/portal';
 
-import type { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from './constants';
+import type { ANIMATION_STATES, POSITIONS, TRIGGER_EVENTS } from '../constants';
 
 export type TriggerEvent = (typeof TRIGGER_EVENTS)[keyof typeof TRIGGER_EVENTS];
 export type Position = (typeof POSITIONS)[keyof typeof POSITIONS];

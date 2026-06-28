@@ -1,3 +1,2 @@
-export { Checkbox } from './Checkbox';
-
-export type * from './Checkbox.types';
+export { Checkbox } from './components/Checkbox';
+export type * from './types/Checkbox.types';

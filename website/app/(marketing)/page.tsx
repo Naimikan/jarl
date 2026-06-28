@@ -1,6 +1,6 @@
 'use client';
 
-import { IconBrush, IconFeather, IconKeyboard } from '@tabler/icons-react';
+import { IconArrowNarrowRight, IconBrush, IconFeather, IconKeyboard } from '@tabler/icons-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/wrappers/Button';
@@ -31,7 +31,7 @@ export default function IndexPage() {
                 { '--jarl-button-py': '12px', '--jarl-button-px': '24px' } as React.CSSProperties
               }
             >
-              Get started
+              Get started <IconArrowNarrowRight />
             </Button>
           </div>
         </div>

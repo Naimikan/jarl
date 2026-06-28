@@ -2,14 +2,14 @@ import type { AriaAttributes, ChangeEvent, ComponentType, ReactNode } from 'reac
 
 import type { DataAttributes } from '@jarl/utils';
 
-import type { Positions } from './constants';
+import type { Positions } from '../constants';
 
 export type Position = (typeof Positions)[keyof typeof Positions];
 
 interface OnChangeParams {
-  checked: CheckboxProps['checked'];
   event: ChangeEvent;
   name: CheckboxProps['name'];
+  value: CheckboxProps['checked'];
 }
 
 export type CheckboxCustomComponentProps = Omit<

@@ -1,8 +1,7 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { Checkbox, type CheckboxCustomComponentProps } from '@jarl/checkbox';
-
-import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const Test = ({
   checked,
@@ -58,6 +57,12 @@ export const Default: Story = {};
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    invalid: true,
   },
 };
 

@@ -1,6 +1,5 @@
 import { POSITIONS } from '../../constants';
-
-import type { Position } from '../../AnchoredElement.types';
+import type { Position } from '../../types/AnchoredElement.types';
 
 type PositionWithoutAuto = Omit<Position, 'auto'>;
 
