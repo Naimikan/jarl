@@ -5,9 +5,10 @@ import {
   useCallback,
   useEffect,
   useId,
+  useImperativeHandle,
   useMemo,
+  useRef,
   useState,
-  type WheelEvent,
 } from 'react';
 
 import { useControlledField } from '@jarl/react-utils';
@@ -38,6 +39,7 @@ export const InputNumber = ({
   invalid,
   readOnly,
   displayFormatter,
+  ref,
   renderPrefix,
   renderSuffix,
   onBlur,
@@ -48,6 +50,8 @@ export const InputNumber = ({
 }: InputNumberProps) => {
   const defaultId = useId();
   const idToUse = id || defaultId;
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const [isFocused, setIsFocused] = useState(false);
 
@@ -282,8 +286,8 @@ export const InputNumber = ({
   );
 
   const handleWheel = useCallback(
-    (event: WheelEvent<HTMLInputElement>) => {
-      if (!enableWheelChange || disabled) {
+    (event: WheelEvent) => {
+      if (!enableWheelChange || disabled || !isFocused) {
         return;
       }
 
@@ -295,7 +299,7 @@ export const InputNumber = ({
         decrease();
       }
     },
-    [enableWheelChange, disabled, increase, decrease],
+    [enableWheelChange, isFocused, disabled, increase, decrease],
   );
 
   const renderPrefixToUse = useMemo(() => {
@@ -371,6 +375,25 @@ export const InputNumber = ({
     setInputDisplayValue(isDefinedAndNotNull(fieldValue) ? fieldValue.toFixed(precisionToUse) : '');
   }, [fieldValue, precisionToUse, isFocused]);
 
+  useEffect(() => {
+    const inputElement = inputRef.current;
+
+    if (!(inputElement && enableWheelChange)) {
+      return;
+    }
+
+    inputElement.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      inputElement.removeEventListener('wheel', handleWheel);
+    };
+  }, [enableWheelChange, handleWheel]);
+
+  useImperativeHandle<HTMLInputElement | null, HTMLInputElement | null>(
+    ref,
+    () => inputRef.current,
+  );
+
   return (
     <BaseInput
       aria-valuemax={max !== Number.MAX_SAFE_INTEGER ? max : undefined}
@@ -394,8 +417,8 @@ export const InputNumber = ({
       onChange={handleChange}
       onFocus={handleFocus}
       onKeyDown={handleKeydown}
-      onWheel={handleWheel}
       readOnly={readOnly}
+      ref={inputRef}
       renderPrefix={renderPrefixToUse}
       renderSuffix={renderSuffixToUse}
       role="spinbutton"
