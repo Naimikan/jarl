@@ -2,6 +2,9 @@ import { InputNumber } from '@jarl/input';
 
 import { PreviewBox } from '@/components/ui/PreviewBox';
 
+import { DisplayFormatterExample } from './DisplayFormatterExample';
+import { CustomControlsExample } from './CustomControlsExample';
+
 # InputNumber
 
 ## Basic usage
@@ -12,4 +15,110 @@ import { PreviewBox } from '@/components/ui/PreviewBox';
 
 ```tsx
 <InputNumber name="my-input" />
+```
+
+## Default value
+
+<PreviewBox>
+  <InputNumber defaultValue={10} name="my-input" />
+</PreviewBox>
+
+```tsx
+<InputNumber defaultValue={10} name="my-input" />
+```
+
+## Hide stepper
+
+<PreviewBox>
+  <InputNumber hideStepper name="my-input" />
+</PreviewBox>
+
+```tsx
+<InputNumber hideStepper name="my-input" />
+```
+
+## Min & Max
+
+<PreviewBox>
+  <InputNumber min={0} max={100} name="my-input" />
+</PreviewBox>
+
+```tsx
+<InputNumber min={0} max={100} name="my-input" />
+```
+
+## Step
+
+<PreviewBox>
+  <InputNumber step={5} name="my-input" />
+</PreviewBox>
+
+```tsx
+<InputNumber step={5} name="my-input" />
+```
+
+## Step with decimals
+
+<PreviewBox>
+  <InputNumber step={0.01} name="my-input" />
+</PreviewBox>
+
+```tsx
+<InputNumber step={0.01} name="my-input" />
+```
+
+## Enable wheel change
+
+<PreviewBox>
+  <InputNumber enableWheelChange name="my-input" />
+</PreviewBox>
+
+```tsx
+<InputNumber enableWheelChange name="my-input" />
+```
+
+## Display formatter
+
+<PreviewBox>
+  <DisplayFormatterExample />
+</PreviewBox>
+
+```tsx
+<InputNumber displayFormatter={new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })} name="my-input" />
+```
+
+## Custom controls
+
+<PreviewBox>
+  <CustomControlsExample />
+</PreviewBox>
+
+```tsx
+<InputNumber
+  name="my-input"
+  renderPrefix={({ inputId, decrease }: RenderFixNumberPropParam) => (
+    <button
+      aria-controls={inputId}
+      aria-label="Increase"
+      className="jarl-input-number__stepper-button"
+      onClick={() => decrease?.()}
+      tabIndex={-1}
+      type="button"
+    >
+      -
+    </button>
+  )}
+  renderSuffix={({ inputId, increase }: RenderFixNumberPropParam) => (
+    <button
+      aria-controls={inputId}
+      aria-label="Increase"
+      className="jarl-input-number__stepper-button"
+      onClick={() => increase?.()}
+      tabIndex={-1}
+      type="button"
+    >
+      +
+    </button>
+  )}
+/>
 ```

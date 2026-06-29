@@ -23,6 +23,8 @@ export type InputNumberProps = Omit<
   | 'type'
   | 'role'
   | 'inputMode'
+  | 'defaultChecked'
+  | 'checked'
   | 'defaultValue'
   | 'value'
   | 'min'

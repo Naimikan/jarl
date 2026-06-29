@@ -2,14 +2,87 @@ import { Input } from '@jarl/input';
 
 import { PreviewBox } from '@/components/ui/PreviewBox';
 
+import { RenderPrefixExample } from './RenderPrefixExample';
+import { RenderSuffixExample } from './RenderSuffixExample';
+
 # Input (Generic)
 
 ## Basic usage
 
 <PreviewBox>
-  <Input type="text" name="my-input" />
+  <Input name="my-input" />
 </PreviewBox>
 
 ```tsx
-<Input type="text" name="my-input" />
+<Input name="my-input" />
+```
+
+## Placeholder
+
+<PreviewBox>
+  <Input placeholder="Text here..." name="my-input" />
+</PreviewBox>
+
+```tsx
+<Input placeholder="Text here..." name="my-input" />
+```
+
+## Disabled
+
+<PreviewBox>
+  <Input disabled name="my-input" />
+</PreviewBox>
+
+```tsx
+<Input disabled name="my-input" />
+```
+
+## Disable and Focusable
+
+<PreviewBox>
+  <Input disabled focusable name="my-input" />
+</PreviewBox>
+
+```tsx
+<Input disabled focusable name="my-input" />
+```
+
+## Readonly
+
+<PreviewBox>
+  <Input readOnly name="my-input" />
+</PreviewBox>
+
+```tsx
+<Input readOnly name="my-input" />
+```
+
+## Invalid
+
+<PreviewBox>
+  <Input invalid name="my-input" />
+</PreviewBox>
+
+```tsx
+<Input invalid name="my-input" />
+```
+
+## Prefix
+
+<PreviewBox>
+  <RenderPrefixExample />
+</PreviewBox>
+
+```tsx
+<Input renderPrefix={() => <span>Prefix</span>} name="my-input" />
+```
+
+## Suffix
+
+<PreviewBox>
+  <RenderSuffixExample />
+</PreviewBox>
+
+```tsx
+<Input renderSuffix={() => <span>Suffix</span>} name="my-input" />
 ```
