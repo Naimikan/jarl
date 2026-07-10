@@ -12,7 +12,6 @@ export default function IndexPage() {
     <main className="home">
       <section className="intro">
         <div className="presentation">
-          <p className="presentation__features">React · Headless · Zero dependency · Themeable</p>
           <h1 className="presentation__title">
             Accessible by default.
             <br />

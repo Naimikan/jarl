@@ -1,11 +1,11 @@
 .main-content {
   width: 100dvw;
-  padding-block: 24px;
-  padding-inline: 24px;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .main-content {
-    max-width: 1024px;
+    max-width: 64rem;
   }
 }

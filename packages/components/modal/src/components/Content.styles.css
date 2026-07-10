@@ -51,8 +51,8 @@
   }
 
   .jarl-modal__content {
-    --_marginX: var(--jarl-modal-content-mx, 24px);
-    --_marginY: var(--jarl-modal-content-my, 24px);
+    --_marginX: var(--jarl-modal-content-mx, 1.25rem);
+    --_marginY: var(--jarl-modal-content-my, 1.25rem);
 
     position: relative;
     display: flex;
@@ -69,7 +69,7 @@
     border-color: var(--jarl-modal-content-border-color, #ccc);
     border-style: var(--jarl-modal-content-border-style, solid);
     border-width: var(--jarl-modal-content-border-width, 1px);
-    border-radius: var(--jarl-modal-content-border-radius, 8px);
+    border-radius: var(--jarl-modal-content-border-radius, 0.5rem);
 
     &:focus-visible {
       outline: var(--jarl-modal-focus-outline-width, 2px)

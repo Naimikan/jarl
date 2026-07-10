@@ -7,14 +7,14 @@
 
   .jarl-anchored-element__content {
     position: relative;
-    padding-block: var(--jarl-anchored-element-py, 8px);
-    padding-inline: var(--jarl-anchored-element-px, 8px);
+    padding-block: var(--jarl-anchored-element-py, 0.5rem);
+    padding-inline: var(--jarl-anchored-element-px, 0.5rem);
     color: var(--jarl-anchored-element-color, #111);
     background-color: var(--jarl-anchored-element-bg, #fff);
     border-color: var(--jarl-anchored-element-border-color, #ccc);
     border-style: var(--jarl-anchored-element-border-style, solid);
     border-width: var(--jarl-anchored-element-border-width, 1px);
-    border-radius: var(--jarl-anchored-element-border-radius, 4px);
+    border-radius: var(--jarl-anchored-element-border-radius, 0.25rem);
     will-change: transform, visibility, opacity;
 
     &[data-state="closed"] {

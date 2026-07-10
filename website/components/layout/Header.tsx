@@ -35,7 +35,7 @@ export const Header = () => (
 
       <a
         aria-label="Github link"
-        className="anchor"
+        className="anchor github-link"
         href={REPOSITORY_URL}
         rel="noreferrer"
         target="_blank"

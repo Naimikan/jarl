@@ -37,7 +37,7 @@ h3,
 h4,
 h5,
 h6 {
-  scroll-margin-top: calc(var(--jarl-header-height) + 24px);
+  scroll-margin-top: calc(var(--jarl-header-height) + 1.5rem);
 
   .anchor {
     display: inline;
@@ -64,13 +64,13 @@ h3,
 h4,
 h5,
 h6 {
-  padding-block-end: 8px;
+  padding-block-end: 0.5rem;
   border-bottom: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
 }
 
 a {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: center;
   color: light-dark(var(--jarl-colors-gray-500), var(--jarl-colors-gray-300));
   text-decoration: none;
@@ -98,15 +98,15 @@ figure[data-rehype-pretty-code-figure] {
     overflow-x: auto;
     background-color: light-dark(var(--jarl-colors-gray-50), var(--jarl-colors-gray-900));
     border: 1px solid light-dark(var(--jarl-colors-gray-200), var(--jarl-colors-gray-500));
-    border-radius: 8px;
+    border-radius: 0.5rem;
 
     span {
-      font-size: 14px;
+      font-size: 0.875rem;
       color: light-dark(var(--shiki-light), var(--shiki-dark));
 
       &[data-line] {
-        padding-inline: 16px;
-        line-height: 20px;
+        padding-inline: 1rem;
+        line-height: 1.25rem;
       }
     }
   }

@@ -1,27 +1,27 @@
 .sidebar {
   flex-shrink: 0;
-  width: 220px;
-  margin-block-start: 24px;
+  width: 13.75rem;
+  margin-block-start: 1.5rem;
   border-right: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
 
   .sidebar__content {
     position: sticky;
-    top: calc(var(--jarl-header-height) + 24px);
+    top: calc(var(--jarl-header-height) + 1.5rem);
     display: grid;
 
     .sidebar__sections {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 1.5rem;
       padding: 0;
       margin: 0;
       list-style: none;
 
       .sidebar__item {
-        padding: 12px 12px 0;
+        padding: 0.75rem 0.75rem 0;
 
         .sidebar__item-title {
-          font-size: 14px;
+          font-size: 0.875rem;
           font-weight: bold;
           text-transform: uppercase;
         }
@@ -29,14 +29,14 @@
         .sidebar__subsections {
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 0.25rem;
           padding: 0;
-          margin-block-start: 8px;
+          margin-block-start: 0.5rem;
           list-style: none;
 
           .sidebar__subsection-item {
-            padding: 4px 4px 4px 10px;
-            font-size: 14px;
+            padding: 0.25rem 0.25rem 0.25rem 0.625rem;
+            font-size: 0.875rem;
 
             .sidebar__subsection-item-link {
               text-decoration: none;
@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 56.25rem) {
   .sidebar {
     display: none;
   }

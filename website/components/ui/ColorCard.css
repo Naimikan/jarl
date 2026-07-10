@@ -1,9 +1,9 @@
 .color-card {
-  width: 80px;
+  width: 5rem;
   overflow: hidden;
   cursor: pointer;
   border: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
-  border-radius: 8px;
+  border-radius: 0.5rem;
   transition: transform 100ms;
 
   &.selected {
@@ -18,27 +18,27 @@
   .color-container {
     display: block;
     width: 100%;
-    height: 72px;
+    height: 4.5rem;
   }
 
   .color-info-container {
     display: flex;
     flex-direction: column;
-    padding: 8px;
+    padding: 0.5rem;
     border-top: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
 
     .color-name {
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 11px;
+      font-size: 0.6875rem;
       font-weight: 500;
       color: light-dark(var(--jarl-colors-gray-600), var(--jarl-colors-gray-200));
       white-space: nowrap;
     }
 
     .color-hex {
-      margin-top: 4px;
-      font-size: 10px;
+      margin-top: 0.25rem;
+      font-size: 0.625rem;
       color: light-dark(var(--jarl-colors-gray-600), var(--jarl-colors-gray-200));
     }
   }
@@ -47,43 +47,43 @@
 .color-popover {
   .color-popover-banner {
     width: 100%;
-    height: 48px;
-    margin-bottom: 10px;
+    height: 3rem;
+    margin-bottom: 0.625rem;
     border: 1px solid light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-800));
-    border-radius: 8px;
+    border-radius: 0.5rem;
   }
 
   .color-popover-name {
-    margin: 0 0 2px;
-    font-size: 13px;
+    margin: 0 0 0.125rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: light-dark(var(--jarl-colors-gray-600), var(--jarl-colors-gray-200));
   }
 
   .color-popover-hex {
-    margin: 0 0 10px;
+    margin: 0 0 0.625rem;
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 0.75rem;
     color: light-dark(var(--jarl-colors-gray-600), var(--jarl-colors-gray-200));
   }
 
   .color-popover-css-var-container {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
     align-items: center;
 
     .color-popover-css-var-title {
-      font-size: 11px;
+      font-size: 0.6875rem;
       color: light-dark(var(--jarl-colors-gray-600), var(--jarl-colors-gray-200));
     }
 
     .color-popover-css-var-name {
-      padding: 4px;
+      padding: 0.25rem;
       font-family: ui-monospace, monospace;
-      font-size: 11px;
+      font-size: 0.6875rem;
       color: light-dark(var(--jarl-colors-gray-600), var(--jarl-colors-gray-200));
       background-color: light-dark(var(--jarl-colors-gray-100), var(--jarl-colors-gray-600));
-      border-radius: 4px;
+      border-radius: 0.25rem;
     }
   }
 }
