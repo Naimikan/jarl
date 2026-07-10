@@ -11,9 +11,9 @@ export interface LayoutProps {
 
 export default function DocsLayout({ children }: LayoutProps) {
   return (
-    <div className="layout">
+    <main className="layout">
       <Sidebar pageMap={NAVIGATION} />
       {children}
-    </div>
+    </main>
   );
 }

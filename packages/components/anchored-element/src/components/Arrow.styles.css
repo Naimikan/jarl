@@ -1,6 +1,6 @@
 .jarl-anchored-element__arrow {
-  --_width: var(--jarl-anchored-element-arrow-width, 10px);
-  --_height: var(--jarl-anchored-element-arrow-height, 10px);
+  --_width: var(--jarl-anchored-element-arrow-width, 0.625rem);
+  --_height: var(--jarl-anchored-element-arrow-height, 0.625rem);
   --_border-width: var(--jarl-anchored-element-arrow-border-width, 1px);
   --_border-color: var(--jarl-anchored-element-arrow-border-color, #ccc);
 

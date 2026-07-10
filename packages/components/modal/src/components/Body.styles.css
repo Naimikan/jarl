@@ -1,5 +1,5 @@
 .jarl-modal__body {
-  padding-block: var(--jarl-modal-body-py, 8px 16px);
-  padding-inline: var(--jarl-modal-body-px, 16px);
+  padding-block: var(--jarl-modal-body-py, 0.5rem 1rem);
+  padding-inline: var(--jarl-modal-body-px, 1rem);
   overflow: auto;
 }
